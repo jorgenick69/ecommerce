@@ -10,5 +10,6 @@ package ecommerce.com.ecommerce.Domain;
  */
 public class Voto {
   private Integer calificacion; //clasificacion de 0 a 5//
+  private String  descricipon;
   
 }

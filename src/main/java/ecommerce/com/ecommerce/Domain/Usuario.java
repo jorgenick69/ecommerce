@@ -13,5 +13,8 @@ public class Usuario {
     private Date fechaNacimiento;
     private Date fechaAlta;
     private String nombreUsuario;
-    private List <Venta> venta;
+    private List <Transaccion> compra;
+    private String rol;//revisar
+    private Boolean estado;
+    private String clave;
 }

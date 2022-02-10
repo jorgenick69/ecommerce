@@ -7,14 +7,7 @@ package ecommerce.com.ecommerce.Domain;
 import java.util.List;
 
 public class Reputacion {
+    private String id;
    private List <Voto> reputacion;// cantidad de voto sque recibio;
-   private Integer calculo;
-   
-   private integer contador;
-   private integer acumulado;
-   private integer promedio =sumatoria;/lita.leng;
-   /*voto dejaria de ser unaclase para ser u metodo sumatoria dentro de reputacion?*/
-   
-    
   
 }
