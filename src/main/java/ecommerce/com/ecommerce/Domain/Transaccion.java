@@ -11,5 +11,5 @@ public class Transaccion {
     private List <Producto> producto;
     private Usuario usuario;
     private Date fecha;
-    
+    private Boolean estado;
 }

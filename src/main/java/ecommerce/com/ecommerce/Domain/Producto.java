@@ -18,5 +18,6 @@ public class Producto {
   private Envio tipoEnvio;
   private List <Foto> fotos;
   private Date alta;
+  private Long stock;
   private Boolean estado;
 }
