@@ -16,7 +16,7 @@ public class Producto {
   private String categoria;
   private List <Caracteristica> caracteristica;
   private Envio tipoEnvio;
-  private Foto Foto;
+  private List <Foto> fotos;
   private Date alta;
   private Boolean estado;
 }

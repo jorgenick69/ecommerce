@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Usuario {
+     private String id;
     private String nombre;
     private String apellido;
     private String dni;
@@ -13,8 +14,9 @@ public class Usuario {
     private Date fechaNacimiento;
     private Date fechaAlta;
     private String nombreUsuario;
-    private List <Transaccion> compra;
+    private List <Transaccion> compras;
     private String rol;//revisar
     private Boolean estado;
     private String clave;
+    private Foto foto;
 }

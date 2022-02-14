@@ -18,5 +18,6 @@ public class Tienda {
     private Date alta;
     private Boolean estado;
     private String clave;
+   private List <Transaccion> ventas;
    
 }
