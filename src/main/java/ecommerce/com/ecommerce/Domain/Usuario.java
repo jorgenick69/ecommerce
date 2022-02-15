@@ -6,12 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,9 +25,12 @@ public class Usuario {
     private Date fechaNacimiento;
     private Date fechaAlta;
     private String nombreUsuario;
-    private List<Transaccion> compras;
     private String rol;//revisar
     private Boolean estado;
     private String clave;
     private Foto foto;
+    
+    //CHEQUEAR CON LOS CHICOS COMO SERIAN LAS RELACIONES DESDE LAS DEMAS PERSPECTIVAS
+    @OneToMany(mappedBy = "usuario")    
+    private List<Transaccion> compras;
 }
