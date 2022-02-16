@@ -23,10 +23,8 @@ public class Transaccion {
     @Temporal(value=TemporalType.DATE)
     @Column(name="fecha")
     private Date fecha;
-    private Boolean estado;
     private Boolean pago=false;
     private Boolean embalaje=false;
     private Boolean envio=false;
     private Boolean recepcion=false;
-
 }
