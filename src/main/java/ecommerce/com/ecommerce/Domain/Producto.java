@@ -13,7 +13,7 @@ public class Producto {
   private Integer precio;
   private Integer descuento;
   private Integer precioActual;
-  private String categoria;
+  private Categoria categoria;
   private List <Caracteristica> caracteristica;
   private Envio tipoEnvio;
   private List <Foto> fotos;
