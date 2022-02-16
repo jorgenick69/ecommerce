@@ -8,9 +8,7 @@ package ecommerce.com.ecommerce.Domain;
  *
  * @author Jorge Dominguez
  */
-public class Voto {
-  private String id;
-  private Integer calificacion; //clasificacion de 0 a 5//
-  private String  descripcion;
-  
+public class Categoria {
+    private String id;
+    private String titulo;
 }

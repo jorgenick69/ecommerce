@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Transaccion {
     private String id;
-    private Long nVenta;
+    private Long nVeinnta;
     private String nombreTienda;
     private List <Producto> producto;
     private Usuario usuario;
