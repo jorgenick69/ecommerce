@@ -1,5 +1,5 @@
 
-package ecommerce.com.ecommerce.Domain;
+package ecommerce.com.ecommerce.domain;
 
 public class Foto {
     private String id;

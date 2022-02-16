@@ -1,5 +1,5 @@
 
-package ecommerce.com.ecommerce.Domain;
+package ecommerce.com.ecommerce.domain;
 
 import ecommerce.com.ecommerce.enums.Envio;
 import java.util.Date;

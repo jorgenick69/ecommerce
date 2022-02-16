@@ -1,6 +1,6 @@
 package ecommerce.com.ecommerce.service;
 
-import ecommerce.com.ecommerce.Domain.Usuario;
+import ecommerce.com.ecommerce.domain.Usuario;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 

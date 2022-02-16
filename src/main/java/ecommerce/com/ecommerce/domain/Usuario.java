@@ -1,4 +1,4 @@
-package ecommerce.com.ecommerce.Domain;
+package ecommerce.com.ecommerce.domain;
 
 import java.util.Date;
 import java.util.List;
