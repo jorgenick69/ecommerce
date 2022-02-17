@@ -27,6 +27,7 @@ public class Producto {
   private Integer precioActual;
   @OneToOne
   private Categoria categoria; //Armazones de Receta, Lentes de Sol, Lentes de Contacto, Accesorios.
+  @Enumerated(value = EnumType.STRING)
   private Envio tipoEnvio; //ej: retiro local, correo, domicilio;
   @OneToMany
   private List <Foto> fotos;//si no existe imagen 404 marca.
@@ -34,6 +35,7 @@ public class Producto {
   private Integer stock; // its over 9000!!! - Vegeta
   private Boolean estado;
   //Not required
+  @Enumerated(value = EnumType.STRING)
   private Genero genero;
   private String color;
   private String colorCristal;
