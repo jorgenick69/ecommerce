@@ -35,6 +35,7 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
     @Query("SELECT a FROM producto a WHERE a.uso=:uso")
     List<Producto>findByUso(@Param("uso") String uso);
 
-    @Query("SELECT a FROM producto WHERE ")
+    @Query("SELECT a FROM producto a WHERE a.nombre LIKE CONCAT '%',:nombre,'%' ")
+    List<Producto>findByOcurrence(@Param("nombre") String nombre);
 
 }
