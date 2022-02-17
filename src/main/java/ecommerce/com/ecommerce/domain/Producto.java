@@ -7,6 +7,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+//REVISAR RELACIONES DE MAPEO!
+
 @Data
 @Entity
 @Table(name = "producto")
