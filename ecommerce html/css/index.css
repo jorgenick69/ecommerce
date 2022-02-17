@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+@media(max-width: 390px){
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+}
+.cabecero{
+    width: 100%;
+    height: 152px;
+    min-height: 100px;
+    background-color: white;
+    box-shadow: 0 0 4px black;
+}
+.cabecero-titulo-login{
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+.cabecero-titulo{
+    width: 70%;
+
+    text-align: right;
+}
+.cabecero-titulo h2{
+    margin-right:5vmax;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #008351;
+    margin-top: 0.3rem;
+    font-size: 5.5vmax;
+}
+
+.cabecero-login-carrito{
+    width: 25%;
+    text-align: right;
+
+}
+.cabecero-login-carrito span{
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: #008351;
+}
+.cabecero-formu{
+    width: 100%;
+    text-align: center;
+}
+.cabecero-buscador{
+    width: 100%;
+    height: 50px;
+    
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+.cabecero-barra-busqueda{
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    border-radius: 0.4rem 0rem 0rem 0.4rem;
+    box-shadow: 0 0 2px black;
+}
+.cabecero-barra-busqueda input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    outline: 0px;
+    padding-left: 1rem;
+    font-size: 1.2rem
+}
+.cabecero-lupa{
+    width: 15%;
+    height: 100%;
+    background-color: #008351;
+    border-radius: 0rem 0.4rem 0.4rem 0rem;
+    box-shadow: 0 0 2px black;
+}
+.cabecero-lupa span{
+    line-height: 50px;
+    font-size: 2rem;
+    color: white;
+}
+.pie-cabecero{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.pie-cabecero span{
+    margin-top: 1vmax;
+    font-size: 5vw;
+    line-height: normal;
+    color: #008351;
+}
+.subrrayado{
+    text-decoration: underline;
+}
+.carrosell{
+    box-shadow: 0 0 4px black;
+    width: 100%;
+    height: 120px;
+    margin: 4vmax auto  0.2rem auto ;
+   }
+.carrosell img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+}
