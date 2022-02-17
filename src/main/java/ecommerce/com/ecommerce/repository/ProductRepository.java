@@ -24,12 +24,17 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
     List<Producto>findByEstilo(@Param("estilo") String estilo);
 
     @Query("SELECT a FROM producto a WHERE a.categoria=:estilo ORDER BY a.precio DESC")
-    List<Producto>findByEstiloPrecio(@Param("estilo") String estilo);
+    List<Producto>findByEstiloPrecioDesc(@Param("estilo") String estilo);
+
+    @Query("SELECT a FROM producto a WHERE a.categoria=:estilo ORDER BY a.precio ASC")
+    List<Producto>findByEstiloPrecioAsc(@Param("estilo") String estilo);
 
     @Query("SELECT a FROM producto a WHERE a.duracion=:duracion")
     List<Producto>findByDuracion(@Param("duracion") String duracion);
 
     @Query("SELECT a FROM producto a WHERE a.uso=:uso")
     List<Producto>findByUso(@Param("uso") String uso);
-    
+
+    @Query("SELECT a FROM producto WHERE ")
+
 }
