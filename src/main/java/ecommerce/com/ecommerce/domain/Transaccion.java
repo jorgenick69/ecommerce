@@ -20,10 +20,8 @@ public class Transaccion implements Serializable{
     @OneToMany
     private List <Producto> producto;
     @OneToOne(targetEntity = Usuario.class)
-  
     private Usuario usuario;
     @Temporal(value=TemporalType.DATE)
- 
     private Date fecha;
     private Boolean pago=false;
     private Boolean embalaje=false;

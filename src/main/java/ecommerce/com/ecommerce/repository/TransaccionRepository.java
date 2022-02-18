@@ -5,7 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TransaccionRepository extends JpaRepository<Transaccion,String> {
@@ -20,13 +23,14 @@ public interface TransaccionRepository extends JpaRepository<Transaccion,String>
 
     //Buscar por fecha
     @Query("SELECT a FROM Transaccion a WHERE a.fecha=:fecha")
-    List<Transaccion>findByDate(@Param("fecha") String fecha);
+    List<Transaccion>findByDate(@Param("fecha") Date fecha);
 
     //Buscar por Estado
     @Query("SELECT a FROM Transaccion a WHERE a.recepcion=false")
     List<Transaccion>findByStatus();
 
     //Buscar entre Fechas
-    @Query("SELECT a FROM Transaccion a BETWEEN a.fecha=:date1 AND a.fecha=:date2")
-    List<Transaccion> findByTxTimeBetween(@Param("date1,date2") String date1,String date2);
+    @Query("SELECT a FROM Transaccion a WHERE a.fecha BETWEEN :date1 AND :date2")
+    List<Transaccion> findByTxTimeBetween(@Param("date1") Date date1,@Param("date2") Date date2);
+
 }

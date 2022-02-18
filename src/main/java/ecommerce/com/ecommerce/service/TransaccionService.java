@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,11 +30,11 @@ public class TransaccionService {
     public void deleteTxId(String id) {Optional<Transaccion> response = txRep.findById(id);
         if (response.isPresent()) {txRep.delete(response.get());}}
 
-    public List<Transaccion> findTxDate(String fecha){return txRep.findByDate(fecha);}
+    public List<Transaccion> findTxDate(Date fecha){return txRep.findByDate(fecha);}
 
     public List<Transaccion> findTxStatus(){return txRep.findByStatus();}
 
-    public List<Transaccion> findByTxTimeBetween(String date1, String date2){
+    public List<Transaccion> findByTxTimeBetween(Date date1, Date date2){
         return txRep.findByTxTimeBetween(date1,date2);
     }
 }
