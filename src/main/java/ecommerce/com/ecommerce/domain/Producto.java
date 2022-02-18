@@ -2,6 +2,7 @@ package ecommerce.com.ecommerce.domain;
 
 import ecommerce.com.ecommerce.enums.Envio;
 import ecommerce.com.ecommerce.enums.Genero;
+import java.io.Serializable;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
@@ -12,14 +13,15 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "producto")
-public class Producto {
+public class Producto implements Serializable{
+    private static final long serialVersionUID = 1L;
   //Required
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private String id;
   private String marca;
   private String modelo;
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+ 
   private String codigo;
   private String descripcion;
   private Integer precio;

@@ -19,7 +19,7 @@ public class TransaccionService {
 
     public List<Transaccion> listTx() {return txRep.findAll();}
 
-    public List<Transaccion> listTxNum(String num){return txRep.findByNum(num);}
+    public List<Transaccion> listTxNum(Long num){return txRep.findByNum(num);}
 
     public List<Transaccion> listTxUser(String user){return txRep.findByUser(user);}
 

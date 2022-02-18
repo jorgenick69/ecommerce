@@ -1,13 +1,13 @@
 package ecommerce.com.ecommerce.service;
 
-import ecommerce.com.ecommerce.domain.Producto;
-import ecommerce.com.ecommerce.domain.Transaccion;
-import ecommerce.com.ecommerce.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
+import ecommerce.com.ecommerce.domain.Producto;
+import ecommerce.com.ecommerce.repository.ProductRepository;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class ProductoService {
@@ -33,6 +33,6 @@ public class ProductoService {
 
     public List<Producto> productoUso(String uso){return pRep.findByUso(uso);}
 
-    public List<Producto> productoTodos(String nombre){return pRep.findByOcurrence(nombre);}
+  public List<Producto> productoTodos(String nombre){return pRep.findByOcurrence(nombre);}
 
 }

@@ -1,5 +1,6 @@
 package ecommerce.com.ecommerce.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -13,7 +14,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements Serializable{
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private String id;
@@ -31,6 +33,6 @@ public class Usuario {
     private Foto foto;
     
     //CHEQUEAR CON LOS CHICOS COMO SERIAN LAS RELACIONES DESDE LAS DEMAS PERSPECTIVAS
-    @OneToMany(mappedBy = "usuario")    
+    @OneToMany
     private List<Transaccion> compras;
 }

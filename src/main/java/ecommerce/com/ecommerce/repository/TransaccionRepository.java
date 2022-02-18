@@ -11,12 +11,12 @@ import java.util.List;
 public interface TransaccionRepository extends JpaRepository<Transaccion,String> {
 
     //Buscar por nombre de usuario
-    @Query("SELECT a FROM Transaccion a WHERE a.nombreUsuario LIKE('%',:user,'%')")
+    @Query("SELECT a FROM Transaccion a WHERE a.usuario.nombreUsuario LIKE %:user%")
     List<Transaccion>findByUser(@Param("user") String user);
 
     //Buscar por numero de venta
-    @Query("SELECT a FROM Transaccion a WHERE a.numeroTransaccion=:num")
-    List<Transaccion>findByNum(@Param("num") String num);
+    @Query("SELECT a FROM Transaccion a WHERE a.numeroVenta=:num")
+    List<Transaccion>findByNum(@Param("num") Long numeroVenta);
 
     //Buscar por fecha
     @Query("SELECT a FROM Transaccion a WHERE a.fecha=:fecha")

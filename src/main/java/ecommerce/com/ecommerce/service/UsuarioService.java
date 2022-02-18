@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService {
 
-    @Autowired
+   @Autowired
     private UsuarioRepository usuarioRepository;
-    
+    /*
 
     public Usuario save(Usuario usuario) {
         return usuarioRepository.save(usuario);
@@ -29,5 +29,5 @@ public class UsuarioService {
         usuarioRepository.deleteById(Id);
     }
     
-    
+    */
 }
