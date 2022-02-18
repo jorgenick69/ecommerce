@@ -33,6 +33,8 @@ public class ProductoService {
 
     public List<Producto> productoUso(String uso){return pRep.findByUso(uso);}
 
-  public List<Producto> productoTodos(String nombre){return pRep.findByOcurrence(nombre);}
+    public List<Producto> productoTodos(String nombre){return pRep.findByOcurrence(nombre);}
+
+    public List<Producto> productoStock(Integer stock){return pRep.findByStock(stock);}
 
 }

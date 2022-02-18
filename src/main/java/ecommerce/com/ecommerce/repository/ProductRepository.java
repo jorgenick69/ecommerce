@@ -45,4 +45,6 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
             " OR a.uso LIKE %:query%")
     List<Producto>findByOcurrence(@Param("query") String query);
 
+    @Query("SELECT a FROM Producto a WHERE a.stock<=:stock")
+    List<Producto>findByStock(@Param("stock") Integer stock);
 }

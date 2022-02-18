@@ -14,7 +14,6 @@ public class Transaccion implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
     private Integer id;
     private Long numeroVenta;
     @OneToMany
