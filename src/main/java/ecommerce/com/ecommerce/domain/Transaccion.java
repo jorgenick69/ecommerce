@@ -15,6 +15,8 @@ public class Transaccion implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="venta_gen")
+    @SequenceGenerator(name="venta_gen",sequenceName="venta_seq_gen",initialValue=1,allocationSize=1)
     private Long numeroVenta;
     @OneToMany
     private List <Producto> producto;
