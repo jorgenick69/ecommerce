@@ -1,4 +1,3 @@
-
 package ecommerce.com.ecommerce.domain;
 
 import java.io.Serializable;

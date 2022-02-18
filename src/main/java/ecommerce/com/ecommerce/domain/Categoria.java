@@ -12,4 +12,5 @@ public class Categoria implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String titulo;
+
 }
