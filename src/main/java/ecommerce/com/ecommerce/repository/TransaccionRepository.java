@@ -24,8 +24,8 @@ public interface TransaccionRepository extends JpaRepository<Transaccion,String>
     List<Transaccion>findByDate(@Param("fecha") Date fecha);
 
     //Buscar por Estado
-    @Query("SELECT a FROM Transaccion a WHERE a.recepcion=false")
-    List<Transaccion>findByStatus();
+    @Query("SELECT a FROM Transaccion a WHERE a.txEstado=:estado")
+    List<Transaccion>findByStatus(@Param("estado")String estado);
 
     //Buscar entre Fechas
     @Query("SELECT a FROM Transaccion a WHERE a.fecha BETWEEN :date1 AND :date2")

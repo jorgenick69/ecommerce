@@ -32,7 +32,7 @@ public class TransaccionService {
 
     public List<Transaccion> findTxDate(Date fecha){return txRep.findByDate(fecha);}
 
-    public List<Transaccion> findTxStatus(){return txRep.findByStatus();}
+    public List<Transaccion> findTxStatus(String estado){return txRep.findByStatus(estado);}
 
     public List<Transaccion> findByTxTimeBetween(Date date1, Date date2){
         return txRep.findByTxTimeBetween(date1,date2);
