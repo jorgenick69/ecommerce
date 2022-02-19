@@ -4,6 +4,7 @@ package ecommerce.com.ecommerce.domain;
 import ecommerce.com.ecommerce.enums.Envio;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.OneToMany;
 
 public class Producto {
   private String id;
@@ -16,6 +17,7 @@ public class Producto {
   private Categoria categoria;
   private List <Caracteristica> caracteristica;
   private Envio tipoEnvio;
+  @OneToMany
   private List <Foto> fotos;
   private Date alta;
   private Long stock;
