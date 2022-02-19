@@ -3,12 +3,8 @@ package ecommerce.com.ecommerce.domain;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Data;
 
 @Data
@@ -30,6 +26,7 @@ public class Usuario implements Serializable{
     private String rol;//revisar
     private Boolean estado;
     private String clave;
+    @ManyToOne
     private Foto foto;
     
     //CHEQUEAR CON LOS CHICOS COMO SERIAN LAS RELACIONES DESDE LAS DEMAS PERSPECTIVAS
