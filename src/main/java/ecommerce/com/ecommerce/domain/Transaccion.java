@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Table(name="transaccion")
 public class Transaccion implements Serializable{
-    
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
