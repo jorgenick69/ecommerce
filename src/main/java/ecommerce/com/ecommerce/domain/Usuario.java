@@ -1,20 +1,17 @@
 package ecommerce.com.ecommerce.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 @Data
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements Serializable{
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -30,10 +27,11 @@ public class Usuario {
     private String rol;//revisar
     private Boolean estado;
     private String clave;
+
     @OneToOne
     private Foto foto;
     
     //CHEQUEAR CON LOS CHICOS COMO SERIAN LAS RELACIONES DESDE LAS DEMAS PERSPECTIVAS
-    @OneToMany(mappedBy = "usuario")    
+    @OneToMany
     private List<Transaccion> compras;
 }

@@ -8,10 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import lombok.Data;
+import java.io.Serializable;
 import org.hibernate.annotations.GenericGenerator;
+
+
 @Data
 @Entity
-public class Foto {
+@Table(name="foto")
+public class Foto implements Serializable{
+  private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
