@@ -28,9 +28,8 @@ public class Usuario implements Serializable{
     private String rol;//revisar
     private Boolean estado;
     private String clave;
-    @ManyToOne
+    @OneToOne
     private Foto foto;
-    //CHEQUEAR CON LOS CHICOS COMO SERIAN LAS RELACIONES DESDE LAS DEMAS PERSPECTIVAS
     @OneToMany
     private List<Transaccion> compras;
 }
