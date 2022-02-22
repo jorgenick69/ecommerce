@@ -25,6 +25,7 @@ public class Usuario implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date fechaAlta;
     private String nombreUsuario;
+    @Enumerated
     private String rol;
     private Boolean estado;
     private String clave;

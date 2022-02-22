@@ -27,5 +27,5 @@ public class Transaccion implements Serializable{
     @Temporal(value=TemporalType.DATE)
     private Date fecha;
     @Enumerated
-    private TransaccionEstado txEstado;
+    private TransaccionEstado Estado;
 }
