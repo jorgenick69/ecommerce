@@ -1,64 +1,149 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
     <link rel="stylesheet" href="/css/index.css">
-    <title>Index</title>
+    
+    <title>Document</title>
 </head>
 <body>
-    <nav class="cabecero">
-        <div class="cabecero-contenido">
-            <div class="cabecero-titulo-login">
-              <div class="cabecero-titulo">
-                  <h2>+vision</h2>
-              </div>
-              <div class="cabecero-login-carrito">
-                <span class="material-icons-outlined">
-                    shopping_cart
-                    </span>
-                    <span class="material-icons-outlined">
-                        account_circle
-                        </span>
-
-              </div>
-            </div>
-                <form action="" class="cabecero-formu">
-                  <div class="cabecero-buscador">
-                      <div class="cabecero-barra-busqueda"><input type="text" name="busqueda"></div>
-                    <div class="cabecero-lupa">
-                        <label for="buscar"><span class="material-icons-outlined">
-                            search
-                            </span></label>
-                    </div>
-                    
-                        <input type="submit" id="buscar" style="display: none;">
-
-
-                  </div>
-                    
-                </form>
-                <div class="pie-cabecero">
-                    <span class="material-icons-outlined casita">
-                        storefront
-                        </span><span>¡Estamos atendiendo!</span><span><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola, quiero solicitar un turno! ✍" target="_blanck"><span class="subrrayado"> Reservá tu turno acá </span></a></span>
-                </div>
-                
+    <nav class="nav-mobile">
+        <div class="nav-superior">
+            <div class="login"><span class="material-icons-outlined">
+                account_circle
+                </span></div>
+            <div class="titulo"><b><span style="font-family: Arial, Helvetica, sans-serif; font-size: 1.5rem;">VAN-HOUTEN</span></b></div>
+            <div class="carrito"><span class="material-icons-outlined">
+                add_shopping_cart
+                </span></div>
         </div>
 
+        <div class="nav-inferior">
+           <div class="formu">
+              <div class="buscador">
+                <form action="">
+                    <div class="barra">
+                        <input type="text">
+                    </div>
+                    <div class="lupa">
+                     <label for="enviar">
+                        <span class="material-icons-outlined">
+                            search
+                            </span>
+                     </label>
+                         <input type="submit" id="enviar" style="display: none;">
+                    </div>
+                </form>
+              </div>
+           </div>
+            <div class="reservas">
+                <span class="material-icons-outlined store" >
+                    store
+                    </span><span class="atendiendo">¡Estamos atendiendo! Reservá tu turno acá</span>
+            </div>
+           
+        </div>
     </nav>
-    <div class="carrosell">
-        <img src="/img/banner-promo-2_CL.jpg" alt="">
+    <div class="slyder">
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="banner-promo-2_CL.jpg">
+            </div>
+          
+            <div class="mySlides fade">
+              <img src="banner.jpg">
+            </div>
+          
+            <div class="mySlides fade">
+              <img src="PROMO-Cabal-Banner-web-960x300px-01.jpg" >
+            </div>
+            <div class="mySlides fade">
+              <img src="/vuelta_al_cole_-_banner_web_-_1983_X_700.jpg" >
+            </div>    
+          
+            <a class="prev"  onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next"  onclick="plusSlides(1)">&#10095;</a>
+          </div>
+
     </div>
-    <div class="botonera">
-        <div class="botones"></div>
-        <div class="botones"></div>
-        <div class="botones"></div>
-        <div class="botones"></div>
-        <div class="botones"></div>
-        <div class="botones"></div>
+    <div class="botones-grandes">
+        <div class="boton">
+            <div class="arriba"><span>Lentes de Sol</span></div>
+            <div class="abajo">
+                <img src="/anteojos de sol.png" alt="">
+            </div>
+        </div>
+        <div class="boton sin-borde" >
+            <div class="arriba"><span >Armazones recetados</span></div>
+            <div class="abajo">
+                <img src="/armazonesrecetados.png" alt="">
+            </div>
+           
+        </div>
+        <div class="boton">
+            <div class="arriba">  <span>Lentes de contacto</span></div>
+            <div class="abajo">
+                <img src="/WhatsApp Image 2022-02-21 at 10.18.12 PM.jpeg" alt="">
+            </div>
+          
+        </div>
     </div>
+ 
+    <div class="menu-scroll">
+        <div>Accesorios</div>
+        <div>Damas</div>
+        <div>Caballeros</div>
+        <div>Niños</div>
+        <div>Ayuda</div>
+
+    </div>
+  <div class="whatsapp"><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a></div>
+<div class="promociones">
+    <div class="card">
+        <img src="//cdn.shopify.com/s/files/1/0231/8811/1438/files/Cuadrados_y_rectangulares250x360_240x360_crop_center.jpg?v=1644269295" alt="">
+    </div>
+    <div class="card">
+        <div class="card-arriba">
+            <img src="/prottoti_656x471.jpg" alt="">
+        </div>
+        <div class="card-abajo">
+            <span class="descuento">Descuento <span>19%</span></span>
+            <span class="precio-anterior">$19000</span>
+            <span class="precio-actual">$15000</span>
+            <span class="card-titulo">Lentes rayban aviator dsdsds</span>
+            <span class="agregar-carrito">Agregar al carrito</span>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-arriba">
+            <img src="/prottoti_656x471.jpg" alt="">
+        </div>
+        <div class="card-abajo">
+            <span class="descuento">Descuento <span>19%</span></span>
+            <span class="precio-anterior">$19000</span>
+            <span class="precio-actual">$15000</span>
+            <span class="card-titulo">Lentes rayban aviator dsdsds</span>
+            <span class="agregar-carrito">Agregar al carrito</span>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-arriba">
+            <img src="/prottoti_656x471.jpg" alt="">
+        </div>
+        <div class="card-abajo">
+            <span class="descuento">Descuento <span>19%</span></span>
+            <span class="precio-anterior">$19000</span>
+            <span class="precio-actual">$15000</span>
+            <span class="card-titulo">Lentes rayban aviator dsdsds</span>
+            <span class="agregar-carrito">Agregar al carrito</span>
+        </div>
+    </div>
+   
+</div>
+<script src="/js/slyder.js"></script>
 </body>
 </html>
