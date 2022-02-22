@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 @Data
 @Entity
@@ -13,7 +14,8 @@ import lombok.Data;
 public class Usuario implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
     private String apellido;
@@ -26,10 +28,8 @@ public class Usuario implements Serializable{
     private String rol;//revisar
     private Boolean estado;
     private String clave;
-    @ManyToOne
+    @OneToOne
     private Foto foto;
-    
-    //CHEQUEAR CON LOS CHICOS COMO SERIAN LAS RELACIONES DESDE LAS DEMAS PERSPECTIVAS
     @OneToMany
     private List<Transaccion> compras;
 }

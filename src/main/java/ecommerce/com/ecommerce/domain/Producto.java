@@ -21,9 +21,11 @@ public class Producto implements Serializable{
   private String modelo;
   private String codigo;
   private String descripcion;
-  private Integer precio;
+  private Integer costo;
+  private Integer remarque;
+  private Integer precio; //<- costo + remarque ej: 0.3 .5 - costo y remarque
   private Integer descuento;
-  private Integer precioActual;
+  private Integer precioActual;//<- Ganancia: precio actual - costo
   @OneToOne
   private Categoria categoria; //Armazones de Receta, Lentes de Sol, Lentes de Contacto, Accesorios.
   @Enumerated(value = EnumType.STRING)
