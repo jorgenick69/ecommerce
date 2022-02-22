@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import lombok.Data;
 import java.io.Serializable;
+import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 
