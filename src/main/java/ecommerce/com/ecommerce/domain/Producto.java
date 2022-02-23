@@ -22,15 +22,15 @@ public class Producto implements Serializable{
   private String modelo;
   private String codigo;
   private String descripcion;
+  //revisar
   private Integer costo;
   private Integer remarque;
   private Integer precio;
   private Integer descuento;
   private Integer precioActual;//<- Ganancia: precio actual - costo
+  //revisar
   @OneToOne
   private Categoria categoria;
-  @Enumerated(value = EnumType.STRING)
-  private Envio tipoEnvio;
   @OneToMany
   private List <Foto> fotos;
   @Temporal(TemporalType.DATE)

@@ -1,6 +1,8 @@
 package ecommerce.com.ecommerce.domain;
 
 import java.io.Serializable;
+
+import ecommerce.com.ecommerce.enums.Envio;
 import ecommerce.com.ecommerce.enums.TransaccionEstado;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -28,5 +30,6 @@ public class Transaccion implements Serializable{
     private Date fecha;
     @Enumerated(EnumType.STRING)
     private TransaccionEstado Estado;
-
+    @Enumerated(EnumType.STRING)
+    private Envio envio;
 }
