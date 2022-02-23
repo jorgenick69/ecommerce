@@ -26,7 +26,7 @@ public class Producto implements Serializable{
   private Integer remarque;
   private Integer precio;
   private Integer descuento;
-  private Integer precioActual;
+  private Integer precioActual;//<- Ganancia: precio actual - costo
   @OneToOne
   private Categoria categoria;
   @Enumerated(value = EnumType.STRING)

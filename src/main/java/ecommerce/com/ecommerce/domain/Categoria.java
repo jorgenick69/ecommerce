@@ -2,7 +2,6 @@ package ecommerce.com.ecommerce.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-
 import java.io.Serializable;
 import javax.persistence.*;
 

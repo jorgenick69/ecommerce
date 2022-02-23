@@ -28,4 +28,5 @@ public class Transaccion implements Serializable{
     private Date fecha;
     @Enumerated
     private TransaccionEstado Estado;
+
 }
