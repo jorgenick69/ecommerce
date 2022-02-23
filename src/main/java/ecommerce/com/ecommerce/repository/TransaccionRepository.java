@@ -17,7 +17,7 @@ public interface TransaccionRepository extends JpaRepository<Transaccion,String>
     @Query("SELECT a FROM Transaccion a WHERE a.numeroVenta=:num")
     List<Transaccion>findByNum(@Param("num") Long numeroVenta);
 
-    @Query("SELECT a FROM Transaccion a WHERE a.txEstado=:estado")
+    @Query("SELECT a FROM Transaccion a WHERE a.Estado=:estado")
     List<Transaccion>findByStatus(@Param("estado")String estado);
 
     @Query("SELECT a FROM Transaccion a WHERE a.fecha BETWEEN :date1 AND :date2")

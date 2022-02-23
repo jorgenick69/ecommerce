@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+
+import ecommerce.com.ecommerce.enums.Rol;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -26,7 +28,7 @@ public class Usuario implements Serializable{
     private Date fechaAlta;
     private String nombreUsuario;
     @Enumerated(EnumType.STRING)
-    private String rol;
+    private Rol rol;
     private Boolean estado;
     private String clave;
     @OneToOne

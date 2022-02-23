@@ -22,6 +22,16 @@ public class ProductoService {
         Optional<Producto> response = pRep.findById(id);
         if (response.isPresent()) {pRep.delete(response.get());}}
 
+    public Producto listarId(String id){
+        Optional<Producto> respuesta = pRep.findById(id);
+        if (respuesta.isPresent()) {
+            Producto producto = respuesta.get();
+            return producto;
+        } else {
+            return null;
+        }
+    }
+
     public List<Producto> listarGenero(String genero){return pRep.findByGenero(genero);}
 
     public List<Producto> listarEstilo(String estilo){return pRep.findByEstilo(estilo);}
