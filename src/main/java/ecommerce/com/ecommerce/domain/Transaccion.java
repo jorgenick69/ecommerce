@@ -2,8 +2,10 @@ package ecommerce.com.ecommerce.domain;
 
 import java.io.Serializable;
 
+import ecommerce.com.ecommerce.enums.Envio;
 import ecommerce.com.ecommerce.enums.TransaccionEstado;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -14,8 +16,9 @@ import java.util.List;
 public class Transaccion implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
     @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="venta_gen")
     @SequenceGenerator(name="venta_gen",sequenceName="venta_seq_gen",initialValue=1,allocationSize=1)
     private Long numeroVenta;
@@ -25,6 +28,8 @@ public class Transaccion implements Serializable{
     private Usuario usuario;
     @Temporal(value=TemporalType.DATE)
     private Date fecha;
-    @Enumerated
-    private TransaccionEstado txEstado;
+    @Enumerated(EnumType.STRING)
+    private TransaccionEstado Estado;
+    @Enumerated(EnumType.STRING)
+    private Envio envio;
 }

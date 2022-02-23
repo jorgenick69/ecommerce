@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+<<<<<<< HEAD
+=======
+
+import ecommerce.com.ecommerce.enums.Rol;
+>>>>>>> 1f9f84dad47566cf83952bcfc2a4198e7d77da98
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -22,16 +27,19 @@ public class Usuario implements Serializable{
     private String email;
     private String telefono;
     private Date fechaNacimiento;
+    @Temporal(TemporalType.DATE)
     private Date fechaAlta;
     private String nombreUsuario;
-    private String rol;//revisar
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
     private Boolean estado;
     private String clave;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f9f84dad47566cf83952bcfc2a4198e7d77da98
     @OneToOne
     private Foto foto;
-    
-    //CHEQUEAR CON LOS CHICOS COMO SERIAN LAS RELACIONES DESDE LAS DEMAS PERSPECTIVAS
     @OneToMany
     private List<Transaccion> compras;
 }
