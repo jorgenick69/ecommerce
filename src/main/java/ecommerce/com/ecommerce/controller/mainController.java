@@ -11,5 +11,8 @@ public class mainController {
         public String index() {
             return "index";
         }
+<<<<<<< HEAD
  //sarasa       
+=======
+>>>>>>> 592cc0c2936913dcf366443f8f4e68066a5c5c2c
 }

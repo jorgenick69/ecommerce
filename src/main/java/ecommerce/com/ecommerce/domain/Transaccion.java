@@ -1,11 +1,9 @@
 package ecommerce.com.ecommerce.domain;
 
 import java.io.Serializable;
-
 import ecommerce.com.ecommerce.enums.TransaccionEstado;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +27,6 @@ public class Transaccion implements Serializable{
     @Temporal(value=TemporalType.DATE)
     private Date fecha;
     @Enumerated
-    private TransaccionEstado txEstado;
+    private TransaccionEstado Estado;
 
-    //metodo venta_total -> iteramos lista de productos, sumando el precio de cada producto
 }

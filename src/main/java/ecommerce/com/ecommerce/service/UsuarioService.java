@@ -2,7 +2,6 @@ package ecommerce.com.ecommerce.service;
 
 import ecommerce.com.ecommerce.domain.Usuario;
 import ecommerce.com.ecommerce.repository.UsuarioRepository;
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
