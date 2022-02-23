@@ -40,7 +40,7 @@ body{
         
     }
     .carrito span{
-        font-size: 7vw;
+        font-size: 9vw;
     }
     .titulo{
         width: 100%;
@@ -51,6 +51,10 @@ body{
         align-content: center;
         align-items: center;
         color: crimson;
+       
+    }
+    .titulo span{
+        font-size: 8vw;
     }
     .titulo img{
        height: 100%;
@@ -68,7 +72,7 @@ body{
         
     }
     .login span{
-        font-size: 7vw;
+        font-size: 9vw;
     }
     .nav-inferior{
         background-color: rgb(255, 255, 255);

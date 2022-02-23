@@ -201,6 +201,7 @@ body{
 
     }
     .descuento{
+
         margin-top: 0.5em;
         width: fit-content;
         background-color: crimson;
@@ -209,15 +210,17 @@ body{
         padding-right: 0.5em;
         margin-left: 0.5em;
         border-radius: 0.4em;
-        display: block;
+        
         color: white;
         font-weight: bold;
+       
         
     }
     .precio-anterior{
         text-decoration:line-through;
-        margin-left: 0.7em;
-        font-size: 4vw;
+        margin-left: 0.8em;
+        font-size: 4.7vw;
+        
 
     }
     .precio-actual{
@@ -242,7 +245,7 @@ body{
     .agregar-carrito {
         display: block;
         width: 95%;
-        background-color: #008351;
+        background-color: rgb(0, 131, 81);
         color: white;
        text-align: center;
         padding-top: 0.4em;
@@ -270,4 +273,5 @@ body{
       height: 60%;
       object-fit: cover !important;
   }
+  
 }
