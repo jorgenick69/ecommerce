@@ -26,7 +26,7 @@ public class Transaccion implements Serializable{
     private Usuario usuario;
     @Temporal(value=TemporalType.DATE)
     private Date fecha;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private TransaccionEstado Estado;
 
 }
