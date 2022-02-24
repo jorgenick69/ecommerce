@@ -3,6 +3,7 @@ package ecommerce.com.ecommerce.domain;
 import ecommerce.com.ecommerce.enums.Envio;
 import ecommerce.com.ecommerce.enums.Genero;
 import java.io.Serializable;
+import java.time.LocalDate;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
@@ -23,11 +24,11 @@ public class Producto implements Serializable{
   private String codigo;
   private String descripcion;
   //revisar
-  private Integer costo;
+  private Double costo;
   private Integer remarque;
-  private Integer precio;
+  private Double precio;
   private Integer descuento;
-  private Integer precioActual;//<- Ganancia: precio actual - costo
+  private Double precioActual;//<- Ganancia: precio actual - costo
   //revisar
   @OneToOne
   private Categoria categoria;
@@ -46,4 +47,6 @@ public class Producto implements Serializable{
   private String tamano;
   private String duracion;
   private String uso;
+  
+  
 }

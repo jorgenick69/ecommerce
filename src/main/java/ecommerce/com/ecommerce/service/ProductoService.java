@@ -2,6 +2,8 @@ package ecommerce.com.ecommerce.service;
 
 import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.repository.ProductRepository;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,16 @@ public class ProductoService {
     private ProductRepository pRep;
 
     @Transactional
-    public void crear(Producto producto){pRep.save(producto);}
+    public void crear(Producto producto){
+        
+        producto.setPrecio(producto.getCosto()+(producto.getCosto()/producto.getRemarque()));
+        producto.setPrecioActual(producto.getPrecio() - (producto.getPrecio()/producto.getDescuento()));
+        Date alta = new Date();
+        producto.setAlta(alta);
+        
+        producto.setEstado(true);
+        
+        pRep.save(producto);}
 
     @Transactional
     public void borrar(String id) {

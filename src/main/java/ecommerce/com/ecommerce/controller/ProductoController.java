@@ -18,27 +18,38 @@ public class ProductoController {
     @Autowired
     private CategoriaService categoriaService;
 
+//    @GetMapping("/cargarproducto")
+//    public String cargarProducto(Model model, @RequestParam(required = false) String id) {
+//        if (id != null) {
+//            Producto optional = productoService.listarId(id);
+//            if (optional != null) {
+//                model.addAttribute("producto", optional);
+//            } else {
+//                return "redirect:/productos/list";
+//            }
+//        } else {
+//            model.addAttribute("producto", new Producto());
+//        }
+//        model.addAttribute("categoria", categoriaService.listar());
+//        model.addAttribute("genero", Genero.values());
+//
+//        return "cargarProducto";
+//    }
+    
     @GetMapping("/cargarproducto")
-    public String cargarProducto(Model model, @RequestParam(required = false) String id) {
-        if (id != null) {
-            Producto optional = productoService.listarId(id);
-            if (optional != null) {
-                model.addAttribute("producto", optional);
-            } else {
-                return "redirect:/productos/list";
-            }
-        } else {
-            model.addAttribute("producto", new Producto());
-        }
-        model.addAttribute("categoria", categoriaService.listar());
-        model.addAttribute("genero", Genero.values());
-
-        return "cargarProducto";
+    public String cargarProducto(Model model, @ModelAttribute(value = "producto") Producto producto){
+//        
+//        model.addAttribute("categoria", categoriaService.listar());
+//        model.addAttribute("genero", Genero.values());
+        
+        
+        return "cargarproducto";
     }
 
     @PostMapping("/cargar")
-    public String cargarProducto(Model model, @ModelAttribute Producto producto) {
+    public String cargarProducto(@ModelAttribute Producto producto) {
         productoService.crear(producto);
-        return "redirect:/productos/list";
+        
+        return "index";
     }
 }
