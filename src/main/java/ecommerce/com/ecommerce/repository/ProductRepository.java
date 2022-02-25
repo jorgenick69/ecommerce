@@ -37,7 +37,7 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
   
     @Query("SELECT a FROM Producto a WHERE  a.marca LIKE %:query%" +
             " OR a.modelo LIKE %:query% OR a.codigo LIKE %:query% OR a.descripcion LIKE %:query%" +
-            " OR a.categoria.titulo LIKE %:query% OR a.color LIKE %:query%" +
+            " OR a.categoria LIKE %:query% OR a.color LIKE %:query%" +
             " OR a.colorCristal LIKE %:query% OR a.material LIKE %:query% OR a.estilo LIKE %:query%" +
             " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
             " OR a.uso LIKE %:query%")

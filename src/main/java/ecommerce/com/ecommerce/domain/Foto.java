@@ -13,8 +13,9 @@ public class Foto {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    private String mime; //asigna el formato de la foto
-    @Lob //le indica que va a ser un tipo de dato con mucho contenido
-    @Basic(fetch = FetchType.LAZY) //para que la foto no se cargue inmediatamente sino cuando lo solicito
+    private String mime;
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
     private byte[] contenido;
+
 }

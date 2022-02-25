@@ -1,9 +1,6 @@
 package ecommerce.com.ecommerce.domain;
 
-import ecommerce.com.ecommerce.enums.Envio;
-import ecommerce.com.ecommerce.enums.Genero;
 import java.io.Serializable;
-import java.time.LocalDate;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
@@ -23,23 +20,20 @@ public class Producto implements Serializable{
   private String modelo;
   private String codigo;
   private String descripcion;
-  //revisar
   private Double costo;
   private Integer remarque;
   private Double precio;
   private Integer descuento;
-  private Double precioActual;//<- Ganancia: precio actual - costo
-  //revisar
-  @OneToOne
-  private Categoria categoria;
+  private Double precioFinal;
+  private String categoria;
   @OneToMany
-  private List <Foto> fotos;
+  @JoinColumn(name="producto_id")
+  private List<Foto> foto;
   @Temporal(TemporalType.DATE)
   private Date alta;
   private Integer stock;
   private Boolean estado;
-  @Enumerated(value = EnumType.STRING)
-  private Genero genero;
+  private String genero;
   private String color;
   private String colorCristal;
   private String material;
@@ -47,6 +41,4 @@ public class Producto implements Serializable{
   private String tamano;
   private String duracion;
   private String uso;
-  
-  
 }

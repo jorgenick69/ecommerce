@@ -1,14 +1,17 @@
 package ecommerce.com.ecommerce.service;
 
+import ecommerce.com.ecommerce.Exceptions.ServiceException;
+import ecommerce.com.ecommerce.domain.Foto;
 import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.repository.ProductRepository;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ProductoService {
@@ -16,16 +19,20 @@ public class ProductoService {
     @Autowired
     private ProductRepository pRep;
 
+    @Autowired
+    private FotoService fotoService;
+
     @Transactional
-    public void crear(Producto producto){
+    public void crear(Producto producto, MultipartFile archivo1, MultipartFile archivo2) throws ServiceException {
         
-        producto.setPrecio(producto.getCosto()+(producto.getCosto()/producto.getRemarque()));
-        producto.setPrecioActual(producto.getPrecio() - (producto.getPrecio()/producto.getDescuento()));
-        Date alta = new Date();
-        producto.setAlta(alta);
-        
+        producto.setPrecio(producto.getCosto()+(producto.getCosto()*producto.getRemarque())/100);
+        producto.setPrecioFinal(producto.getPrecio()-(producto.getPrecio()*producto.getDescuento())/100);//
+        producto.setAlta(new Date());
+        List<Foto> fotos = new ArrayList<>();
+        fotos.add(fotoService.crear(archivo1));
+        fotos.add(fotoService.crear(archivo2));
+        producto.setFoto(fotos);
         producto.setEstado(true);
-        
         pRep.save(producto);}
 
     @Transactional
