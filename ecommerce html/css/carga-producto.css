@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+}
+
+@media (max-width:450px){
+    .contenedor-formu{
+        width: 100%;
+    }
+    .contenedor-formu form{
+        width: 100%;
+    }
+    .contenedor-formu form div{
+        width: 100%;
+        margin-top: 0.5em;
+        display: flex;
+        align-items: center;
+        
+    }
+    .contenedor-formu form div label{
+        display: block;
+        width: 40%;
+        margin-left: 1em;
+        font-weight: bold;
+
+        
+    }
+    .contenedor-formu form div input , .contenedor-formu form div select{
+        width: 45%;
+        background-color:rgb(207, 207, 207) ;
+        border: none;
+        outline: none;
+        height: 4vh;
+        border-radius: 0.4em;
+        box-shadow: 0 0 4px black;
+        font-size: 2.5vmax;
+    }
+    .titulo{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    }
+    .foto-div{
+        width: 45% !important;
+       display: flex;
+       height: 5vh;
+        justify-content: center;
+        background-color: #008351 ;
+        border-radius: 4em;
+        color: white;
+        box-shadow: 0 0 4px black;
+        
+    }
+    .carga-fotos{
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        
+
+    }
+    .botones{
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 4em;
+    }
+    .botones div{
+        width: 45% !important;
+        display: flex;
+        height: 5vh;
+         justify-content: center;
+         background-color: #eeea18 ;
+         border-radius: 4em;
+         color: black;
+         box-shadow: 0 0 4px black;
+    }
+    .botones span{
+        color: black !important;
+        font-weight: bold;
+    }
+    
+
+}

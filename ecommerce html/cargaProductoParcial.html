@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cargaProductoParcial.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    
+
+   <div class="contenedorFormu">
+    <form action="">
+        
+        <div class="productoCategoria" id="productoCategoria">
+            <label for="categoria">¿A que categoria pertenece el producto?</label>
+            <select name="categoria" id="categoria">
+                <option value="Lentes de Sol">Lentes de Sol</option>
+                <option value="Armazones Recetado">Armazones Recetados</option>
+                <option value="Lentes de Contacto">Lentes de Contacto</option>
+                <option value="Accesorios">Accesorios</option>
+            </select>  
+            <button id="categoria-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="lentes-duracion" id="lentes-duracion">
+            <label for="duracion">¿Que duracion tiene la lente?</label>
+            <input type="text" name="" id="duracion" placeholder="ingrese duracion">   
+            <button id="duracion-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="lentes-usos" id="lentes-usos">
+            <label for="duracion">¿Cuantos usos Ofrece?</label>
+            <input type="text" name="" id="duracion" placeholder="ingrese cantidad de usos">   
+            <button id="usos-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="color-crital" id="color-crital">
+            <label for="color-cristal">¿Cual es el color del cristal?</label>
+            <input type="text" name="" id="color-cristal" placeholder="ingrese color del cristal">   
+            <button id="color-crital-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="estilo" id="estilo">
+            <label for="estilo">¿Que estilo tiene el anteojo?</label>
+            <input type="text" name="" id="estilo" placeholder="ingrese estilo">   
+            <button id="estilo-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="tamanio" id="tamanio">
+            <label for="tamanio">¿Elija un tamaño del anteojo?</label>
+            <select name="tamanio" id="tamanio">
+                <option value="">Small</option>
+                <option value="">Medium</option>
+                <option value="">Large</option>
+                <option value="">Extra Large</option>
+            </select>  
+            <button id="tamanio-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="marca" id="marca">
+            <label for="marca">Ingrese la marca</label>
+            <input type="text" name="" id="marca" placeholder="ingrese marca">   
+            <button id="marca-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="modelo" id="modelo">
+            <label for="modelo">¿Cuál es el Modelo?</label>
+            <input type="text" name="" id="modelo" placeholder="ingrese modelo">   
+            <button id="modelo-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="codigo" id="codigo">
+            <label for="codigo">¿Cuál es el codigo del producto?</label>
+            <input type="text" name="" id="codigo" placeholder="ingrese codigo" >   
+            <button id="codigo-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="descripcion" id="descripcion">
+            <label for="descripcion">ingrese descripcion del producto</label>
+              
+            <textarea name="" id="descripcion" class="descripcion-area count-chars" cols="30" rows="10" maxlength="200" data-max-chars="200"></textarea>
+            <div class="input-msg text-red"> </div>
+            <button id="descripcion-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="costo" id="costo">
+            <label for="costo">¿Cuel es el costo del Producto?</label>
+            <input type="number" name="" id="costo" placeholder="ingrese costo" >   
+            <button id="costo-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="remarque" id="remarque">
+            <label for="remarque">Ingrese el remarque del Producto</label>
+            <input type="number" name="" id="remarque" placeholder="ingrese remarque" >   
+            <button id="remarque-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="precio" id="precio">
+            <label for="precio">¿Cual es el precio de venta del Producto?</label>
+            <input type="number" name="" id="precio" placeholder="ingrese precio" >   
+            <button id="precio-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="descuento" id="descuento">
+            <label for="descuento">¿Desea agregar un descuento ?</label>
+            <input type="number" name="" id="descuento" placeholder="ingrese descuento %" >   
+            <button id="descuento-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="genero" id="genero">
+            <label for="genero">¿A quien esta dedicado el Producto?</label>
+            <select name="genero" id="genero">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="niño">Niños</option>              
+                <option value="unisex">Unisex</option>              
+            </select>   
+            <button id="genero-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="fecha-alta" id="fecha-alta">
+            <label for="fecha-alta">Ingrese la fecha de alta del producto</label>
+            <input type="date" name="" id="fecha-alta">      
+            <button id="fecha-alta-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="color" id="color">
+            <label for="color">¿Cual es el color del producto?</label>
+            <input type="text" name="" id="color" placeholder="ingrese color">      
+            <button id="color-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        <div class="material" id="material">
+            <label for="material">¿Cual es el material del producto?</label>
+            <input type="text" name="" id="material" placeholder="ingrese material">      
+            <button id="material-continuar" type="button">Continuar</button> 
+            <button><a href="/index.html">Cancelar</a></button>            
+        </div>
+        
+    
+</form>
+   </div>
+   <script src="/js/funcionesAgregarProducto.js"></script>
+</body>
+</html>

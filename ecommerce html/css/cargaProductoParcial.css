@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+@media (max-width:450px){
+    html{
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Nunito', sans-serif;
+        text-decoration: none;
+    }
+    body{
+        position: relative !important;
+        overflow: hidden !important;
+        width: 100%;
+        height: 100vh;
+    }
+    .contenedorFormu{
+        width: 100%;
+       display: block !important;
+       height: 100%;
+        min-height: 100vh;
+        max-height: 100vh;
+       
+      overflow: hidden !important;
+     
+    }
+    .contenedorFormu form{
+        width: 100%;
+       max-height: 100vh !important;   
+       
+        overflow: hidden !important;
+    }
+    .contenedorFormu  div {
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        height: 100vh;
+           overflow: hidden;
+        
+      left: 0;
+       top:0;
+       transition: 0.4s;
+       
+    }
+    .contenedorFormu form div label{
+        width: 100%;
+        height: 20vh;
+        background-color: #008351 ;
+        color: white;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-size:6.5vw ;
+        margin-bottom: 6vmax;
+        font-weight: bold;
+        box-shadow: 0 0 4px black;
+    }
+    .contenedorFormu form div select{
+       display: flex;
+       width: 85% !important; 
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+       margin: 0 auto;
+       height: 8vh;
+       font-size: 6vw;
+       outline: 0px;
+       border: none;
+       border-radius: 0.4em;
+       margin-bottom: 15vh ;
+       background-color: white;
+       box-shadow: 0 0 4px black;
+    }
+    .contenedorFormu form div input,  .contenedorFormu form div textarea{
+       display: flex;
+       width: 85% !important; 
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+       margin: 0 auto;
+       height: 8vh;
+       font-size: 6vw;
+       outline: 0px;
+       border: none;
+       border-radius: 0.4em;
+       margin-bottom: 15vh ;
+       box-shadow: 0 0 4px black;
+    }
+    .contenedorFormu form div button{
+        display: flex;
+        width: 60%;
+        margin: 3vh auto;
+        justify-content: center;
+        align-items: center;
+        font-size: 6vw;
+        height: 6vh;
+        background-color: #008351bb;
+        border-radius: 0.4em;
+        font-weight: bold;
+        color: black !important;
+    }
+    .contenedorFormu form div button a{
+        color: black !important;
+    }
+    .lentes-duracion{
+        left: 999999px !important;
+       transition: 0s !important;
+    }
+    .lentes-usos{
+        left: 999999px !important;
+        transition: 0s !important;
+    }
+.color-crital{
+    left: 9999999px !important;
+}
+.estilo{
+    left: 9999999px !important;
+}
+.tamanio{
+    left: 9999999px !important;
+}
+.marca{
+    left: 9999999px !important;
+}
+.modelo{
+    left: 9999999px !important;
+}
+.codigo{
+    left: 9999999px !important;
+}
+.descripcion{
+    left: 9999999px !important;
+}
+.costo{
+    left: 9999999px !important;
+}
+.remarque{
+    left: 9999999px !important;
+}
+.precio{
+    left: 9999999px !important;
+}
+.descuento{
+    left: 9999999px !important;
+}
+.genero{
+    left: 9999999px !important;
+}
+.fecha-alta{
+    left: 9999999px !important;
+}
+.color{
+    left: 9999999px !important;
+}
+.material{
+    left: 9999999px !important;
+}
+
+.descripcion-area{
+    height: 30vh !important;
+    min-height: 30vh !important;
+    display: flex;
+    flex-direction: row;
+   flex-wrap: wrap ;
+   margin-bottom: 0 !important;
+   
+}
+ .input-msg{
+	font-size:5vw;
+	padding-top: 10px;
+    position: unset !important;
+    display: block;
+    width: 100%;
+    height: 1em !important;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8vh;
+}
+.text-red{
+	color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+ .quitar{
+     left: 9999999px !important ;
+     background-color: azure !important;
+     transition: 0s !important;
+ }
+ .ver{
+     left: 0px !important;
+     
+ }
+ 
+}
+@media (orientation:landscape){
+    html{
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Nunito', sans-serif;
+        text-decoration: none;
+    }
+    body{
+        position: relative !important;
+        overflow: hidden !important;
+        width: 100%;
+        height: 100vh;
+    }
+    .contenedorFormu{
+        width: 100%;
+       display: block !important;
+       height: 100%;
+        min-height: 100vh;
+        max-height: 100vh;
+       
+      overflow: hidden !important;
+     
+    }
+    .contenedorFormu form{
+        width: 100%;
+       max-height: 100vh !important;   
+       
+        overflow: hidden !important;
+    }
+    .contenedorFormu  div {
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        height: 100vh;
+           overflow: hidden;
+        
+      left: 0;
+       top:0;
+       transition: 0.4s;
+       
+    }
+    .contenedorFormu form div label{
+        width: 100%;
+        height: 20vh;
+        background-color: #008351 ;
+        color: white;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-size:3vw ;
+        margin-bottom: 6vmax;
+        font-weight: bold;
+        box-shadow: 0 0 4px black;
+    }
+    .contenedorFormu form div select{
+       display: flex;
+       width: 85% !important; 
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+       margin: 0 auto;
+       height: 8vh;
+       font-size: 3vw;
+       outline: 0px;
+       border: none;
+       border-radius: 0.4em;
+       margin-bottom: 15vh ;
+       background-color: white;
+       box-shadow: 0 0 4px black;
+    }
+    .contenedorFormu form div input,  .contenedorFormu form div textarea{
+       display: flex;
+       width: 85% !important; 
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+       margin: 0 auto;
+       height: 8vh;
+       font-size: 3vw;
+       outline: 0px;
+       border: none;
+       border-radius: 0.4em;
+       margin-bottom: 15vh ;
+       box-shadow: 0 0 4px black;
+    }
+    .contenedorFormu form div button{
+        display: flex;
+        width: 30%;
+        margin: 3vh auto;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+        height: 8vh;
+        background-color: #008351bb;
+        border-radius: 0.4em;
+        font-weight: bold;
+        color: black !important;
+    }
+    .contenedorFormu form div button a{
+        color: black !important;
+    }
+    .lentes-duracion{
+        left: 999999px !important;
+       transition: 0s !important;
+    }
+    .lentes-usos{
+        left: 999999px !important;
+        transition: 0s !important;
+    }
+.color-crital{
+    left: 9999999px !important;
+}
+.estilo{
+    left: 9999999px !important;
+}
+.tamanio{
+    left: 9999999px !important;
+}
+.marca{
+    left: 9999999px !important;
+}
+.modelo{
+    left: 9999999px !important;
+}
+.codigo{
+    left: 9999999px !important;
+}
+.descripcion{
+    left: 9999999px !important;
+}
+.costo{
+    left: 9999999px !important;
+}
+.remarque{
+    left: 9999999px !important;
+}
+.precio{
+    left: 9999999px !important;
+}
+.descuento{
+    left: 9999999px !important;
+}
+.genero{
+    left: 9999999px !important;
+}
+.fecha-alta{
+    left: 9999999px !important;
+}
+.color{
+    left: 9999999px !important;
+}
+.material{
+    left: 9999999px !important;
+}
+
+.descripcion-area{
+    height: 20vh !important;
+    min-height: 20vh !important;
+    display: flex;
+    flex-direction: row;
+   flex-wrap: wrap ;
+   margin-bottom: 0 !important;
+   
+}
+ .input-msg{
+	font-size:2vw;
+	padding-top: 10px;
+    position: unset !important;
+    display: block;
+    width: 100%;
+    height: 1em !important;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
+}
+.text-red{
+	color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+ .quitar{
+     left: 9999999px !important ;
+     background-color: azure !important;
+     transition: 0s !important;
+ }
+ .ver{
+     left: 0px !important;
+     
+ }
+ 
+}
