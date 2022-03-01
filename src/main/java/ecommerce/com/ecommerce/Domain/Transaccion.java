@@ -1,15 +1,35 @@
+package ecommerce.com.ecommerce.domain;
 
-package ecommerce.com.ecommerce.Domain;
+import java.io.Serializable;
 
+import ecommerce.com.ecommerce.enums.Envio;
+import ecommerce.com.ecommerce.enums.TransaccionEstado;
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-public class Transaccion {
+@Data
+@Entity
+@Table(name="transaccion")
+public class Transaccion implements Serializable{
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    private Long nVeinnta;
-    private String nombreTienda;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="venta_gen")
+    @SequenceGenerator(name="venta_gen",sequenceName="venta_seq_gen",initialValue=1,allocationSize=1)
+    private Long numeroVenta;
+    @OneToMany
     private List <Producto> producto;
+    @OneToOne
     private Usuario usuario;
+    @Temporal(value=TemporalType.DATE)
     private Date fecha;
-    private Boolean estado;
+    @Enumerated(EnumType.STRING)
+    private TransaccionEstado Estado;
+    @Enumerated(EnumType.STRING)
+    private Envio envio;
 }

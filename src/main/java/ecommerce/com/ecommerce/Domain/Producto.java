@@ -1,23 +1,44 @@
+package ecommerce.com.ecommerce.domain;
 
-package ecommerce.com.ecommerce.Domain;
-
-import ecommerce.com.ecommerce.enums.Envio;
+import java.io.Serializable;
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-public class Producto {
+@Data
+@Entity
+@Table(name = "producto")
+public class Producto implements Serializable{
+  private static final long serialVersionUID = 1L;
+  @Id
+  @GeneratedValue(generator = "uuid")
+  @GenericGenerator(name = "uuid", strategy = "uuid2")
   private String id;
-  private String nombre;
   private String marca;
+  private String modelo;
+  private String codigo;
   private String descripcion;
-  private Integer precio;
+  private Double costo;
+  private Integer remarque;
+  private Double precio;
   private Integer descuento;
-  private Integer precioActual;
-  private Categoria categoria;
-  private List <Caracteristica> caracteristica;
-  private Envio tipoEnvio;
-  private List <Foto> fotos;
+  private Double precioFinal;
+  private String categoria;
+  @OneToMany
+  @JoinColumn(name="producto_id")
+  private List<Foto> foto;
+  @Temporal(TemporalType.DATE)
   private Date alta;
-  private Long stock;
+  private Integer stock;
   private Boolean estado;
+  private String genero;
+  private String color;
+  private String colorCristal;
+  private String material;
+  private String estilo;
+  private String tamano;
+  private String duracion;
+  private String uso;
 }

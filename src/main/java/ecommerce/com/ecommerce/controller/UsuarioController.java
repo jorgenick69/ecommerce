@@ -1,0 +1,16 @@
+package ecommerce.com.ecommerce.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/usuarios")        //Acá debería recibir una url para la lista de usuarios???
+public class UsuarioController {
+    
+    @GetMapping("")
+    public String lista(){
+        return "usuarios/lista";    //url de la lista de usuarios???
+    }
+    
+}
