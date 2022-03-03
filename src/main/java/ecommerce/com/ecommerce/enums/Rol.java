@@ -3,6 +3,7 @@ package ecommerce.com.ecommerce.enums;
 public enum Rol {
     USER("Usuario"),ADMIN("Administrador");
 
+
     private String valor;
 
     private Rol(String valor) {
