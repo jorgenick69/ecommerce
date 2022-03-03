@@ -23,14 +23,38 @@ public class ProductoService {
     private FotoService fotoService;
 
     @Transactional
-    public void crear(Producto producto, MultipartFile archivo1, MultipartFile archivo2) throws ServiceException {
+    public void crear(Producto producto, ArrayList <MultipartFile> archivo) throws ServiceException {
         
-        producto.setPrecio(producto.getCosto()+(producto.getCosto()*producto.getRemarque())/100);
-        producto.setPrecioFinal(producto.getPrecio()-(producto.getPrecio()*producto.getDescuento())/100);//
+               System.out.println(producto.getPrecio()); 
+               System.out.println(producto.getRemarque()); 
+        if (producto.getPrecio()==null && producto.getRemarque() != null && producto.getCosto()!= null   ) {
+            producto.setPrecio(producto.getCosto()+(producto.getCosto()*producto.getRemarque())/100);
+            if (producto.getDescuento() != null && producto.getDescuento()>= 0 ) {
+                  producto.setPrecioFinal(producto.getPrecio()-(producto.getPrecio()*producto.getDescuento())/100); 
+            }else{
+            producto.setPrecioFinal(producto.getPrecio());
+            producto.setDescuento(0.0);
+            }
+//            
+        }else if(producto.getPrecio() != null && producto.getPrecio()>=0){
+        producto.setPrecio(producto.getPrecio());
+         
+         if ( producto.getDescuento() != null && producto.getDescuento()>= 0) {
+                  producto.setPrecioFinal(producto.getPrecio()-(producto.getPrecio()*producto.getDescuento())/100); 
+            }else{
+            producto.setPrecioFinal(producto.getPrecio());
+             producto.setDescuento(0.0);
+            }
+//           
+        producto.setRemarque((producto.getCosto() -((producto.getPrecio()*100)/producto.getCosto())));
+        }
+       
         producto.setAlta(new Date());
         List<Foto> fotos = new ArrayList<>();
-        fotos.add(fotoService.crear(archivo1));
-        fotos.add(fotoService.crear(archivo2));
+        for (MultipartFile ar : archivo) {
+             fotos.add(fotoService.crear(ar));
+        }
+       
         producto.setFoto(fotos);
         producto.setEstado(true);
         pRep.save(producto);}

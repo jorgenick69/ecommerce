@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+}
+body{
+    padding-top: 122px;
+}
+@media (max-width:450px){
+    .nav-mobile{
+        display: flex;
+        width: 100%;
+        height: 120px;
+        box-shadow: 0 0 2px black;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgb(255, 255, 255);
+        z-index: +1;
+    }
+    .nav-superior{
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        height: 40%;
+        display: flex;
+        flex-direction: row;
+       
+    }
+    .carrito{
+        width: 20%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        
+    }
+    .carrito span{
+        font-size: 9vw;
+    }
+    .titulo{
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        color: crimson;
+       
+    }
+    .titulo span{
+        font-size: 8vw;
+    }
+    .titulo img{
+       height: 100%;
+       
+        object-fit: cover;
+    }
+    .login{
+        width: 20%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        
+    }
+    .login span{
+        font-size: 9vw;
+    }
+    .nav-inferior{
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .buscador{
+        display: flex;
+        flex-direction: row;
+        width: 85%;
+        height: 90%;
+        background-color: rgb(255, 255, 255);
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        
+        
+    }
+    .formu{
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        height: 65%;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .formu form{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        
+        
+    }
+    
+    .barra{
+        display: flex;
+        width: 85%;
+        background-color: rgba(161, 161, 161, 0.151);
+        border-radius: 0.4em 0em 0em 0.4em;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        box-shadow: 0 0 2px black;
+        margin-top: 1vmax;
+        
+    }
+    .barra input{
+        width: 100%;
+        background: none;
+        outline: 0px;
+        border: none;
+        padding-left: 1em;
+
+    }
+    .lupa{
+        margin-top: 1vmax;
+        display: flex;
+        width: 15%;
+        background-color: #008351 ;
+        align-content: center;
+        text-align: center;
+        justify-content: center; 
+        border-radius: 0em 0.4em 0.4em 0em;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 2px black;
+        color: white;
+    }
+
+    
+    .reservas{
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        height: 35%;    
+        align-content: center;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        
+       
+    }
+    .store{
+        color: #008351 ;
+        font-size: 5vw;
+    }
+    .atendiendo{
+        color: #008351 ;
+        font-size: 4vw;
+    }
+    
+   
+    .botones-grandes{
+        width: 100%;
+        height: 25vh;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2vmax;
+      
+
+    }
+    .boton{
+        background-color: azure;
+        width: 30%;
+        height: 95%;
+        margin: auto ;
+        display: flex;
+        flex-direction: column;
+             
+        text-align: center;
+        overflow: hidden;
+        border-radius: 0.4em;
+        box-shadow: 0 0 4px black;
+    }
+    .boton .arriba{
+        width:100%;
+        height: 35%;
+        background-color: rgb(255, 255, 255);
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        font-size: 2.3vmax;
+        font-weight: bold;
+    }
+    .boton .abajo{
+        width: 100%;
+        height: 65%;
+        background-color: rgb(255, 255, 255);
+        order: 1;
+        
+    }
+    .abajo img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .sin-borde{
+        margin: 0;
+    }
+    
+    .menu-scroll{
+        margin-top: 0.5em;
+        display: flex;
+        flex-direction: row;
+     
+       
+        height: 10vh;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        align-items: center;
+    }
+    .menu-scroll div{
+       display: flex;
+        min-width: 100px !important;
+        height: 80%;
+        background-color: #008351 ;
+        margin: 1em;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      border-radius: 0.4em;
+      color: white;
+      font-weight: bold;
+    }
+    .whatsapp{
+        display: block;
+        position: fixed;
+        bottom: 1em;
+        right: 0em;
+        width: 20vw;
+        height: 20vw;
+       
+        overflow: hidden;
+    }
+    .whatsapp img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+    }
+    .promociones{
+        width: 100%;
+        height: 45vh;
+       
+        margin-top: 1em;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        align-items: center;
+        
+        
+    }
+    .card{
+        height: 95%;
+        width: 55vw;
+        min-width: 55vw;
+        overflow: hidden;
+        border-radius: 0.4em;
+        margin-left: 1em;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 4px black;
+       
+    }
+    .card img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .card-arriba{
+         width: 100% !important;
+         height: 40% !important;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+    }
+    .card-arriba img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+    }
+    .card-abajo{
+        
+         width: 100%;
+         height: 60%; 
+        
+         display: flex;
+         flex-direction: column;    
+    }
+    .descuento{
+        margin-top: 0.3em;
+        background-color: crimson;
+        margin-left: 0.5em;
+        font-size: 2.5vmax;
+        color: white;
+        width: fit-content;
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+        border-radius: 0.4em;
+    }
+    .precio-anterior{
+        text-decoration:line-through;
+        font-size: 2vmax;
+        margin-left: 0.5em;
+        font-weight: bold;
+    }
+    .precio-actual{
+        color: crimson;
+        font-weight: bold;
+        font-size: 3vmax;
+        margin-left: 0.5em;
+    }
+    .card-titulo{
+        font-size: 2.5vmax;
+        margin-left: 0.5em;
+        font-weight: bold;
+
+    }
+    .agregar-carrito{
+        color: white;
+        padding: 0.4em;
+        border-radius: 0.4em;
+        width: 80%;
+        margin: auto;
+        background-color:#008351 ;
+
+    }
+/*Carrouesel*/
+
+.slyder{
+    width: 95%;
+   height: 18vh;
+   box-shadow: 0 0 4px black;
+   margin: auto;
+   margin-top: 1em;
+   border-radius: 0.4em;
+   overflow: hidden;
+   position: relative;
+  
+}
+
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+  
+  position: relative;
+  margin: auto;
+  display: flex;
+}
+.slideshow-container  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+}
+
+.mySlides {
+  display: none;
+  
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: -50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+
+
+.fade {
+    width: 100%;
+    height: 100%;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+}
