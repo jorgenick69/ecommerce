@@ -24,9 +24,7 @@ public class ProductoService {
 
     @Transactional
     public void crear(Producto producto, ArrayList <MultipartFile> archivo) throws ServiceException {
-        
-               System.out.println(producto.getPrecio()); 
-               System.out.println(producto.getRemarque()); 
+
         if (producto.getPrecio()==null && producto.getRemarque() != null && producto.getCosto()!= null   ) {
             producto.setPrecio(producto.getCosto()+(producto.getCosto()*producto.getRemarque())/100);
             if (producto.getDescuento() != null && producto.getDescuento()>= 0 ) {
@@ -51,13 +49,21 @@ public class ProductoService {
        
         producto.setAlta(new Date());
         List<Foto> fotos = new ArrayList<>();
+
         for (MultipartFile ar : archivo) {
-             fotos.add(fotoService.crear(ar));
+            if (ar != null || !ar.isEmpty() || !ar.getName().isEmpty()){
+                fotos.add(fotoService.crear(ar));
+            }
         }
        
         producto.setFoto(fotos);
         producto.setEstado(true);
         pRep.save(producto);}
+
+    @Transactional
+    public void actualizar(Producto producto, ArrayList<MultipartFile> archivo) throws ServiceException{
+
+    }
 
     @Transactional
     public void borrar(String id) {
