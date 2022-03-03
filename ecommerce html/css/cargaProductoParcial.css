@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 @media (max-width:1024px) {
+    .contenedor-formpc{
+        display: none;
+    }
     html{
         height: 100vh;
         overflow: hidden;
@@ -314,6 +317,9 @@
 
 }
 @media (orientation:landscape) and (max-width:1024px){
+    .contenedor-formpc{
+        display: none;
+    }
     html{
         height: 100vh;
         overflow: hidden;
@@ -494,6 +500,40 @@
     justify-content: center;
     margin-bottom: 3vh;
 }
+.fotos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+       overflow: hidden;
+}
+.fotos div label{
+    background: none !important;
+    cursor: pointer;
+}
+
+.contenedor-fotos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
+    position: unset !important;
+    width: 100%;
+    height: 30vh !important;
+   
+}
+.contenedor-fotos div{
+    position: unset !important;
+    display: block !important;
+    width: 18.5vw !important;
+    height:18.5vw!important;
+   
+    border-radius: 0.4em;
+    margin: auto auto;
+    box-shadow: 0 0 4px black ;
+    
+}
 .text-red{
 	color: red;
     font-family: Arial, Helvetica, sans-serif;
@@ -511,4 +551,250 @@
  }
  
 }
-@media (min-width:1024px) { }
+@media (min-width:1024px) { 
+    .contenedorFormu{
+        display: none;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Nunito', sans-serif;
+        text-decoration: none;
+    }
+    .contenedor-formpc{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        max-height: 100vh;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        
+
+
+    }
+    .contenedor-formpc form{
+        width: 75%;
+        height: 80%;
+        min-height: 80vh;
+        background-color: #008351;
+        display: flex;
+        padding: 1em;
+        border-radius: 0.4em;
+        box-shadow: 0 0 4px black;
+        
+    }
+    .derechapc{
+        width: 25%;
+        height: 80%;
+        min-height: 80vh;
+        background-color: white;
+        border-radius: 0.4em;
+        flex-direction: column;
+        display: flex;
+        box-shadow: 0 0 8px black;
+    }
+    .izquierdapc{
+        width: 72%;
+        height: 80vh;
+        min-height: 80vh;
+        max-height: 80vh;
+        background-color: white;
+        border-radius: 0.4em;
+        display: flex;
+        flex-direction: column;
+        margin-right: 1em;
+        overflow: hidden;
+         box-shadow: 0 0 8px rgb(0, 0, 0);
+    }
+    .divisiones-pc{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 10vh;
+       
+        margin-top: 0.5em;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        
+    }
+    .visible-pc{
+        display: flex !important;
+    }
+    .divisiones-pc div{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 90%;
+        margin: auto 0.4em;
+        
+        justify-content:space-around;
+        align-items: center;
+        align-content: center;
+
+    }
+    .lcPC{
+        display: none;
+    }
+    .antpc{
+        display: none;
+    }
+    .lcPC div{
+     width: 46%;
+    }
+    .divisiones-pc div input, .divisiones-pc div select{
+        width: 100%;
+        border-radius: 0.4em;
+        height: 4vh;
+        outline: 0px;
+        border: none;
+        box-shadow: 0 0 4px black;
+        padding-left: 0.4em;
+        font-size: 1.2vw;
+    }
+   .divisiones-pc div input::placeholder, .divisiones-pc div option{
+       text-align: center;
+       font-size: 1.2vw;
+   }
+    .divisiones-pc div label{
+        font-weight: bold;
+        font-size: 1vw;
+    }
+    .descripcion-pc{
+        height: 30vh;
+        flex-direction: column;
+       
+    }
+    .tamanio20{
+        height: 20vh !important
+           }
+    .descripcion-pc div{
+        width: 90%;
+        
+    }
+    .descripcion-pc div textarea{
+        width: 98%;
+        border-radius: 0.4em;
+        box-shadow: 0 0 4px black;
+        height: 80%;
+        
+        padding-left: 0.5em;
+        outline: 0px;
+    }
+    .text-red{
+        color: red;
+        font-weight: bold;
+        font-size: 1vw;
+    }
+   .derechapc div{
+       display: flex;
+      position: relative;
+       width: 75%;
+       height: 18vh;
+       min-height: 15vh !important;
+       margin: 0 auto 0 auto;
+       
+       border-radius: 0.4em;
+       box-shadow: 0 0 4px black;
+   }
+   .derechapc div:hover{
+    box-shadow: 0 0 10px black;
+   }
+   .cargado{
+       position: absolute;
+       top: 50%;
+      transform: translateY(-50%);
+       right: -10px;
+       color: #19bd03;
+       display: none !important;
+   }
+   .derechapc div label{
+       width: 100%;
+       height: 100%;
+       border-radius: 0.4em;
+       overflow: hidden !important;
+   }
+   .derechapc div label img{
+       width: 100%;
+       height: 100%;
+       object-fit: contain;
+       background-color: white;
+   }
+   .verde{
+    display: block !important;
+      
+   }
+
+    .ffondo1{
+        margin-top: 1em !important;
+        background: url(/img/perfiles/frente-final.jpg);
+        background-size: cover;
+        background-position: center;
+        
+    }
+    .ffondo2{
+        background: url(/img/perfiles/final-lado1.jpg);
+        background-size: cover;
+        background-position: center;
+        margin-top: 0.4em !important;
+        
+    }
+    .ffondo3{
+        background: url(/img/perfiles/final-lado2.jpg);
+        background-size: cover;
+        background-position: center; 
+         margin-top: 0.4em !important;
+    }
+    .ffondo4{
+        background: url(/img/perfiles/dorsoFinal.jpg);
+        background-size: cover;
+        background-position: center;
+         margin-top: 0.4em !important;
+    }
+    .controlespc{
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10vw;
+        height: 25vh;
+        background-color: #008351;
+        border-radius: 0.4em;
+        box-shadow: 0 0 4px black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        overflow: hidden;
+       
+
+    }
+    .controlespc label{
+        margin: -0.8px;
+        width: 90%;
+        display: flex;
+        justify-content: left;
+        padding-left: 3vw !important;
+        padding: 10px;
+        border-top: 2px solid rgb(255, 255, 255);
+        border-bottom: 2px solid rgb(255, 255, 255);
+        border-collapse: collapse;
+         font-weight: bold;
+        color: white;
+        background-color: #ffffff57;
+    }
+    .controlespc label:hover{
+        color: black;
+     font-weight: bold;
+     background-color: #b1b1b1;
+    }
+.veo{
+    display: none;
+}
+}

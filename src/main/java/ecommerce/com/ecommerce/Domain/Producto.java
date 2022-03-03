@@ -21,9 +21,9 @@ public class Producto implements Serializable{
   private String codigo;
   private String descripcion;
   private Double costo;
-  private Integer remarque;
+  private Double remarque;
   private Double precio;
-  private Integer descuento;
+  private Double descuento;
   private Double precioFinal;
   private String categoria;
   @OneToMany

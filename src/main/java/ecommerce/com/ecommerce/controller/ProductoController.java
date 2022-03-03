@@ -21,16 +21,17 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
-    @GetMapping("/cargarproducto")
+    @GetMapping("/carga-producto")
     public String cargarProducto(Model model, @ModelAttribute(value = "producto") Producto producto){
-        return "cargarproducto";
+        return "carga-producto";
     }
 
     @PostMapping("/cargar")
-    public String cargarProducto(@ModelAttribute Producto producto, @RequestParam MultipartFile archivo1,
-                                 @RequestParam MultipartFile archivo2)throws ServiceException {
+    public String cargarProducto(@ModelAttribute Producto producto, ArrayList <MultipartFile> archivox
+                                 )throws ServiceException {
 
-        productoService.crear(producto,archivo1,archivo2);
+        productoService.crear(producto,archivox);
         return "index";
+        
     }
 }
