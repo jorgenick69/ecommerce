@@ -51,8 +51,10 @@ public class ProductoService {
         List<Foto> fotos = new ArrayList<>();
 
         for (MultipartFile ar : archivo) {
-            if (ar != null || !ar.isEmpty() || !ar.getName().isEmpty()){
+            if (ar.getSize() != 0){
                 fotos.add(fotoService.crear(ar));
+            } else {
+                continue;
             }
         }
        
@@ -92,7 +94,7 @@ public class ProductoService {
 
     public List<Producto> listarUso(String uso){return pRep.findByUso(uso);}
 
-    public List<Producto> listarSuperQuery(String nombre){return pRep.findByOcurrence(nombre);}
+    public ArrayList<Producto> listarSuperQuery(String nombre){return pRep.findByOcurrence(nombre);}
 
     public List<Producto> listarStock(Integer stock){return pRep.findByStock(stock);}
 

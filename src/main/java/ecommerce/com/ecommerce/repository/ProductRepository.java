@@ -1,6 +1,7 @@
 package ecommerce.com.ecommerce.repository;
 
 import ecommerce.com.ecommerce.domain.Producto;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -41,7 +42,7 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
             " OR a.colorCristal LIKE %:query% OR a.material LIKE %:query% OR a.estilo LIKE %:query%" +
             " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
             " OR a.uso LIKE %:query%")
-    List<Producto>findByOcurrence(@Param("query") String query);
+    ArrayList<Producto>findByOcurrence(@Param("query") String query);
 
     @Query("SELECT a FROM Producto a WHERE a.stock<=:stock")
     List<Producto>findByStock(@Param("stock") Integer stock);

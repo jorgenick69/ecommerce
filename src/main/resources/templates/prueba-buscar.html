@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
+    <link rel="stylesheet" href="/css/listar-productos.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>busqueda</h1>
+    <div th:if="${busqueda != null and !busqueda.empty}">
+        <table align="center">
+            <thead>
+                <tr align="center">
+                    <th aling="center">ID</th>
+                    <th aling="center">marca</th>
+                    <th aling="center">modelo</th>
+                     <th aling="center">estilo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="a,iterator : ${busqueda}">
+                    <td th:text="${iterator.index+1}"></td>
+                    <td th:text="${a.marca}"></td>
+                    <td th:text="${a.modelo}"></td>
+                    <td th:text="${a.estilo}"></td>
+                </tr>   
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>
