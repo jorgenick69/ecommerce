@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,9 +24,9 @@
         <div class="nav-inferior">
            <div class="formu">
               <div class="buscador">
-                <form action="">
+                <form th:action="@{/productos/buscar}">
                     <div class="barra">
-                        <input type="text">
+                        <input type="text" name="query">
                     </div>
                     <div class="lupa">
                      <label for="enviar">
