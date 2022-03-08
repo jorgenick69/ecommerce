@@ -22,7 +22,7 @@ public class FotoService {
                 Foto foto = new Foto();
                 foto.setMime(archivo.getContentType());
                 foto.setNombre(archivo.getOriginalFilename());
-                foto.setContenido(foto.getContenido());
+                foto.setContenido(archivo.getBytes());
                 return fotoRepository.save(foto);
             } catch (Exception e) {
                 System.err.println(e.getMessage());

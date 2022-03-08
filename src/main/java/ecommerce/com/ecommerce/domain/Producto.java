@@ -27,7 +27,7 @@ public class Producto implements Serializable{
   private Double precioFinal;
   private String categoria;
   @OneToMany
-  @JoinColumn(name="producto_id")
+  @JoinColumn(name="producto")
   private List<Foto> foto;
   @Temporal(TemporalType.DATE)
   private Date alta;

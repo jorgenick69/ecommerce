@@ -33,9 +33,8 @@ public class ProductoController {
     
     @GetMapping("/buscar")
     public String buscar(Model model, @RequestParam String query){
-    // ArrayList<Producto> busqueda  = productoService.listarSuperQuery(query);
        model.addAttribute("busqueda", productoService.listarSuperQuery(query));
-    return "prueba-buscar";
+    return "listar-productos";
     }
     
     

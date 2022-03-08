@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,47 +47,22 @@
         </div>
     </nav>
     <div class="productos">
-        <div class="producto-item">
-            <div class="producto-item-arriba">
-                <img src="/prottoti_656x471.jpg" alt="">
+        <div class="productos" th:if="${busqueda != null and !busqueda.empty}">
+            <div class="producto-item" th:each="a,iterator : ${busqueda}">
+                <div class="producto-item-arriba">
+                    <img  th:src="@{/foto/producto}+'?id='+${a.id}">
+                </div>
+                <div class="producto-item-abajo">
+                    <span><span class="descuento">Descuento <Span th:text="*{a.descuento}"></Span>%  </span><span class="precio-anterior">$ <span th:text="*{a.precio}"></span></span></span>
+                    <span class="precio-actual">$ <span th:text="*{a.precioFinal}"></span> </span>
+                    <span class="nombre-producto" th:text="*{a.modelo}"></span>
+                    <span class="nombre-producto" th:text="*{a.marca}"></span>
+                    <div class="centrar-carrito">
+                        <a href="" class="agregar-carrito"> <span >Agregar al carrito</span></a>
+                    </div>
+                </div>
             </div>
-            <div class="producto-item-abajo">
-                <span><span class="descuento">Descuento <Span>18</Span>%  </span><span class="precio-anterior">$ <span>15000</span></span></span>
-            <span class="precio-actual">$ <span>12000</span> </span>
-           <span class="nombre-producto">Armazón Unoficcial UNOM0024/BR00 </span>       
-        <div class="centrar-carrito">
-            <a href="" class="agregar-carrito"> <span >Agregar al carrito</span></a>
-        </div>
-        </div>
-        </div>
-        <div class="producto-item">
-            <div class="producto-item-arriba">
-                <img src="/prottoti_656x471.jpg" alt="">
-            </div>
-            <div class="producto-item-abajo">
-                <span class="descuento">Descuento <Span>18</Span>%  </span>
-                 <span class="precio-anterior">$ <span>15000</span></span>
-            <span class="precio-actual">$ <span>12000</span> </span>
-           <span class="nombre-producto">Armazón Unoficcial UNOM0024/BR00</span>       
-        <div class="centrar-carrito">
-            <a href="" class="agregar-carrito"> <span >Agregar al carrito</span></a>
-        </div>
-        </div>
-        </div>
-        <div class="producto-item">
-            <div class="producto-item-arriba">
-                <img src="/prottoti_656x471.jpg" alt="">
-            </div>
-            <div class="producto-item-abajo">
-                <span class="descuento">Descuento <Span>18</Span>%  </span>
-                 <span class="precio-anterior">$ <span>15000</span></span>
-            <span class="precio-actual">$ <span>12000</span> </span>
-           <span class="nombre-producto">Armazón Unoficcial UNOM0024/BR00 </span>       
-        <div class="centrar-carrito">
-            <a href="" class="agregar-carrito"> <span >Agregar al carrito</span></a>
-        </div>
-        </div>
-        </div>
+    </div>
     </div>
 </body>
 </html>
