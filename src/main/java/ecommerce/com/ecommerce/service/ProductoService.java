@@ -46,8 +46,7 @@ public class ProductoService {
 //           
         producto.setRemarque((producto.getCosto() -((producto.getPrecio()*100)/producto.getCosto())));
         }
-       
-        producto.setAlta(new Date());
+
         List<Foto> fotos = new ArrayList<>();
 
         for (MultipartFile ar : archivo) {
@@ -94,8 +93,10 @@ public class ProductoService {
 
     public List<Producto> listarUso(String uso){return pRep.findByUso(uso);}
 
-    public ArrayList<Producto> listarSuperQuery(String nombre){return pRep.findByOcurrence(nombre);}
+    public List<Producto> listarSuperQuery(String nombre){return pRep.findByOcurrence(nombre);}
 
     public List<Producto> listarStock(Integer stock){return pRep.findByStock(stock);}
+
+    public List<Producto> listarTodos(){return pRep.findAll();}
 
 }

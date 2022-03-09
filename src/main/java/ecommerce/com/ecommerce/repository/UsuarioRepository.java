@@ -19,4 +19,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String>{
 
     @Query("SELECT a FROM Usuario a WHERE a.dni LIKE %:query%")
     List<Usuario>findByDni(@Param("query") String query);
+
+    @Query("SELECT a FROM Usuario a WHERE a.nombreUsuario LIKE %:query%")
+    Usuario findByUsername(@Param("query") String query);
+
 }

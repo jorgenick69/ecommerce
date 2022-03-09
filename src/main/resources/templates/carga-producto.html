@@ -144,7 +144,7 @@
         </div>
         <div class="fecha-alta" id="fecha-alta">
             <label for="fecha-alta-campo">Ingrese la fecha de alta del producto</label>
-            <input type="date" name="" id="fecha-alta-campo">      
+            <input type="date" name="alta" th:value="${alta}" id="fecha-alta-campo">
             <button id="fecha-alta-continuar" type="button" class="boton-mobile">Continuar</button> 
             <button id="fecha-alta-volver" type="button" class="boton-mobile">Volver</button> 
             <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
@@ -331,7 +331,7 @@
           </div>
           <div>
               <label for="fecha-pc">Ingrese Fecha de alta</label>
-              <input type="date" name="" id="fecha-pc">
+              <input type="date" name="alta" th:value="${alta}" id="fecha-pc">
           </div>
            <div>
               <label for="stock-inicial-pc">Ingrese Stock inicial</label>

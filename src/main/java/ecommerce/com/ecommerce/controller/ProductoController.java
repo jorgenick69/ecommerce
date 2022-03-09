@@ -19,14 +19,22 @@ public class ProductoController {
     private ProductoService productoService;
 
     @GetMapping("/carga-producto")
-    public String cargarProducto(Model model, @ModelAttribute(value = "producto") Producto producto){
+    public String cargarProducto(Model model, @RequestParam(required = false) String id){
+        if (id != null){
+            Producto optional = productoService.listarId(id);
+            if (optional != null){
+                model.addAttribute("producto", optional);
+            }else {
+                return "redirect:/producto/lista";
+            }
+        }else{
+            model.addAttribute("producto", new Producto());
+        }
         return "carga-producto";
     }
 
     @PostMapping("/cargar")
-    public String cargarProducto(@ModelAttribute Producto producto, ArrayList <MultipartFile> archivox
-                                 )throws ServiceException {
-
+    public String cargarProducto(@ModelAttribute Producto producto, ArrayList <MultipartFile> archivox)throws ServiceException {
         productoService.crear(producto,archivox);
         return "index"; 
     }
@@ -37,5 +45,13 @@ public class ProductoController {
     return "listar-productos";
     }
     
-    
+    @GetMapping("/lista")
+    public String lis_producto(Model model, @RequestParam(required = false) String id) {
+        if (id != null) {
+            model.addAttribute("productos", productoService.listarId(id));
+        } else {
+            model.addAttribute("productos", productoService.listarTodos());
+        }
+        return "lista-productos";
+    }
 }

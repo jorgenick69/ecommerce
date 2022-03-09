@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface ProductRepository extends JpaRepository<Producto,String> {
 
-   @Query("SELECT a FROM Producto a WHERE a.categoria=:categoria")
+    @Query("SELECT a FROM Producto a WHERE a.categoria=:categoria")
     List<Producto>findByCategoria(@Param("categoria") String categoria);
 
     @Query("SELECT a FROM Producto a WHERE a.marca=:marca")
@@ -42,7 +42,7 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
             " OR a.colorCristal LIKE %:query% OR a.material LIKE %:query% OR a.estilo LIKE %:query%" +
             " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
             " OR a.uso LIKE %:query%")
-    ArrayList<Producto>findByOcurrence(@Param("query") String query);
+    List<Producto>findByOcurrence(@Param("query") String query);
 
     @Query("SELECT a FROM Producto a WHERE a.stock<=:stock")
     List<Producto>findByStock(@Param("stock") Integer stock);

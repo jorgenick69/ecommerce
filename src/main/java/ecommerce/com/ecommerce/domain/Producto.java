@@ -3,6 +3,8 @@ package ecommerce.com.ecommerce.domain;
 import java.io.Serializable;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +32,7 @@ public class Producto implements Serializable{
   @JoinColumn(name="producto")
   private List<Foto> foto;
   @Temporal(TemporalType.DATE)
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date alta;
   private Integer stock;
   private Boolean estado;
