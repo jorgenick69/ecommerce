@@ -4,7 +4,6 @@ import ecommerce.com.ecommerce.Exceptions.ServiceException;
 import ecommerce.com.ecommerce.domain.Usuario;
 import ecommerce.com.ecommerce.enums.Rol;
 import ecommerce.com.ecommerce.repository.UsuarioRepository;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class UsuarioService {
+public class UsuarioService implements UserDetailsService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -39,7 +39,6 @@ public class UsuarioService {
         if (usuario.getApellido().isEmpty() || usuario.getApellido() == null) {
             throw new ServiceException("El apellido no puede estar vacío");
         }
-
         if (password2==null) {
             throw new ServiceException("La contraseña no puede ser nula");
 
@@ -79,6 +78,36 @@ public class UsuarioService {
             Usuario usuario= respuesta.get();
             return usuario;
         } else {
+            return null;
+        }
+    }
+
+    public Usuario findByUser(String user){
+        Optional<Usuario> respuesta = usuarioRepository.findByUser(user);
+        if (respuesta.isPresent()){
+            Usuario usuario = respuesta.get();
+            return usuario;
+        }else{
+            return null;
+        }
+    }
+
+    public Usuario findByDni(String user){
+        Optional<Usuario> respuesta = usuarioRepository.findByUserDni(user);
+        if (respuesta.isPresent()){
+            Usuario usuario = respuesta.get();
+            return usuario;
+        }else{
+            return null;
+        }
+    }
+
+    public Usuario findByEmail(String user){
+        Optional<Usuario> respuesta = usuarioRepository.findByUserEmail(user);
+        if (respuesta.isPresent()){
+            Usuario usuario = respuesta.get();
+            return usuario;
+        }else{
             return null;
         }
     }
