@@ -31,9 +31,7 @@ public class FotoService {
         return null;
     }
 
-    public Optional<Foto> listar(String Id) {
-        return fotoRepository.findById(Id);
-    }
+    public Optional<Foto> listar(String Id) {return fotoRepository.findById(Id);}
 
     @Transactional
     public Foto actualizar(String Id, MultipartFile archivo) throws ServiceException {

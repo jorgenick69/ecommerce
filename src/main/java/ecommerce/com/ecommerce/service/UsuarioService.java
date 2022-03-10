@@ -53,7 +53,6 @@ public class UsuarioService implements UserDetailsService {
         return usuario;
     }
 
-
     @Transactional
     public void crear(Usuario usuario, MultipartFile archivo, @RequestParam String password2) throws ServiceException {
             Usuario validado = validacion(usuario,password2);
@@ -63,7 +62,6 @@ public class UsuarioService implements UserDetailsService {
             }else {
                 usuario.setFoto(null);
             }
-
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             validado.setClave(encoder.encode(usuario.getClave()));
             validado.setFechaAlta(new Date());

@@ -27,7 +27,6 @@ public class FotoController {
             byte[] foto = producto.getFoto().get(0).getContenido();
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.IMAGE_JPEG);
-
             return new ResponseEntity<>(foto, headers, HttpStatus.OK);
         }else{
             return null;
@@ -42,7 +41,6 @@ public class FotoController {
             byte[] foto = producto.getFoto().get(0).getContenido();
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.IMAGE_JPEG);
-
             return new ResponseEntity<>(foto, headers, HttpStatus.OK);
         }else{
             return null;

@@ -24,7 +24,8 @@ public class TransaccionService {
 
     public List<Transaccion> listarPorUsuario(String user){return txRep.findByUser(user);}
 
-    public Transaccion listarPorId(String id) {Optional<Transaccion> response = txRep.findById(id);
+    public Transaccion listarPorId(String id) {
+        Optional<Transaccion> response = txRep.findById(id);
         return response.orElse(null);}
 
     @Transactional

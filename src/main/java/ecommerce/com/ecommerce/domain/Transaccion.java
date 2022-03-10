@@ -1,7 +1,6 @@
 package ecommerce.com.ecommerce.domain;
 
 import java.io.Serializable;
-
 import ecommerce.com.ecommerce.enums.Envio;
 import ecommerce.com.ecommerce.enums.TransaccionEstado;
 import lombok.Data;

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
-
 import ecommerce.com.ecommerce.enums.Rol;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
