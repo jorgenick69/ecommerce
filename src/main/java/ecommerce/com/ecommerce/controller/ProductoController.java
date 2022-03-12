@@ -4,6 +4,8 @@ import ecommerce.com.ecommerce.Exceptions.ServiceException;
 import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/productos")
-public class ProductoController {
+public class ProductoController{
 
     @Autowired
     private ProductoService productoService;
@@ -52,5 +54,11 @@ public class ProductoController {
             model.addAttribute("productos", productoService.listarTodos());
         }
         return "lista-productos";
+    }
+
+    @GetMapping("/borrar")
+    public String eliminarProducto(@RequestParam String id){
+        productoService.eliminarProd(id);
+        return "redirect:/producto/lista";
     }
 }

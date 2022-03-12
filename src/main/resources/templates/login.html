@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="https://www.thymeleaf.org">
+    <head></head>
+    <body>
+
+
+        <div class="container">
+            <div class="card mt-5">
+                <div th:if="${error}" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    <span th:text="${error}" ></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <div th:if="${param.logout}" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <span >La sesion se finalizo con exito</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <div class="card-header d-flex">
+                    <h1>Login</h1>
+
+                </div>
+                <div class="card-body">
+
+                    <form th:action="@{/logincheck}" method="POST">
+
+
+                            <label>Nombre Usuario</label>
+                            <input type="text" name="nombreusuario" placeholder="username">
+
+
+                            <label>Contraseña</label>
+                            <input type="password"  name="clave">
+
+
+
+                        <button type="submit">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

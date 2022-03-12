@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -113,7 +114,9 @@ public class UsuarioService implements UserDetailsService {
     @Transactional
     public void actualizar(Usuario usuario) {usuarioRepository.save(usuario);}
 
+
     @Transactional
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public void borrar(String Id) {usuarioRepository.deleteById(Id);}
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -7,6 +7,7 @@ import javax.persistence.*;
 import ecommerce.com.ecommerce.enums.Rol;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @Entity
@@ -22,8 +23,11 @@ public class Usuario implements Serializable{
     private String dni;
     private String email;
     private String telefono;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNacimiento;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaAlta;
     private String nombreUsuario;
     @Enumerated(EnumType.STRING)
@@ -32,6 +36,6 @@ public class Usuario implements Serializable{
     private String clave;
     @OneToOne
     private Foto foto;
-    @OneToMany
-    private List<Transaccion> compras;
+    //@OneToMany
+    //private List<Transaccion> compras;
 }

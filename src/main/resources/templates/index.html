@@ -12,7 +12,7 @@
 <body>
     <nav class="nav-mobile">
         <div class="nav-superior">
-            <div class="login"><span class="material-icons-outlined">
+            <div class="login" ><span class="material-icons-outlined">
                 account_circle
                 </span></div>
             <div class="titulo"><b><span style="font-family: Arial, Helvetica, sans-serif; ">VAN-HOUTEN</span></b></div>
@@ -144,6 +144,9 @@
     </div>
    
 </div>
+    <!--REFERENCIA DE ADMIN-->
+    <button><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/login}">Login Admin</a></button>
+    <!--REFERENCIA DE ADMIN-->
 <script src="/js/slyder.js"></script>
 </body>
 </html>

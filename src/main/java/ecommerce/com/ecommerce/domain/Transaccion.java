@@ -5,6 +5,7 @@ import ecommerce.com.ecommerce.enums.Envio;
 import ecommerce.com.ecommerce.enums.TransaccionEstado;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +27,7 @@ public class Transaccion implements Serializable{
     @OneToOne
     private Usuario usuario;
     @Temporal(value=TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
     @Enumerated(EnumType.STRING)
     private TransaccionEstado Estado;

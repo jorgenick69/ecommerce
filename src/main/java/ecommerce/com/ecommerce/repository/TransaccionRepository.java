@@ -21,5 +21,5 @@ public interface TransaccionRepository extends JpaRepository<Transaccion,String>
     List<Transaccion>findByStatus(@Param("estado")String estado);
 
     @Query("SELECT a FROM Transaccion a WHERE a.fecha BETWEEN :date1 AND :date2")
-    List<Transaccion> findByTxTimeBetween(@Param("date1") Date date1,@Param("date2") Date date2);
+    List<Transaccion> findByTxTimeBetween(@Param("date1") Date date1, @Param("date2") Date date2);
 }

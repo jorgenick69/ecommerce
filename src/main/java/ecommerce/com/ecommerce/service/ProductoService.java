@@ -92,4 +92,6 @@ public class ProductoService {
 
     public List<Producto> listarTodos(){return pRep.findAll();}
 
+    public void eliminarProd(String id){pRep.deleteById(id);}
+
 }
