@@ -67,7 +67,7 @@ public class ProductoController {
     @GetMapping("/lista-genero")
     public String lis_genero(Model model, @RequestParam(required = false) String genero) {
 
-        model.addAttribute("busqueda", productoService.listarCategoria(genero));
+        model.addAttribute("busqueda", productoService.listarGenero(genero));
 
         return "listar-productos";
     }
