@@ -70,7 +70,7 @@ public class ProductoController {
         return "listar-productos";
     }
 
-    @GetMapping("/borrar")
+    @GetMapping("/eliminar")
     public String eliminarProducto(@RequestParam String id) {
         productoService.eliminarProd(id);
         return "redirect:/usuarios/admin#lista-productos";
