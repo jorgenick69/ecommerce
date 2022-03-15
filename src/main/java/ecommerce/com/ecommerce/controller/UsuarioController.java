@@ -1,7 +1,6 @@
 package ecommerce.com.ecommerce.controller;
 
 import ecommerce.com.ecommerce.Exceptions.ServiceException;
-import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.domain.Usuario;
 import ecommerce.com.ecommerce.enums.Rol;
 import ecommerce.com.ecommerce.service.ProductoService;
