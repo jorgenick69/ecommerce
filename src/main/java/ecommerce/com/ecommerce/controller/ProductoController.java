@@ -14,38 +14,38 @@ import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/productos")
-public class ProductoController{
+public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
 
     @GetMapping("/carga-producto")
-    public String cargarProducto(Model model, @RequestParam(required = false) String id){
-        if (id != null){
+    public String cargarProducto(Model model, @RequestParam(required = false) String id) {
+        if (id != null) {
             Producto optional = productoService.listarId(id);
-            if (optional != null){
+            if (optional != null) {
                 model.addAttribute("producto", optional);
-            }else {
+            } else {
                 return "redirect:/producto/lista";
             }
-        }else{
+        } else {
             model.addAttribute("producto", new Producto());
         }
         return "carga-producto";
     }
 
     @PostMapping("/cargar")
-    public String cargarProducto(@ModelAttribute Producto producto, ArrayList <MultipartFile> archivox)throws ServiceException {
-        productoService.crear(producto,archivox);
-        return "index"; 
+    public String cargarProducto(@ModelAttribute Producto producto, ArrayList<MultipartFile> archivox) throws ServiceException {
+        productoService.crear(producto, archivox);
+        return "index";
     }
-    
+
     @GetMapping("/buscar")
-    public String buscar(Model model, @RequestParam String query){
-       model.addAttribute("busqueda", productoService.listarSuperQuery(query));
-    return "listar-productos";
+    public String buscar(Model model, @RequestParam String query) {
+        model.addAttribute("busqueda", productoService.listarSuperQuery(query));
+        return "listar-productos";
     }
-    
+
     @GetMapping("/lista")
     public String lis_producto(Model model, @RequestParam(required = false) String id) {
         if (id != null) {
@@ -53,11 +53,27 @@ public class ProductoController{
         } else {
             model.addAttribute("productos", productoService.listarTodos());
         }
-        return "lista-productos";
+        return "listar-productos";
+    }
+
+    @GetMapping("/lista-categoria")
+    public String lis_categoria(Model model, @RequestParam(required = false) String categoria) {
+
+        model.addAttribute("busqueda", productoService.listarCategoria(categoria));
+
+        return "listar-productos";
+    }
+
+    @GetMapping("/lista-genero")
+    public String lis_genero(Model model, @RequestParam(required = false) String genero) {
+
+        model.addAttribute("busqueda", productoService.listarGenero(genero));
+
+        return "listar-productos";
     }
 
     @GetMapping("/borrar")
-    public String eliminarProducto(@RequestParam String id){
+    public String eliminarProducto(@RequestParam String id) {
         productoService.eliminarProd(id);
         return "redirect:/producto/lista";
     }

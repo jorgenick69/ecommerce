@@ -91,6 +91,8 @@ public class ProductoService {
     public List<Producto> listarStock(Integer stock){return pRep.findByStock(stock);}
 
     public List<Producto> listarTodos(){return pRep.findAll();}
+    
+    public List<Producto> listarCategoria(String categoria){return pRep.findByCategoria(categoria);}
 
     public void eliminarProd(String id){pRep.deleteById(id);}
 
