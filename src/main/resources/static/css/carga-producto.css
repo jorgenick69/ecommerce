@@ -784,7 +784,7 @@
        
 
     }
-    .controlespc label{
+    .controlespc label,  .controlespc a {
         margin: -0.8px;
         width: 90%;
         display: flex;
@@ -798,12 +798,18 @@
         color: white;
         background-color: #ffffff57;
     }
+
+    .controlespc a span{
+    color:white !important;
+    }
+
     .controlespc label:hover{
         color: black;
      font-weight: bold;
      background-color: #b1b1b1;
     }
-.veo{
+
+    .veo{
     display: none;
 }
 }

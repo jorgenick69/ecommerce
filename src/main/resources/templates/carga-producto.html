@@ -344,7 +344,6 @@
           <div>
             <label for="descripcion">¿Desea añadirle una decripción? &nbsp; &nbsp; &nbsp; &nbsp; <span class="input-msg text-red" id="text-redpc"> </span></label>
             <textarea name="descripcion" th:field="*{descripcion}"  id="" class="descripcion-area count-chars" cols="30" rows="10" maxlength="200" data-max-chars="200" placeholder="Escriba la descripcion aquí...."></textarea>
-            
           </div>
           <div></div>
       </div>
@@ -371,8 +370,7 @@
     </form>
     <div class="controlespc">
       <label for="guardar-pc">Guardar</label>
-      <label for="">Cancelar</label>
-        <!--REVISAR EL RETORNO A "@{/usuarios/admin#productos}" No funciona el label por razones cósmicas-->
+        <a th:href="@{/usuarios/admin#productos}"><span>Cancelar</span></a>
     </div>
   </div>
  

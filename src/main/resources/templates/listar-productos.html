@@ -52,7 +52,7 @@
                 <div class="producto-item-arriba">
                     <img  th:src="@{/foto/producto}+'?id='+${a.id}">
                 </div>
-                <div class="producto-item-abajo">
+                <div class="producto-item-abajo" th:if="${a.descuento != 0}">
                     <span><span class="descuento">Descuento <Span th:text="*{a.descuento}"></Span>%  </span><span class="precio-anterior">$ <span th:text="*{a.precio}"></span></span></span>
                     <span class="precio-actual">$ <span th:text="*{a.precioFinal}"></span> </span>
                     <span class="nombre-producto" th:text="*{a.modelo}"></span>
@@ -61,8 +61,17 @@
                         <a href="" class="agregar-carrito"> <span >Agregar al carrito</span></a>
                     </div>
                 </div>
+                <div class="producto-item-abajo" th:if="${a.descuento == 0}">
+                    <span class="precio-actual">$ <span th:text="*{a.precioFinal}"></span> </span>
+                    <span class="nombre-producto" th:text="*{a.modelo}"></span>
+                    <span class="nombre-producto" th:text="*{a.marca}"></span>
+                    <div class="centrar-carrito">
+                        <a href="" class="agregar-carrito"> <span >Agregar al carrito</span></a>
+                    </div>
+                </div>
             </div>
+        </div>
     </div>
-    </div>
+
 </body>
 </html>
