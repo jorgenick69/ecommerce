@@ -1,8 +1,10 @@
 package ecommerce.com.ecommerce.controller;
 
 import ecommerce.com.ecommerce.Exceptions.ServiceException;
+import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.domain.Usuario;
 import ecommerce.com.ecommerce.enums.Rol;
+import ecommerce.com.ecommerce.service.ProductoService;
 import ecommerce.com.ecommerce.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private ProductoService productoService;
 
    @GetMapping("/lista")
     public String lis_usuario(Model model, @RequestParam(required = false) String id) {
@@ -48,5 +52,21 @@ public class UsuarioController {
         usuario.setRol(Rol.ADMIN);
         usuarioService.crear(usuario,archivo,password2);
         return "index";
+    }
+
+    @GetMapping("/eliminar")
+    public String eliminarUsuario(String id){
+       usuarioService.borrar(id);
+       return "redirect:/usuarios/admin#usuarios";
+    }
+
+    ////////////CONTROLER DASHBOARD ADMIN////////////////
+    @GetMapping("/admin")
+    public String adminDashboard(Model model){
+        model.addAttribute("productos",productoService.listarTodos());
+        model.addAttribute("usuarios",usuarioService.listarTodos());
+        model.addAttribute("cantidadUsuarios", usuarioService.listarTodos().size());
+        model.addAttribute("cantidadProductos", productoService.listarTodos().size());
+        return "admin-dashboard";
     }
 }

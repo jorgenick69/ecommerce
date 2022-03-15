@@ -15,7 +15,7 @@
    <div class="contenedorFormu">
       
     <form th:action="@{/productos/cargar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
-        
+        <input hidden th:field="*{id}">
         <div class="productoCategoria" id="productoCategoria">
             <label for="categoria-campo">¿A que categoria pertenece el producto?</label>
             <select name="categoria" th:field="*{categoria}"  id="categoria-campo">
@@ -28,35 +28,35 @@
             
             <button id="categoria-continuar" type="button"  class="boton-mobile">Continuar</button> 
             
-            <button class="boton-mobile"><a href="/index.html">Cancelar</a></button>            
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="lentes-duracion" id="lentes-duracion">
             <label for="duracion-campo">¿Que duracion tiene la lente?</label>
             <input type="text" name="duracion" th:field="*{duracion}" id="duracion-campo" placeholder="ingrese duracion">   
             <button id="duracion-continuar" type="button" class="boton-mobile">Continuar</button> 
             <button id="duracion-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="lentes-usos" id="lentes-usos">
             <label for="usos-campo">¿Cuantos usos Ofrece?</label>
-            <input type="text" name="uso" th:field="*{uso}" id="usos-campo" placeholder="ingrese cantidad de usos">   
-            <button id="usos-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="usos-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="uso" th:field="*{uso}" id="usos-campo" placeholder="ingrese cantidad de usos">
+            <button id="usos-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="usos-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="color-crital" id="color-crital">
             <label for="color-cristal-campo">¿Cual es el color del cristal?</label>
-            <input type="text" name="colorCristal" th:field="*{colorCristal}" id="color-cristal-campo" placeholder="ingrese color del cristal">   
-            <button id="color-crital-continuar" type="button" class="boton-mobile" >Continuar</button> 
-            <button id="color-crital-volver" type="button"  class="boton-mobile">Volver</button> 
-            <button  class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="colorCristal" th:field="*{colorCristal}" id="color-cristal-campo" placeholder="ingrese color del cristal">
+            <button id="color-crital-continuar" type="button" class="boton-mobile" >Continuar</button>
+            <button id="color-crital-volver" type="button"  class="boton-mobile">Volver</button>
+            <button  class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="estilo" id="estilo">
             <label for="estilo-campo">¿Que estilo tiene el anteojo?</label>
-            <input type="text" name="estilo" th:field="*{estilo}" id="estilo-campo" placeholder="ingrese estilo">   
-            <button id="estilo-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="estilo-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="estilo" th:field="*{estilo}" id="estilo-campo" placeholder="ingrese estilo">
+            <button id="estilo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="estilo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="tamanio" id="tamanio">
             <label for="tamanio-campo">¿Elija un tamaño del anteojo?</label>
@@ -66,68 +66,68 @@
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
                 <option value="extra large">Extra Large</option>
-            </select>  
-            <button id="tamanio-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="tamanio-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            </select>
+            <button id="tamanio-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="tamanio-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="marca" id="marca">
             <label for="marca-campo">Ingrese la marca</label>
-            <input type="text" name="marca" th:field="*{marca}" id="marca-campo" placeholder="ingrese marca">   
-            <button id="marca-continuar" type="button"  class="boton-mobile">Continuar</button> 
-            <button id="marca-volver" type="button"  class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="marca" th:field="*{marca}" id="marca-campo" placeholder="ingrese marca">
+            <button id="marca-continuar" type="button"  class="boton-mobile">Continuar</button>
+            <button id="marca-volver" type="button"  class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="modelo" id="modelo">
             <label for="modelo-campo">¿Cuál es el Modelo?</label>
-            <input type="text" name="modelo" th:field="*{modelo}" id="modelo-campo" placeholder="ingrese modelo">   
-            <button id="modelo-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="modelo-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="modelo" th:field="*{modelo}" id="modelo-campo" placeholder="ingrese modelo">
+            <button id="modelo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="modelo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="codigo" id="codigo">
             <label for="codigo-campo">¿Cuál es el codigo del producto?</label>
-            <input type="text" name="codigo" th:field="*{codigo}"id="codigo-campo" placeholder="ingrese codigo" >   
-            <button id="codigo-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="codigo-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="codigo" th:field="*{codigo}"id="codigo-campo" placeholder="ingrese codigo" >
+            <button id="codigo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="codigo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="descripcion" id="descripcion">
             <label for="descripcion-campo">ingrese descripcion del producto</label>
-              
+
             <textarea name="descripcion" th:field="*{descripcion}"  id="descripcion-campo" class="descripcion-area count-chars" cols="30" rows="10" maxlength="200" data-max-chars="200" placeholder="Escriba la descripcion aquí...."></textarea>
             <div class="input-msg text-red" id="text-red"> </div>
-            <button id="descripcion-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="descripcion-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <button id="descripcion-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="descripcion-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="costo" id="costo">
             <label for="costo-campo">¿Cuel es el costo del Producto?</label>
-            <input type="number"  name="costo" th:field="*{costo}" id="costo-campo" placeholder="ingrese costo" >   
-            <button id="costo-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="costo-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="number"  name="costo" th:field="*{costo}" id="costo-campo" placeholder="ingrese costo" >
+            <button id="costo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="costo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="remarque" id="remarque">
             <label for="remarque-campo">Ingrese el remarque del Producto</label>
-            <input type="number" name="remarque" th:field="*{remarque}" id="remarque-campo" placeholder="ingrese remarque" >   
-            <button id="remarque-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="remarque-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="number" name="remarque" th:field="*{remarque}" id="remarque-campo" placeholder="ingrese remarque" >
+            <button id="remarque-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="remarque-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="precio" id="precio">
             <label for="precio-campo">¿Cual es el precio de venta del Producto?</label>
-            <input type="number" name="precio" th:field="*{precio}"id="precio-campo" placeholder="ingrese precio" >   
-            <button id="precio-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="precio-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}" >Cancelar</a></button>            
+            <input type="number" name="precio" th:field="*{precio}"id="precio-campo" placeholder="ingrese precio" >
+            <button id="precio-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="precio-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}" >Cancelar</a></button>
         </div>
         <div class="descuento" id="descuento">
             <label for="descuento-campo">¿Desea agregar un descuento ?</label>
-            <input type="number" name="descuento" th:field="*{descuento}" id="descuento-campo" placeholder="ingrese descuento %" >   
-            <button id="descuento-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="descuento-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="number" name="descuento" th:field="*{descuento}" id="descuento-campo" placeholder="ingrese descuento %" >
+            <button id="descuento-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="descuento-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="genero" id="genero">
             <label for="genero-campo">¿A quien esta dedicado el Producto?</label>
@@ -135,40 +135,40 @@
                 <option value="">seleccione genero</option>
                 <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
-                <option value="niño">Niños</option>              
-                <option value="unisex">Unisex</option>              
-            </select>   
-            <button id="genero-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="genero-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+                <option value="niño">Niños</option>
+                <option value="unisex">Unisex</option>
+            </select>
+            <button id="genero-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="genero-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="fecha-alta" id="fecha-alta">
             <label for="fecha-alta-campo">Ingrese la fecha de alta del producto</label>
             <input type="date" name="alta" th:value="${alta}" id="fecha-alta-campo">
-            <button id="fecha-alta-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="fecha-alta-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <button id="fecha-alta-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="fecha-alta-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="color" id="color">
             <label for="color-campo">¿Cual es el color del producto?</label>
-            <input type="text" name="color" th:field="*{color}" id="color-campo" placeholder="ingrese color">      
-            <button id="color-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="color-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="color" th:field="*{color}" id="color-campo" placeholder="ingrese color">
+            <button id="color-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="color-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="material" id="material">
             <label for="material-campo">¿Cual es el material del producto?</label>
-            <input type="text" name="material" th:field="*{material}" id="material-campo" placeholder="ingrese material">      
-            <button id="material-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="material-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="text" name="material" th:field="*{material}" id="material-campo" placeholder="ingrese material">
+            <button id="material-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="material-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
          <div class="stock" id="stock">
             <label for="stock-campo">¿Cual es stock?</label>
-            <input type="number" name="stock" th:field="*{stock}" id="stock-campo" placeholder="ingrese stock">      
-            <button id="stock-continuar" type="button" class="boton-mobile">Continuar</button> 
-            <button id="stock-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <input type="number" name="stock" th:field="*{stock}" id="stock-campo" placeholder="ingrese stock">
+            <button id="stock-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="stock-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="fotos boton-mobile" id="fotos">
             <label for="">¿Desea agregar fotos al producto?</label>
@@ -184,7 +184,7 @@
              </div>    
              <button id="fotos-continuar" type="button" class="boton-mobile">Continuar</button> 
              <button id="fotos-volver" type="button" class="boton-mobile">Volver</button> 
-             <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>         
+             <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <div class="guardado boton-mobile" id="guardado">
             <label for="material-campo">¿Esta todo Correcto?</label>
@@ -226,7 +226,7 @@
               
             <button id="guardar" type="submit" class="boton-mobile">Guardar</button> 
             <button id="guardado-volver" type="button" class="boton-mobile">Volver</button> 
-            <button class="boton-mobile"><a th:href="@{/index.html}">Cancelar</a></button>            
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
         </div>
         <p class="alerta" id="alerta"></p>
     
@@ -234,8 +234,9 @@
    </div>
    <div class="contenedor-formpc">
     <form th:action="@{/productos/cargar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
-       <div class="izquierdapc">
-      <div class="divisiones-pc">
+        <input hidden th:field="*{id}">
+        <div class="izquierdapc">
+        <div class="divisiones-pc">
           <div> 
               <label for="categoria-pc">¿Que categoría tiene?</label>
               <select name="categoria" th:field="*{categoria}"  id="categoria-pc">
@@ -371,6 +372,7 @@
     <div class="controlespc">
       <label for="guardar-pc">Guardar</label>
       <label for="">Cancelar</label>
+        <!--REVISAR EL RETORNO A "@{/usuarios/admin#productos}" No funciona el label por razones cósmicas-->
     </div>
   </div>
  

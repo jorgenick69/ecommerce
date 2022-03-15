@@ -4,8 +4,6 @@ import ecommerce.com.ecommerce.Exceptions.ServiceException;
 import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +33,9 @@ public class ProductoController{
     }
 
     @PostMapping("/cargar")
-    public String cargarProducto(@ModelAttribute Producto producto, ArrayList <MultipartFile> archivox)throws ServiceException {
+    public String cargarProducto(Model model,@ModelAttribute Producto producto, ArrayList <MultipartFile> archivox)throws ServiceException {
         productoService.crear(producto,archivox);
-        return "index"; 
+        return "redirect:/usuarios/admin#lista-productos";
     }
     
     @GetMapping("/buscar")
@@ -56,9 +54,11 @@ public class ProductoController{
         return "lista-productos";
     }
 
-    @GetMapping("/borrar")
+    @GetMapping("/eliminar")
     public String eliminarProducto(@RequestParam String id){
         productoService.eliminarProd(id);
-        return "redirect:/producto/lista";
+        return "redirect:/usuarios/admin#lista-productos";
     }
 }
+
+
