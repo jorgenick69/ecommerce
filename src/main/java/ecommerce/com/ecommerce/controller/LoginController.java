@@ -1,5 +1,6 @@
 package ecommerce.com.ecommerce.controller;
 
+import ecommerce.com.ecommerce.domain.Transaccion;
 import ecommerce.com.ecommerce.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ public class LoginController {
         }
         if (username != null) {
             model.addAttribute("username", username);
+            model.addAttribute("transaccion", new Transaccion());
         }
         return "login";
     }
