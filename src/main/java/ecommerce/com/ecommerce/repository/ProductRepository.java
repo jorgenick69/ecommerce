@@ -50,8 +50,7 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
     @Query("SELECT a FROM Producto a WHERE a.stock<=:stock")
     List<Producto>findByStock(@Param("stock") Integer stock);
 
-
-   /* @Query("SELECT a FROM Producto a WHERE a.descuento>=0")
-    public Page <Producto> findByDescuentoIndex(Pageable pageable);*/
+    @Query("SELECT a FROM Producto a WHERE a.descuento>0")
+    List<Producto>findDescuentos();
 
 }

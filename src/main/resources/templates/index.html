@@ -153,16 +153,24 @@
         <img src="//cdn.shopify.com/s/files/1/0231/8811/1438/files/Cuadrados_y_rectangulares250x360_240x360_crop_center.jpg?v=1644269295"
              alt="">
     </div>
-    <div class="card movil" th:if="${busqueda != null and !busqueda.empty}">
-        <div class="card-arriba" th:each="a,iterator : ${busqueda}">
+    <div class="card movil" th:if="${descuentos != null and !descuentos.empty}">
+        <div th:each="a,iterator : ${descuentos}">
+        <div class="card-arriba">
             <img th:src="@{/foto/producto}+'?id='+${a.id}" alt="">
         </div>
         <div class="card-abajo">
-            <span class="descuento">Descuento<span th:text="*{a.descuento}"></span></span>
-            <span class="precio-anterior" th:text="*{a.precio}"></span>
-            <span class="precio-actual" th:text="*{a.precioFinal}"></span>
-            <span class="card-titulo" th:text="*{a.modelo}"></span>
+            <span class="descuento">Descuento<span th:text="${a.descuento}"></span></span>
+            <span class="precio-anterior" th:text="${a.precio}"></span>
+            <span class="precio-actual" th:text="${a.precioFinal}"></span>
+            <span class="card-titulo" th:text="${a.modelo}"></span>
             <a class="agregar-carrito" href=""><span>Agregar al carrito</span></a>
+        </div>
+        <div class="card-abajo">
+            <span class="precio-anterior" th:text="${a.precio}"></span>
+            <span class="precio-actual" th:text="${a.precioFinal}"></span>
+            <span class="card-titulo" th:text="${a.modelo}"></span>
+            <a class="agregar-carrito" href=""><span>Agregar al carrito</span></a>
+        </div>
         </div>
     </div>
 </div>
@@ -175,16 +183,16 @@
     <div class="promociones-pc-de">
         <button class="ante" id="ante">&#60;</button>
         <button class="post" id="poste">&#62;</button>
-        <div class="cards-pc" th:if="${busqueda != null and !busqueda.empty}">
-            <div class="card-pc" th:each="a,iterator : ${busqueda}">
+        <div class="cards-pc" th:if="${descuentos != null and !descuentos.empty}">
+            <div class="card-pc" th:each="producto,iterator : ${descuentos}">
                 <div class="card-pc-arr">
-                    <img th:src="@{/foto/producto}+'?id='+${a.id}" alt="">
+                    <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="">
                 </div>
                 <div class="card-pc-aba">
-                    <span class="descuento-pc">Descuento<span th:text="*{a.descuento}"></span></span>
-                    <span class="precio-anterior-pc" th:text="*{a.precio}"></span>
-                    <span class="precio-actual-pc" th:text="*{a.precioFinal}"></span>
-                    <span class="card-titulo-pc" th:text="*{a.modelo}"></span>
+                    <span class="descuento-pc">Descuento <span th:text="${producto.descuento}"></span></span>
+                    <span class="precio-anterior-pc" th:text="${producto.precio}"></span>
+                    <span class="precio-actual-pc" th:text="${producto.precioFinal}"></span>
+                    <span class="card-titulo-pc" th:text="${producto.modelo}"></span>
                     <a class="agregar-carrito-pc" href=""><span>Agregar al carrito</span></a>
                 </div>
             </div>

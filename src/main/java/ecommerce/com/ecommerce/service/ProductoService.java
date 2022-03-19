@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.data.domain.PageRequest;
 
 @Service
 public class ProductoService {
@@ -103,8 +101,7 @@ if(archivo!=null || !archivo.isEmpty()){
 
     public Producto buscarPorId(String id){return pRep.findById(id).orElse(null);}
 
-    /*Page <Producto> findByDescuentoIndex() {
-        return pRep.findByDescuentoIndex(new PageRequest.of(0,5));
-    }*/
+    public List<Producto>listarDescuentos(){return pRep.findDescuentos();}
+
 
 }

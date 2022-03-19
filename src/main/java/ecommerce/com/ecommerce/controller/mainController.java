@@ -17,8 +17,10 @@ public class mainController {
 
     @GetMapping("/")
     public String index(Model model, HttpSession session) {
+        System.out.println(productoService.listarTodos().toString());
         model.addAttribute("productos", productoService.listarTodos());
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        model.addAttribute("descuentos",productoService.listarDescuentos());
         return "index";
     }
 

@@ -72,7 +72,7 @@ public class FotoService {
         }
     }
     ///TIENE QUE RECIBIR UN ID DE PRODUCTO
-    public List<String> stringFotos(String id){
+   /* public List<String> stringFotos(String id){
         List<Foto>lista=fotoRepository.listaFotos(id);
         ArrayList<String>listaIdFotos=new ArrayList<>();
 
@@ -80,10 +80,7 @@ public class FotoService {
             listaIdFotos.add(f.getId());
         }
         return listaIdFotos;
-    }
+    }*/
+}
 
-    /// buscar foto por id de foto
-public Foto buscarporId(String id){
-        return fotoRepository.findById(id).orElse(null);
-}
-}
+

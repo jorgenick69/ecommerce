@@ -1,6 +1,5 @@
 package ecommerce.com.ecommerce.controller;
 
-import ecommerce.com.ecommerce.domain.Foto;
 import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.service.FotoService;
 import ecommerce.com.ecommerce.service.ProductoService;
@@ -24,24 +23,9 @@ public class FotoController {
 private FotoService fotoService;
     @GetMapping("/producto")
     private ResponseEntity<byte[]> fotoPortada(@RequestParam String id) {
-
         Producto producto = productoService.listarId(id);
         if (producto.getFoto().get(0).getContenido() != null) {
             byte[] foto = producto.getFoto().get(0).getContenido();
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.IMAGE_JPEG);
-            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
-        }else{
-            return null;
-        }
-    }
-/* No seria requerido gracias al Dto de foto.*/
-    @GetMapping("/productos")
-    private ResponseEntity<byte[]> fotoProductoxid(@RequestParam String id) {
-
-        Foto fotodup = fotoService.buscarporId(id);
-        if (fotodup.getContenido() != null) {
-            byte[] foto = fotodup.getContenido();
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.IMAGE_JPEG);
             return new ResponseEntity<>(foto, headers, HttpStatus.OK);

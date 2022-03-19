@@ -116,7 +116,7 @@
     <div class="producto-foto-pricipal movil" id="producto-foto-pricipal">
         <img th:src="@{/foto/producto}" alt="" id="imagen-grande">
     </div>
-    <div class="producto-foto-miniatura movil" th:each="a,iterator : ${producto.foto}">
+    <div class="producto-foto-miniatura movil" th:each="{a,iterator : ${producto.foto}">
         <div><img th:src="@{/foto/productos}+'?id='+a" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
         <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/pttti_420x300_crop_center.jpg')"></div>
         <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>

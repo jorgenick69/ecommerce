@@ -1,6 +1,5 @@
 package ecommerce.com.ecommerce.controller;
 
-import ecommerce.com.ecommerce.Dto.ProductoDto;
 import ecommerce.com.ecommerce.Exceptions.ServiceException;
 import ecommerce.com.ecommerce.domain.Producto;
 import ecommerce.com.ecommerce.service.FotoService;
@@ -82,16 +81,6 @@ public class ProductoController {
         return "redirect:/usuarios/admin#lista-productos";
     }
 
-    @GetMapping("/descripcion")
-    public String descripcionProducto(@RequestParam String id,Model model) {
-        Producto nuevo = productoService.buscarPorId(id);
-        ProductoDto pDto = new ProductoDto();
-        List<String>listaIdFotos = fotoService.stringFotos(id);
-        pDto.setFoto(listaIdFotos);
-        ///Get-Set pDto.
-        model.addAttribute("producto",pDto);
-        return "producto-descripcion";
-    }
 }
 
 
