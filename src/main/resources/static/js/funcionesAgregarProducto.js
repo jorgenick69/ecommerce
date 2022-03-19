@@ -54,37 +54,12 @@ let color_volver = document.getElementById('color-volver');
 let material = document.getElementById('material');
 let material_continuar = document.getElementById('material-continuar');
 let material_volver = document.getElementById('material-volver');
-let stock= document.getElementById('stock');
-let stock_continuar = document.getElementById('stock-continuar');
-let stock_volver = document.getElementById('stock-volver');
 let fotos = document.getElementById('fotos');
 let fotos_continuar = document.getElementById('fotos-continuar');
 let fotos_volver = document.getElementById('fotos-volver');
 let alerta = document.getElementById('alerta');
 let guardado = document.getElementById('guardado');
 let guardado_volver = document.getElementById('guardado-volver');
-
-/******************variables para la revision final *************/
-
-let parrafo_categoria = document.getElementById('parrafo-categoria');
-let parrafo_stock = document.getElementById('parrafo-stock');
-let parrafo_duracion = document.getElementById('parrafo-duracion');
-let parrafo_usos = document.getElementById('parrafo-usos');
-let parrafo_color_cristal = document.getElementById('parrafo-color-cristal');
-let parrafo_estilo = document.getElementById('parrafo-estilo');
-let parrafo_tamanio = document.getElementById('parrafo-tamanio');
-let parrafo_marca = document.getElementById('parrafo-marca');
-let parrafo_modelo = document.getElementById('parrafo-modelo');
-let parrafo_codigo = document.getElementById('parrafo-codigo');
-let parrafo_descripcion = document.getElementById('parrafo-descripcion');
-let parrafo_costo = document.getElementById('parrafo-costo');
-let parrafo_remarque = document.getElementById('parrafo-remarque');
-let parrafo_precio = document.getElementById('parrafo-precio');
-let parrafo_descuento = document.getElementById('parrafo-descuento');
-let parrafo_genero = document.getElementById('parrafo-genero');
-let parrafo_fecha_alta = document.getElementById('parrafo-fecha-alta');
-let parrafo_material = document.getElementById('parrafo-material');
-/**************************************************************************/
 
 let categoriaCampo = null;
 categoria_continuar.addEventListener('click', function () {
@@ -459,27 +434,6 @@ material_continuar.addEventListener('click', function () {
         }, 3000);
 
     } else {
-        stock.classList.add('ver')
-    }
-
-});
-stock_volver.addEventListener('click', function () {
-    stock.classList.remove('ver')
-});
-let StockCampo = null;
-stock_continuar.addEventListener('click', function () {
-    StockCampo = document.getElementById('stock-campo').value;
-    console.log(StockCampo);
-    if (StockCampo.length === 0) {
-
-        alerta.innerText = 'Debe ingresar el Stock';
-
-
-        setTimeout(() => {
-            alerta.innerText = '';
-        }, 3000);
-
-    } else {
         fotos.classList.add('ver')
     }
 
@@ -494,11 +448,6 @@ fotos_continuar.addEventListener('click', function () {
         let titulo_categoria = document.getElementById('titulo-categoria');
         titulo_categoria.innerText = 'Categoria: ';
         parrafo_categoria.innerText = "  " + categoriaCampo;
-    }
-     if (StockCampo !== null) {
-        let titulo_stock = document.getElementById('titulo-stock');
-        titulo_stock.innerText = 'Stock: ';
-        parrafo_stock.innerText = "  " + StockCampo ;
     }
     if (duracionCampo !== null) {
         let titulo_duracion = document.getElementById('titulo-duracion');
@@ -622,8 +571,6 @@ guardado_volver.addEventListener('click', function () {
                 return;  //end function execution
             }
             let text_red=document.getElementById('text-red');
-            let text_redpc=document.getElementById('text-redpc');
-            text_redpc.innerHTML = remainingChars + " caracteres restantes";
             text_red.innerHTML = remainingChars + " caracteres restantes";
         }
     })
@@ -755,4 +702,22 @@ document.getElementById("categoria-pc").onchange = function () {
     }
 }
 
+/******************variables para la revision final *************/
 
+let parrafo_categoria = document.getElementById('parrafo-categoria');
+let parrafo_duracion = document.getElementById('parrafo-duracion');
+let parrafo_usos = document.getElementById('parrafo-usos');
+let parrafo_color_cristal = document.getElementById('parrafo-color-cristal');
+let parrafo_estilo = document.getElementById('parrafo-estilo');
+let parrafo_tamanio = document.getElementById('parrafo-tamanio');
+let parrafo_marca = document.getElementById('parrafo-marca');
+let parrafo_modelo = document.getElementById('parrafo-modelo');
+let parrafo_codigo = document.getElementById('parrafo-codigo');
+let parrafo_descripcion = document.getElementById('parrafo-descripcion');
+let parrafo_costo = document.getElementById('parrafo-costo');
+let parrafo_remarque = document.getElementById('parrafo-remarque');
+let parrafo_precio = document.getElementById('parrafo-precio');
+let parrafo_descuento = document.getElementById('parrafo-descuento');
+let parrafo_genero = document.getElementById('parrafo-genero');
+let parrafo_fecha_alta = document.getElementById('parrafo-fecha-alta');
+let parrafo_material = document.getElementById('parrafo-material');

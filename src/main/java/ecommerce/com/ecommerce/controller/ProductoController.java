@@ -1,7 +1,9 @@
 package ecommerce.com.ecommerce.controller;
 
+import ecommerce.com.ecommerce.Dto.ProductoDto;
 import ecommerce.com.ecommerce.Exceptions.ServiceException;
 import ecommerce.com.ecommerce.domain.Producto;
+import ecommerce.com.ecommerce.service.FotoService;
 import ecommerce.com.ecommerce.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/productos")
@@ -16,6 +19,9 @@ public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
+
+    @Autowired
+    private FotoService fotoService;
 
     @GetMapping("/carga-producto")
     public String cargarProducto(Model model, @RequestParam(required = false) String id) {
@@ -39,8 +45,8 @@ public class ProductoController {
     }
 
     @GetMapping("/buscar")
-    public String buscar(Model model, @RequestParam String query) {
-        model.addAttribute("busqueda", productoService.listarSuperQuery(query));
+    public String buscar(Model model, @RequestParam String busqueda) {
+        model.addAttribute("busqueda", productoService.listarSuperQuery(busqueda));
         return "listar-productos";
     }
 
@@ -74,6 +80,17 @@ public class ProductoController {
     public String eliminarProducto(@RequestParam String id) {
         productoService.eliminarProd(id);
         return "redirect:/usuarios/admin#lista-productos";
+    }
+
+    @GetMapping("/descripcion")
+    public String descripcionProducto(@RequestParam String id,Model model) {
+        Producto nuevo = productoService.buscarPorId(id);
+        ProductoDto pDto = new ProductoDto();
+        List<String>listaIdFotos = fotoService.stringFotos(id);
+        pDto.setFoto(listaIdFotos);
+        ///Get-Set pDto.
+        model.addAttribute("producto",pDto);
+        return "producto-descripcion";
     }
 }
 

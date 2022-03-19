@@ -3,6 +3,9 @@ package ecommerce.com.ecommerce.service;
 import ecommerce.com.ecommerce.Exceptions.ServiceException;
 import ecommerce.com.ecommerce.domain.Foto;
 import ecommerce.com.ecommerce.repository.FotoRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,4 +71,19 @@ public class FotoService {
             }
         }
     }
+    ///TIENE QUE RECIBIR UN ID DE PRODUCTO
+    public List<String> stringFotos(String id){
+        List<Foto>lista=fotoRepository.listaFotos(id);
+        ArrayList<String>listaIdFotos=new ArrayList<>();
+
+        for (Foto f: lista) {
+            listaIdFotos.add(f.getId());
+        }
+        return listaIdFotos;
+    }
+
+    /// buscar foto por id de foto
+public Foto buscarporId(String id){
+        return fotoRepository.findById(id).orElse(null);
+}
 }

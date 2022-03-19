@@ -1,160 +1,224 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"/>
     <link rel="stylesheet" href="/css/index.css">
-    
-    <title>Document</title>
+    <title>Van Houten</title>
 </head>
 <body>
-    <nav class="nav-mobile">
-        <div class="nav-superior">
-            <div class="login" ><span class="material-icons-outlined">
-                account_circle
-                </span></div>
-            <div class="titulo"><b><span style="font-family: Arial, Helvetica, sans-serif; ">VAN-HOUTEN</span></b></div>
-            <div class="carrito"><span class="material-icons-outlined">
-                add_shopping_cart
-                </span></div>
-        </div>
 
-        <div class="nav-inferior">
-           <div class="formu">
-              <div class="buscador">
+<nav class="nav-pc pc">
+    <div class="nav-pc-arriba">
+        <div class="logo-pc2"><img src="/img/LOGO2.png" alt=""></div>
+        <div class="barra-contenedor-pc">
+            <div class="fondo-barra-pc">
                 <form th:action="@{/productos/buscar}">
-                    <div class="barra">
-                        <input type="text" name="query">
+                    <div class="barra-pc">
+                        <input type="text" name="busqueda">
                     </div>
-                    <div class="lupa">
-                     <label for="enviar">
-                        <span class="material-icons-outlined">
-                            search
-                            </span>
-                     </label>
-                         <input type="submit" id="enviar" style="display: none;">
+                    <div class="barra-lupa-pc">
+                        <label for="subir-pc"><span class="material-icons-outlined lupa">
+                        search
+                        </span></label>
+                        <input type="submit" id="subir-pc" style="display: none;">
                     </div>
                 </form>
-              </div>
-           </div>
-            <div class="reservas">
-                <span class="material-icons-outlined store" >
-                    store
-                    </span><span class="atendiendo">¡Estamos atendiendo! Reservá tu turno acá</span>
             </div>
-           
         </div>
-    </nav>
-    <div class="slyder">
-        <div class="slideshow-container">
+        <div class="atendiendo-pc">
+            <div class="shop-pc">
+                    <span class="material-icons-outlined shop-icono">
+                        store
+                        </span>
+            </div>
+            <div class="reserva-pc">
+                <span>Estamos atendiendo </span><a
+                    href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"
+                    target="_blank"><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
+            </div>
+        </div>
+        <div class="acciones-pc">
+            <a th:href="@{/login}"><span class="material-icons-outlined">
+                    account_circle
+                    </span></a>
+            <a href="@{/cart}"> <span class="material-icons-outlined">
+                shopping_cart
+                </span></a>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"><span class="material-icons-outlined">
+                        dashboard
+                        </span></a>
+        </div>
+    </div>
+    <div class="nav-pc-abajo">
+        <ul>
+            <li><a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Sol}">Lentes de Sol</a></li>
+            <li><a th:href="@{/productos/lista-categoria?categoria=Armazones+Recetado}">Armazones Recetados</a></li>
+            <li><a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Contacto}">Lentes de Contacto</a></li>
+            <li><a th:href="@{/productos/lista-categoria?categoria=Accesorios}">Accesorios</a></li>
+            <li><a th:href="@{/productos/lista-genero?genero=mujer}">Damas</a></li>
+            <li><a th:href="@{/productos/lista-genero?genero=hombre}">Caballeros</a></li>
+            <li><a th:href="@{/productos/lista-genero?genero=nino}">Niños</a></li>
+            <li><a th:href="@{/productos/lista-genero?genero=unisex}">Unisex</a></li>
+        </ul>
+    </div>
+</nav>
 
-            <div class="mySlides fade">
-              <img src="img/banner-promo-2_CL.jpg">
-            </div>
-          
-            <div class="mySlides fade">
-              <img src="img/banner.jpg">
-            </div>
-          
-            <div class="mySlides fade">
-              <img src="img/PROMO-Cabal-Banner-web-960x300px-01.jpg" >
-            </div>
-            <div class="mySlides fade">
-              <img src="img/vuelta_al_cole_-_banner_web_-_1983_X_700.jpg" >
-            </div>    
-          
-            <a class="prev"  onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next"  onclick="plusSlides(1)">&#10095;</a>
-          </div>
+<nav class="movil">
+    <div class="nav-arriba">
+               <span class="material-icons-outlined nav-icono movil">
+                   menu
+                   </span>
+        <div class="nav-barra">
+            <label for="subir"><span class="material-icons-outlined lupa">
+                       search
+                       </span></label>
+            <form th:action="@{/productos/buscar}">
+                <input type="text" name="busqueda" placeholder="Buscar en Van Houten">
+                <input type="submit" id="subir" style="display: none;">
+            </form>
+        </div>
+        <span class="material-icons-outlined nav-icono2 movil">
+                shopping_cart
+                </span>
+    </div>
+    <div class="nav-abajo">
+               <span class="material-icons-outlined shop-icono">
+                   store
+                   </span>
+        <span>Estamos atendiendo </span><a
+            href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"><span
+            class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
+    </div>
+</nav>
 
+<div class="slyder">
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://cdn.shopify.com/s/files/1/0231/8811/1438/files/Lentes_de_contacto_20_OFF_2_1801x700.jpg?v=1646254178">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://cdn.shopify.com/s/files/1/0231/8811/1438/files/Sol_20_25_30_OFF_2_1801x700.jpg?v=1646254033">
+        </div>
+        <div class="mySlides fade">
+            <img th:src="@{img/vuelta_al_cole_-_banner_web_-_1983_X_700.jpg}">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <div class="botones-grandes">
-        <div class="boton">
-            
-            <div class="arriba"><span>Lentes de Sol</span></div>
-            <div class="abajo">
-                <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Sol}"> 
-                    <img src="img/anteojos de sol.png" alt="">
-                </a>
-            </div>
-        
-        </div>
-        <div class="boton sin-borde" >
-            <div class="arriba"><span >Armazones recetados</span></div>
-            <div class="abajo">
-                <a th:href="@{/productos/lista-categoria?categoria=Armazones+Recetado}"> 
-                 <img src="img/armazonesrecetados.png" alt="">
-                </a>
-            </div>
-           
-        </div>
-        <div class="boton">
-            <div class="arriba">  <span>Lentes de contacto</span></div>
-            <div class="abajo">
-                <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Contacto}">
-                    <img src="img/WhatsApp Image 2022-02-21 at 10.18.12 PM.jpeg" alt="">
-                </a>
-            </div>
-          
-        </div>
-    </div>
- 
-    <div class="menu-scroll">
-        <div><a th:href="@{/productos/lista-categoria?categoria=Accesorios}"><span>Accesorios</span></a></div> <!-- <a th:href="@{/productos/lista-categoria?categoria=Accesorios}"> -->
-        <div><a th:href="@{/productos/lista-genero?genero=mujer}"><span>Damas</span></a></div> <!-- <a th:href="@{/productos/lista-genero?genero=mujer}"> -->
-        <div><a th:href="@{/productos/lista-genero?genero=hombre}"><span>Caballeros</span></a></div> <!-- <a th:href="@{/productos/lista-genero?genero=hombre}"> -->
-        <div><a th:href="@{/productos/lista-genero?genero=nino}"><span>Niños</span></a></div> <!-- <a th:href="@{/productos/lista-genero?genero=niño}"> -->
-        <div><a th:href="@{/productos/lista-genero?genero=unisex}"><span>Unisex</span></a></div>
 
-    </div>
-  <div class="whatsapp"><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a></div>
-<div class="promociones">
-    <div class="card">
-        <img src="//cdn.shopify.com/s/files/1/0231/8811/1438/files/Cuadrados_y_rectangulares250x360_240x360_crop_center.jpg?v=1644269295" alt="">
-    </div>
-    <div class="card">
-        <div class="card-arriba">
-            <img src="img/prottoti_656x471.jpg" alt="">
-        </div>
-        <div class="card-abajo">
-            <span class="descuento">Descuento <span>19%</span></span>
-            <span class="precio-anterior">$19000</span>
-            <span class="precio-actual">$15000</span>
-            <span class="card-titulo">Lentes rayban aviator dsdsds</span>
-            <span class="agregar-carrito">Agregar al carrito</span>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-arriba">
-            <img src="img/prottoti_656x471.jpg" alt="">
-        </div>
-        <div class="card-abajo">
-            <span class="descuento">Descuento <span>19%</span></span>
-            <span class="precio-anterior">$19000</span>
-            <span class="precio-actual">$15000</span>
-            <span class="card-titulo">Lentes rayban aviator dsdsds</span>
-            <span class="agregar-carrito">Agregar al carrito</span>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-arriba">
-            <img src="img/prottoti_656x471.jpg" alt="">
-        </div>
-        <div class="card-abajo">
-            <span class="descuento">Descuento <span>19%</span></span>
-            <span class="precio-anterior">$19000</span>
-            <span class="precio-actual">$15000</span>
-            <span class="card-titulo">Lentes rayban aviator dsdsds</span>
-            <span class="agregar-carrito">Agregar al carrito</span>
-        </div>
-    </div>
-   
 </div>
-    <!--REFERENCIA DE ADMIN-->
-    <button><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}">Admin Dashboard</a></button>
-    <!--REFERENCIA DE ADMIN-->
-<script src="/js/slyder.js"></script>
+<div class="botones-grandes movil">
+    <div class="boton">
+        <div class="arriba"><span>Lentes de Sol</span></div>
+        <div class="abajo">
+            <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Sol}">
+                <img th:src="@{/img/anteojos de sol.png}" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="boton sin-borde">
+        <div class="arriba"><span>Armazones recetados</span></div>
+        <div class="abajo">
+            <a th:href="@{/productos/lista-categoria?categoria=Armazones+Recetado}">
+                <img th:src="@{/img/armazonesrecetados.png}" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="boton">
+        <div class="arriba"><span>Lentes de contacto</span></div>
+        <div class="abajo">
+            <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Contacto}">
+                <img th:src="@{/img/WhatsApp Image 2022-02-21 at 10.18.12 PM.jpeg}" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="menu-scroll movil">
+    <div><a th:href="@{/productos/lista-categoria?categoria=Accesorios}"><span>Accesorios</span></a></div>
+    <div><a th:href="@{/productos/lista-genero?genero=mujer}"><span>Damas</span></a></div>
+    <div><a th:href="@{/productos/lista-genero?genero=hombre}"><span>Caballeros</span></a></div>
+    <div><a th:href="@{/productos/lista-genero?genero=nino}"><span>Niños</span></a></div>
+    <div><a th:href="@{/productos/lista-genero?genero=unisex}"><span>Unisex</span></a></div>
+
+</div>
+<div class="whatsapp "><a href="https://api.whatsapp.com/send?phone=5492613734461&text=Hola!😀 necesito ayuda con"
+                          target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a>
+</div>
+<div class="promociones movil">
+    <div class="card">
+        <img src="//cdn.shopify.com/s/files/1/0231/8811/1438/files/Cuadrados_y_rectangulares250x360_240x360_crop_center.jpg?v=1644269295"
+             alt="">
+    </div>
+    <div class="card movil" th:if="${busqueda != null and !busqueda.empty}">
+        <div class="card-arriba" th:each="a,iterator : ${busqueda}">
+            <img th:src="@{/foto/producto}+'?id='+${a.id}" alt="">
+        </div>
+        <div class="card-abajo">
+            <span class="descuento">Descuento<span th:text="*{a.descuento}"></span></span>
+            <span class="precio-anterior" th:text="*{a.precio}"></span>
+            <span class="precio-actual" th:text="*{a.precioFinal}"></span>
+            <span class="card-titulo" th:text="*{a.modelo}"></span>
+            <a class="agregar-carrito" href=""><span>Agregar al carrito</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="promociones-pc pc">
+    <div class="promociones-pc-iz">
+        <img src="//cdn.shopify.com/s/files/1/0231/8811/1438/files/Cuadrados_y_rectangulares250x360_240x360_crop_center.jpg?v=1644269295"
+             alt="">
+    </div>
+    <div class="promociones-pc-de">
+        <button class="ante" id="ante">&#60;</button>
+        <button class="post" id="poste">&#62;</button>
+        <div class="cards-pc" th:if="${busqueda != null and !busqueda.empty}">
+            <div class="card-pc" th:each="a,iterator : ${busqueda}">
+                <div class="card-pc-arr">
+                    <img th:src="@{/foto/producto}+'?id='+${a.id}" alt="">
+                </div>
+                <div class="card-pc-aba">
+                    <span class="descuento-pc">Descuento<span th:text="*{a.descuento}"></span></span>
+                    <span class="precio-anterior-pc" th:text="*{a.precio}"></span>
+                    <span class="precio-actual-pc" th:text="*{a.precioFinal}"></span>
+                    <span class="card-titulo-pc" th:text="*{a.modelo}"></span>
+                    <a class="agregar-carrito-pc" href=""><span>Agregar al carrito</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--VER SI NECESITAMOS UTILIZAR DOS LINEAS DE PRODUCTOS-->
+<!--
+<div class="promociones-pc pc">
+    <div class="promociones-pc-iz">
+        <img src="//cdn.shopify.com/s/files/1/0231/8811/1438/files/Cuadrados_y_rectangulares250x360_240x360_crop_center.jpg?v=1644269295"
+             alt="">
+    </div>
+    <div class="promociones-pc-de">
+        <button class="ante2" id="ante">&#60;</button>
+        <button class="post2" id="poste">&#62;</button>
+        <div class="cards-pc2">
+            <div class="card-pc">
+                <div class="card-pc-arr">
+                    <img th:src="@{/img/facebook.png}" alt="">
+                </div>
+                <div class="card-pc-aba">
+                    <span class="descuento-pc">Descuento <span>19%</span></span>
+                    <span class="precio-anterior-pc">$19000</span>
+                    <span class="precio-actual-pc">$15000</span>
+                    <span class="card-titulo-pc">Lentes rayban aviator dsdsds</span>
+                    <a class="agregar-carrito-pc" href=""><span>Agregar al carrito</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<script th:src="@{js/listar_producto_pc.js}"></script>
+<script th:src="@{js/slyder.js}"></script>
 </body>
 </html>

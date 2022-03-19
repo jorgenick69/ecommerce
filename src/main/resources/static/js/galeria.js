@@ -8,3 +8,9 @@ function cambiarImagen(mySrc) {
     foto.setAttribute( "src",mySrc);
     
 }
+function cambiarImagen2(mySrc) {
+    
+    let foto = document.getElementById('imagen-grande2');
+    foto.setAttribute( "src",mySrc);
+    
+}

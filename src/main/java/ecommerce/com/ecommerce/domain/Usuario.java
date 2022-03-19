@@ -36,6 +36,6 @@ public class Usuario implements Serializable{
     private String clave;
     @OneToOne
     private Foto foto;
-    //@OneToMany
-    //private List<Transaccion> compras;
+    @OneToMany
+    private List<Transaccion> compras;
 }

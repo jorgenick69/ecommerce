@@ -42,7 +42,7 @@ public class UsuarioController {
         } else {
             model.addAttribute("usuario", new Usuario());
         }
-        return "carga-usuario";
+        return "registro-persona";
     }
 
     @PostMapping("/cargar")
@@ -58,6 +58,9 @@ public class UsuarioController {
        usuarioService.borrar(id);
        return "redirect:/usuarios/admin#usuarios";
     }
+
+
+
 
     ////////////CONTROLER DASHBOARD ADMIN////////////////
     @GetMapping("/admin")

@@ -1,7 +1,11 @@
 package ecommerce.com.ecommerce.repository;
 
 import ecommerce.com.ecommerce.domain.Producto;
+
+import java.awt.print.Pageable;
 import java.util.List;
+
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -45,4 +49,9 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
 
     @Query("SELECT a FROM Producto a WHERE a.stock<=:stock")
     List<Producto>findByStock(@Param("stock") Integer stock);
+
+
+   /* @Query("SELECT a FROM Producto a WHERE a.descuento>=0")
+    public Page <Producto> findByDescuentoIndex(Pageable pageable);*/
+
 }

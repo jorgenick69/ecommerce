@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.PageRequest;
 
 @Service
 public class ProductoService {
@@ -44,15 +46,18 @@ public class ProductoService {
         producto.setRemarque((producto.getCosto() -((producto.getPrecio()*100)/producto.getCosto())));
         }
         List<Foto> fotos = new ArrayList<>();
+if(archivo!=null || !archivo.isEmpty()){
 
-        for (MultipartFile ar : archivo) {
-            if (ar.getSize() != 0){
-                fotos.add(fotoService.crear(ar));
-            } else {
-                continue;
-            }
+    for (MultipartFile ar : archivo) {
+        if (ar.getSize() != 0){
+            fotos.add(fotoService.crear(ar));
+        } else {
+            continue;
         }
-        producto.setFoto(fotos);
+    }
+    producto.setFoto(fotos);
+}
+
         producto.setEstado(true);
         pRep.save(producto);}
 
@@ -95,5 +100,11 @@ public class ProductoService {
     public List<Producto> listarCategoria(String categoria){return pRep.findByCategoria(categoria);}
 
     public void eliminarProd(String id){pRep.deleteById(id);}
+
+    public Producto buscarPorId(String id){return pRep.findById(id).orElse(null);}
+
+    /*Page <Producto> findByDescuentoIndex() {
+        return pRep.findByDescuentoIndex(new PageRequest.of(0,5));
+    }*/
 
 }

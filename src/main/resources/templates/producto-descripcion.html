@@ -6,63 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
     <link rel="stylesheet" href="/css/producto-descripcion.css">
-    <title>VAN-HOUTEN</title>
+    <title>Van Houten</title>
 </head>
 <body>
-    <nav class="nav-mobile">
-        <div class="nav-superior">
-            <div class="login"><span class="material-icons-outlined">
-                account_circle
-                </span></div>
-            <div class="titulo"><b><span style="font-family: Arial, Helvetica, sans-serif; font-size: 1.5rem;">VAN-HOUTEN</span></b></div>
-            <div class="carrito"><span class="material-icons-outlined">
-                add_shopping_cart
-                </span></div>
-        </div>
-
-        <div class="nav-inferior">
-           <div class="formu">
-              <div class="buscador">
-                <form action="">
-                    <div class="barra">
-                        <input type="text">
-                    </div>
-                    <div class="lupa">
-                     <label for="enviar">
-                        <span class="material-icons-outlined">
-                            search
-                            </span>
-                     </label>
-                         <input type="submit" id="enviar" style="display: none;">
-                    </div>
+    <nav class="nav-pc pc">
+        <div class="nav-pc-arriba">
+            <div class="logo-pc2"><img src="/img/LOGO2.png" alt=""></div>
+            <div class="barra-contenedor-pc">
+               <div class="fondo-barra-pc">
+                   <form action="">
+                   <div class="barra-pc">
+                       <input type="text" name="busqueda">
+    
+                   </div>
+                   <div class="barra-lupa-pc">
+                    <label for="subir-pc"><span class="material-icons-outlined lupa">
+                        search
+                        </span></label>
+                        <input type="submit" id="subir-pc" style="display: none;">
+                   </div>
                 </form>
-              </div>
-           </div>
-            <div class="reservas">
-                <span class="material-icons-outlined store" >
-                    store
-                    </span><span class="atendiendo">¡Estamos atendiendo! Reservá tu turno acá</span>
+               </div>
             </div>
-           
+            <div class="atendiendo-pc">
+                <div class="shop-pc">
+                    <span class="material-icons-outlined shop-icono">
+                        store
+                        </span>
+                </div>
+                <div class="reserva-pc">
+                    <span>Estamos atendiendo </span><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
+                </div>
+            </div>
+            <div class="acciones-pc">
+                <a href=""><span class="material-icons-outlined">
+                    account_circle
+                    </span></a>
+               <a href=""> <span class="material-icons-outlined">
+                shopping_cart
+                </span></a>
+                    <a href=""><span class="material-icons-outlined">
+                        dashboard
+                        </span></a>
+            </div>
+        </div>    
+        <div class="nav-pc-abajo">
+            <ul>
+                <li><a href="">Lentes de Sol</a></li>
+                <li><a href="">Armazones Recetados</a></li>
+                <li><a href="">Lentes de Contacto</a></li>
+                <li><a href="">Accesorios</a></li>
+                <li><a href="">Damas</a></li>
+                <li><a href="">Caballeros</a></li>
+                <li><a href="">Niños</a></li>
+                <li><a href="">Ayuda</a></li>
+            </ul>
+        </div>
+        </nav>
+        <nav class="movil">
+            <div class="nav-arriba">
+               <span class="material-icons-outlined nav-icono movil">
+                   menu
+                   </span>  
+                  <div class="nav-barra">
+                   <label for="subir"><span class="material-icons-outlined lupa">
+                       search
+                       </span></label>
+                   <form action="">
+                       <input type="text" name="busqueda" placeholder="Buscar en Van Houten">
+                       <input type="submit" id="subir" style="display: none;">
+                   </form>
+                  </div>
+               <span class="material-icons-outlined nav-icono2 movil">
+                   shopping_cart
+                   </span>  
+            </div>
+            <div class="nav-abajo">
+               <span class="material-icons-outlined shop-icono">
+                   store
+                   </span>
+                   <span>Estamos atendiendo </span><a href=""><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
+            </div>
+        </nav>
+    <nav class="movil">
+        <div class="nav-arriba">
+           <span class="material-icons-outlined nav-icono movil">
+               menu
+               </span>  
+              <div class="nav-barra">
+               <label for="subir"><span class="material-icons-outlined lupa">
+                   search
+                   </span></label>
+               <form action="">
+                   <input type="text" name="busqueda" placeholder="Buscar en Van Houten">
+                   <input type="submit" id="subir" style="display: none;">
+               </form>
+              </div>
+           <span class="material-icons-outlined nav-icono2 movil">
+               shopping_cart
+               </span>  
+        </div>
+        <div class="nav-abajo">
+           <span class="material-icons-outlined shop-icono">
+               store
+               </span>
+               <span>Estamos atendiendo </span><a href=""><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
         </div>
     </nav>
-    <div class="producto-foto-pricipal" id="producto-foto-pricipal">
-        <img src="img/prottoti_656x471.jpg" alt="" id="imagen-grande">
+    <div class="producto-foto-pricipal movil" id="producto-foto-pricipal">
+        <img th:src="@{/foto/producto}" alt="" id="imagen-grande">
     </div>
-    <div class="producto-foto-miniatura">
-        <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
+    <div class="producto-foto-miniatura movil" th:each="a,iterator : ${producto.foto}">
+        <div><img th:src="@{/foto/productos}+'?id='+a" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
         <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/pttti_420x300_crop_center.jpg')"></div>
         <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
         <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/pttti_420x300_crop_center.jpg')"></div>
         
     </div>
-    <h1 class="producto-nombre">Anteojos Prototype EWAN/C5</h1>
-    <span class="descuento">Descuento <span>25</span>%</span>
-    <span class="precio-anterior">$ <span>15100</span></span>
-    <span class="precio-actual">$ <span>15100</span></span>
+    <h1 class="producto-nombre movil">Anteojos Prototype EWAN/C5</h1>
+    <span class="descuento movil">Descuento <span>25</span>%</span>
+    <span class="precio-anterior movil">$ <span>15100</span></span>
+    <span class="precio-actual movil">$ <span>15100</span></span>
     <br>
-    <span class="sku" style="display: none;">SKU <span>190239</span></span>
-   <div class="controles">
+    <span class="sku movil" style="display: none;">SKU <span>190239</span></span>
+   <div class="controles movil">
     <select name="cantidad" id="">
         <option value="1">Cantidad</option>
         <option value="1">1</option>
@@ -74,37 +141,103 @@
         <option value="7">7</option>
         <option value="8">8</option>
     </select>
-    <a href=""><span>Agregar al carrito</span></a>
+    <a href="" ><span>Agregar al carrito</span></a>
    </div>
   
    
-   <br>
-   <span class="titulo-descripcion">Codigo de producto: </span><span class="contenido-descripcion"> 190239</span>
-   <br>
-   <span class="titulo-descripcion">Genero: </span><span class="contenido-descripcion"> Hombre</span>
-   <br>
-   <span class="titulo-descripcion">Color del Armazón: </span><span class="contenido-descripcion"> Cobre</span>
-   <br>
-   <span class="titulo-descripcion">Color y tipo de lente: </span><span class="contenido-descripcion"> Marrón</span>
-   <br>
-   <span class="titulo-descripcion">Material: </span><span class="contenido-descripcion"> Metal</span>
-   <br>
-   <span class="titulo-descripcion">Estilo: </span><span class="contenido-descripcion"> Aviador cuadrado</span>
-   <br>
-   <br>
-    <h3 class="compartir">Compartir</h3>
-   <div class="redes">
+   <br class="movil">
+   <span class="titulo-descripcion movil">Codigo de producto: </span><span class="contenido-descripcion movil"> 190239</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Genero: </span><span class="contenido-descripcion movil"> Hombre</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Color del Armazón: </span><span class="contenido-descripcion movil"> Cobre</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Color y tipo de lente: </span><span class="contenido-descripcion movil"> Marrón</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Material: </span><span class="contenido-descripcion movil"> Metal</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Estilo: </span><span class="contenido-descripcion movil"> Aviador cuadrado</span>
+   <br class="movil">
+   <br class="movil">
+    <h3 class="compartir movil">Compartir</h3>
+   <div class="redes movil">
        
-    <a href=""><img src="/facebook.png" alt=""></a>
-    <a href=""><img src="/instagram.png" alt=""></a>
-    <a href=""><img src="/gorjeo.png" alt=""></a>
+    <a href="" ><img src="/img/facebook.png" alt=""></a>
+    <a href="" ><img src="/img/instagram.png" alt=""></a>
+    <a href=""><img src="/img/gorjeo.png" alt=""></a>
    </div>
-   <p class="texto">
+   <p class="texto movil">
     <b> Satisfacción garantizada:</b> Si el producto no es de tu agradado podés realizar el primer cambio sin ningún costo logístico asociado.
 
     
     </p>
-   <div class="whatsapp"><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a></div>
+   <div class="whatsapp "><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a></div>
+<div class="producto-pc pc">
+    <div class="centrado-pc">
+        <div class="foto-prin-pc">
+            <img src="img/prottoti_656x471.jpg" alt="" id="imagen-grande2">
+        </div>
+        <div class="fotos-min-pc">
+            <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
+            <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
+            <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
+            <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
+        </div>
+        <div class="descripcion-pc">
+            <h1 class="producto-nombre ">Anteojos Prototype EWAN/C5</h1>
+        <span class="descuento ">Descuento <span>25</span>%</span>
+        <span class="precio-anterior ">$ <span>15100</span></span>
+        <span class="precio-actual ">$ <span>15100</span></span>
+        <br>
+        <span class="sku " style="display: none;">SKU <span>190239</span></span>
+       <div class="controles ">
+        <select name="cantidad" id="">
+            <option value="1">Cantidad</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <a href=""  ><span>Agregar al carrito</span></a>
+       </div>
+      
+       
+       <br class="">
+       <span class="titulo-descripcion ">Codigo de producto: </span><span class="contenido-descripcion "> 190239</span>
+       <br class="">
+       <span class="titulo-descripcion ">Genero: </span><span class="contenido-descripcion "> Hombre</span>
+       <br class="">
+       <span class="titulo-descripcion ">Color del Armazón: </span><span class="contenido-descripcion "> Cobre</span>
+       <br class="">
+       <span class="titulo-descripcion ">Color y tipo de lente: </span><span class="contenido-descripcion "> Marrón</span>
+       <br class="">
+       <span class="titulo-descripcion ">Material: </span><span class="contenido-descripcion "> Metal</span>
+       <br class="">
+       <span class="titulo-descripcion ">Estilo: </span><span class="contenido-descripcion "> Aviador cuadrado</span>
+       <br class="">
+       <br class="">
+        <h3 class="compartir ">Compartir</h3>
+       <div class="redes ">
+           
+        <a href="" ><img src="/img/facebook.png" alt=""></a>
+        <a href="" ><img src="/img/instagram.png" alt=""></a>
+        <a href=""><img src="/img/gorjeo.png" alt=""></a>
+       </div>
+       <p class="texto ">
+        <b> Satisfacción garantizada:</b> Si el producto no es de tu agradado podés realizar el primer cambio sin ningún costo logístico asociado.
+    
+        
+        </p>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 <script src="/js/galeria.js"></script>
 </html>
