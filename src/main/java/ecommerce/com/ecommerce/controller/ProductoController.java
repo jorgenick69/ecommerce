@@ -43,6 +43,19 @@ public class ProductoController {
         return "redirect:/usuarios/admin#lista-productos";
     }
 
+    @GetMapping("/editar-producto")
+    public String editarProducto(Model model, @ModelAttribute Producto producto,@RequestParam(required = false) String id) {
+        Producto optional = productoService.listarId(id);
+        model.addAttribute("producto", optional);
+        return "editar-producto";
+    }
+
+    @PostMapping("/modificar")
+    public String modificarProducto(Model model, @ModelAttribute Producto producto) throws ServiceException{
+        productoService.actualizar(producto);
+        return "redirect:/usuarios/admin#lista-productos";
+    }
+
     @GetMapping("/buscar")
     public String buscar(Model model, @RequestParam String busqueda) {
         model.addAttribute("busqueda", productoService.listarSuperQuery(busqueda));
@@ -79,6 +92,12 @@ public class ProductoController {
     public String eliminarProducto(@RequestParam String id) {
         productoService.eliminarProd(id);
         return "redirect:/usuarios/admin#lista-productos";
+    }
+
+    @GetMapping("/producto-descripcion")
+    public String productoDescripcion(Model model,@RequestParam String id){
+        model.addAttribute("producto",productoService.buscarPorId(id));
+        return "producto-descripcion";
     }
 
 }

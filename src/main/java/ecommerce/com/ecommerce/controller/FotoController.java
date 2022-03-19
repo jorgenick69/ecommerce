@@ -33,6 +33,62 @@ private FotoService fotoService;
             return null;
         }
     }
+
+    @GetMapping("/productofoto")
+    private ResponseEntity<byte[]> productoFoto(@RequestParam String id) {
+        Producto producto = productoService.listarId(id);
+
+        if (producto.getFoto().get(0).getContenido() != null) {
+            byte[] foto = producto.getFoto().get(0).getContenido();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        }else{
+            return null;
+        }
+    }
+
+    @GetMapping("/productofoto1")
+    private ResponseEntity<byte[]> productoFoto1(@RequestParam String id) {
+        Producto producto = productoService.listarId(id);
+
+        if (producto.getFoto().get(1).getContenido() != null) {
+            byte[] foto = producto.getFoto().get(1).getContenido();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        }else{
+            return null;
+        }
+    }
+
+    @GetMapping("/productofoto2")
+    private ResponseEntity<byte[]> productoFoto2(@RequestParam String id) {
+        Producto producto = productoService.listarId(id);
+
+        if (producto.getFoto().get(2).getContenido() != null) {
+            byte[] foto = producto.getFoto().get(2).getContenido();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        }else{
+            return null;
+        }
+    }
+
+    @GetMapping("/productofoto3")
+    private ResponseEntity<byte[]> productoFoto3(@RequestParam String id) {
+        Producto producto = productoService.listarId(id);
+
+        if (producto.getFoto().get(3).getContenido() != null) {
+            byte[] foto = producto.getFoto().get(3).getContenido();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        }else{
+            return null;
+        }
+    }
 }
 
 

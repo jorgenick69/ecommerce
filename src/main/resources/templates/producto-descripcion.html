@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,6 @@
                    <form action="">
                    <div class="barra-pc">
                        <input type="text" name="busqueda">
-    
                    </div>
                    <div class="barra-lupa-pc">
                     <label for="subir-pc"><span class="material-icons-outlined lupa">
@@ -113,17 +112,18 @@
                <span>Estamos atendiendo </span><a href=""><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
         </div>
     </nav>
+
     <div class="producto-foto-pricipal movil" id="producto-foto-pricipal">
-        <img th:src="@{/foto/producto}" alt="" id="imagen-grande">
+        <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="" id="imagen-grande">
     </div>
-    <div class="producto-foto-miniatura movil" th:each="{a,iterator : ${producto.foto}">
-        <div><img th:src="@{/foto/productos}+'?id='+a" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
+    <div class="producto-foto-miniatura movil">
+        <div><img src="" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
         <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/pttti_420x300_crop_center.jpg')"></div>
         <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
         <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/pttti_420x300_crop_center.jpg')"></div>
         
     </div>
-    <h1 class="producto-nombre movil">Anteojos Prototype EWAN/C5</h1>
+    <h1 class="producto-nombre movil" th:text="*{nombre}"></h1>
     <span class="descuento movil">Descuento <span>25</span>%</span>
     <span class="precio-anterior movil">$ <span>15100</span></span>
     <span class="precio-actual movil">$ <span>15100</span></span>
@@ -175,21 +175,21 @@
 <div class="producto-pc pc">
     <div class="centrado-pc">
         <div class="foto-prin-pc">
-            <img src="img/prottoti_656x471.jpg" alt="" id="imagen-grande2">
+            <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="" id="imagen-grande2">
         </div>
         <div class="fotos-min-pc">
-            <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
-            <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
-            <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
-            <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
+            <div><img th:src="@{/foto/productofoto}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
+            <div><img th:src="@{/foto/productofoto1}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
+            <div><img th:src="@{/foto/productofoto2}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
+            <div><img th:src="@{/foto/productofoto3}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
         </div>
         <div class="descripcion-pc">
-            <h1 class="producto-nombre ">Anteojos Prototype EWAN/C5</h1>
-        <span class="descuento ">Descuento <span>25</span>%</span>
-        <span class="precio-anterior ">$ <span>15100</span></span>
-        <span class="precio-actual ">$ <span>15100</span></span>
+            <h1 class="producto-nombre" th:text="${producto.modelo}"></h1>
+        <span class="descuento ">Descuento <span th:text="${producto.descuento}"></span> %</span>
+        <span class="precio-anterior ">$ <span th:text="${producto.precio}"></span></span>
+        <span class="precio-actual ">$ <span th:text="${producto.precioFinal}"></span></span>
         <br>
-        <span class="sku " style="display: none;">SKU <span>190239</span></span>
+        <span class="sku " style="display: none;">SKU <span th:text="${producto.codigo}"></span></span>
        <div class="controles ">
         <select name="cantidad" id="">
             <option value="1">Cantidad</option>
@@ -207,17 +207,17 @@
       
        
        <br class="">
-       <span class="titulo-descripcion ">Codigo de producto: </span><span class="contenido-descripcion "> 190239</span>
+       <span class="titulo-descripcion ">Codigo de producto: </span><span class="contenido-descripcion " th:text="${producto.codigo}"></span>
        <br class="">
-       <span class="titulo-descripcion ">Genero: </span><span class="contenido-descripcion "> Hombre</span>
+       <span class="titulo-descripcion ">Genero: </span><span class="contenido-descripcion " th:text="${producto.genero}"> </span>
        <br class="">
-       <span class="titulo-descripcion ">Color del Armazón: </span><span class="contenido-descripcion "> Cobre</span>
+       <span class="titulo-descripcion ">Color del Armazón: </span><span class="contenido-descripcion " th:text="${producto.color}"></span>
        <br class="">
-       <span class="titulo-descripcion ">Color y tipo de lente: </span><span class="contenido-descripcion "> Marrón</span>
+       <span class="titulo-descripcion ">Color y tipo de lente: </span><span class="contenido-descripcion " th:text="${producto.colorCristal}"></span>
        <br class="">
-       <span class="titulo-descripcion ">Material: </span><span class="contenido-descripcion "> Metal</span>
+       <span class="titulo-descripcion ">Material: </span><span class="contenido-descripcion " th:text="${producto.material}"> </span>
        <br class="">
-       <span class="titulo-descripcion ">Estilo: </span><span class="contenido-descripcion "> Aviador cuadrado</span>
+       <span class="titulo-descripcion ">Estilo: </span><span class="contenido-descripcion " th:text="${producto.estilo}"></span>
        <br class="">
        <br class="">
         <h3 class="compartir ">Compartir</h3>

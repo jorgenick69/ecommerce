@@ -54,11 +54,11 @@
 				<thead>
 				<tr>
 					<th>ID</th>
-					<th>Categoria</th>
-					<th>Codigo</th>
-					<th>Marca</th>
 					<th>Modelo</th>
+					<th>Marca</th>
+					<th>Codigo</th>
 					<th>Stock</th>
+					<th>Color</th>
 					<th>Acciones</th>
 				</tr>
 				</head>
@@ -72,7 +72,7 @@
 					<td th:text="${p.stock}"></td>
 					<td th:text="${p.color}"></td>
 					<td>
-						<button><a th:href="@{/productos/carga-producto}+'?id='+${p.id}">Editar</a></button>
+						<button><a th:href="@{/productos/editar-producto}+'?id='+${p.id}">Editar</a></button>
 						<button><a th:href="@{/productos/eliminar}+'?id='+${p.id}">Eliminar</a></button>
 					</td>
 				</tr>

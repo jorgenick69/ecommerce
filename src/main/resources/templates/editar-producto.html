@@ -14,7 +14,7 @@
 
 <div class="contenedorFormu">
 
-    <form th:action="@{/productos/cargar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
+    <form th:action="@{/productos/modificar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
         <input hidden th:field="*{id}">
         <div class="productoCategoria" id="productoCategoria">
             <label for="categoria-campo">¿A que categoria pertenece el producto?</label>
@@ -233,7 +233,7 @@
     </form>
 </div>
 <div class="contenedor-formpc">
-    <form th:action="@{/productos/cargar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
+    <form th:action="@{/productos/modificar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
         <input hidden th:field="*{id}">
         <div class="izquierdapc">
             <div class="divisiones-pc">
@@ -350,10 +350,11 @@
             </div>
         </div>
         <div class="derechapc">
-            <input type="file" name="archivox" id="fpc1" style="display: none;">
-            <input type="file" name="archivox" id="fpc2" style="display: none;">
-            <input type="file" name="archivox" id="fpc3" style="display: none;">
-            <input type="file" name="archivox" id="fpc4" style="display: none;">
+            <input type="file" name="archivox"  id="fpc1" style="display: none;">
+            <input type="file" name="archivox"  id="fpc2" style="display: none;">
+            <input type="file" name="archivox"  id="fpc3" style="display: none;">
+            <input type="file" name="archivox"  id="fpc4" style="display: none;">
+
             <div class="ffondo1" id="ffondo1"><label for="fpc1" id="preview1pc"></label><span class="material-icons-outlined cargado " id="cargado1">
             task_alt
             </span></div>

@@ -156,7 +156,7 @@
     <div class="card movil" th:if="${descuentos != null and !descuentos.empty}">
         <div th:each="a,iterator : ${descuentos}">
         <div class="card-arriba">
-            <img th:src="@{/foto/producto}+'?id='+${a.id}" alt="">
+            <a th:href="@{/productos/producto-descripcion}+'?id='+${a.id}"><img th:src="@{/foto/producto}+'?id='+${a.id}" alt=""></a>
         </div>
         <div class="card-abajo">
             <span class="descuento">Descuento<span th:text="${a.descuento}"></span></span>
@@ -187,6 +187,7 @@
             <div class="card-pc" th:each="producto,iterator : ${descuentos}">
                 <div class="card-pc-arr">
                     <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="">
+
                 </div>
                 <div class="card-pc-aba">
                     <span class="descuento-pc">Descuento <span th:text="${producto.descuento}"></span></span>
