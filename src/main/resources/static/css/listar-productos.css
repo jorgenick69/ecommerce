@@ -6,6 +6,10 @@
     text-decoration: none;
 }
 
+div.producto-der span a {
+    color: black;
+}
+
 .pc{
     display: none;
 }
