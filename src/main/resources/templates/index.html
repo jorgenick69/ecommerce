@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,13 @@
     <link rel="stylesheet" href="/css/index.css">
     <title>Van Houten</title>
 </head>
+
+
 <body>
 
 <nav class="nav-pc pc">
     <div class="nav-pc-arriba">
-        <div class="logo-pc2"><a th:href="@{/}"><img src="/img/LOGO2.png" alt=""></div></a>
+        <div class="logo-pc2"><img src="/img/LOGO2.png" alt=""></div>
         <div class="barra-contenedor-pc">
             <div class="fondo-barra-pc">
                 <form th:action="@{/productos/buscar}">
@@ -66,33 +69,7 @@
     </div>
 </nav>
 
-<nav class="movil">
-    <div class="nav-arriba">
-               <span class="material-icons-outlined nav-icono movil">
-                   menu
-                   </span>
-        <div class="nav-barra">
-            <label for="subir"><span class="material-icons-outlined lupa">
-                       search
-                       </span></label>
-            <form th:action="@{/productos/buscar}">
-                <input type="text" name="busqueda" placeholder="Buscar en Van Houten">
-                <input type="submit" id="subir" style="display: none;">
-            </form>
-        </div>
-        <span class="material-icons-outlined nav-icono2 movil">
-                shopping_cart
-                </span>
-    </div>
-    <div class="nav-abajo">
-               <span class="material-icons-outlined shop-icono">
-                   store
-                   </span>
-        <span>Estamos atendiendo </span><a
-            href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"><span
-            class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
-    </div>
-</nav>
+<nav th:replace="/fragments/nav-mobile"></nav>
 
 <div class="slyder">
     <div class="slideshow-container">

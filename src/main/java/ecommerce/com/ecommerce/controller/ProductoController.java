@@ -59,8 +59,23 @@ public class ProductoController {
     @GetMapping("/buscar")
     public String buscar(Model model, @RequestParam String busqueda) {
         model.addAttribute("busqueda", productoService.listarSuperQuery(busqueda));
+        model.addAttribute("titulo", busqueda);
         return "listar-productos";
     }
+    
+    @PostMapping("/buscarConFiltros")
+    public String buscarConFiltros(@ModelAttribute Producto producto, Model model, @RequestParam String query, 
+           @RequestParam(required=false) String tamanio, @RequestParam(required=false) Double preciomin,
+           @RequestParam(required=false) Double preciomax, @RequestParam(required=false) String orden
+           ) {
+        
+        
+        model.addAttribute("busqueda", productoService.filtrar(query, tamanio, preciomin, preciomax, orden));
+        model.addAttribute("titulo", query);
+        return "listar-productos";
+    }
+    
+    
 
     @GetMapping("/lista")
     public String lis_producto(Model model, @RequestParam(required = false) String id) {
