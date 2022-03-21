@@ -6,103 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
     <link rel="stylesheet" href="/css/listar-productos.css">
-    <title>Document</title>
+    <title>Van Houten</title>
 </head>
 <body>
-    <nav class="nav-pc pc">
-    <div class="nav-pc-arriba">
-        <div class="logo-pc2"><img src="/img/LOGO2.png" alt=""></div>
-        <div class="barra-contenedor-pc">
-           <div class="fondo-barra-pc">
-               <form action="">
-               <div class="barra-pc">
-                   <input type="text" name="busqueda">
-
-               </div>
-               <div class="barra-lupa-pc">
-                <label for="subir-pc"><span class="material-icons-outlined lupa">
-                    search
-                    </span></label>
-                    <input type="submit" id="subir-pc" style="display: none;">
-               </div>
-            </form>
-           </div>
-        </div>
-        <div class="atendiendo-pc">
-            <div class="shop-pc">
-                <span class="material-icons-outlined shop-icono">
-                    store
-                    </span>
-            </div>
-            <div class="reserva-pc">
-                <span>Estamos atendiendo </span><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
-            </div>
-        </div>
-        <div class="acciones-pc">
-            <a href=""><span class="material-icons-outlined">
-                account_circle
-                </span></a>
-           <a href=""> <span class="material-icons-outlined">
-            shopping_cart
-            </span></a>
-                <a sec:authorize="hasRole('ROLE_ADMIN')" href="@{/usuarios/admin"><span class="material-icons-outlined">
-                    dashboard
-                    </span></a>
-        </div>
-    </div>    
-    <div class="nav-pc-abajo">
-        <ul>
-            <li><a href="">Lentes de Sol</a></li>
-            <li><a href="">Armazones Recetados</a></li>
-            <li><a href="">Lentes de Contacto</a></li>
-            <li><a href="">Accesorios</a></li>
-            <li><a href="">Damas</a></li>
-            <li><a href="">Caballeros</a></li>
-            <li><a href="">Niños</a></li>
-            <li><a href="">Ayuda</a></li>
-        </ul>
-    </div>
-    </nav>
- <nav class="movil">
-     <div class="nav-arriba">
-        <span class="material-icons-outlined nav-icono movil">
-            menu
-            </span>  
-           <div class="nav-barra">
-            <label for="subir"><span class="material-icons-outlined lupa">
-                search
-                </span></label>
-            <form action="">
-                <input type="text" name="busqueda" placeholder="Buscar en Van Houten">
-                <input type="submit" id="subir" style="display: none;">
-            </form>
-           </div>
-        <span class="material-icons-outlined nav-icono2 movil">
-            shopping_cart
-            </span>  
-     </div>
-     <div class="nav-abajo">
-        <span class="material-icons-outlined shop-icono">
-            store
-            </span>
-            <span>Estamos atendiendo </span><a href=""><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
-     </div>
- </nav>
+    <nav th:replace="/fragments/nav-pc"></nav>
+    <nav th:replace="/fragments/nav-mobile"></nav>
  <div class="controlar-productos pc">
-    <form action=""> 
-    <div class="controlar-productos-titulo"><h2>Titulo segun Query</h2></div>
+    <form th:action="@{/productos/buscarConFiltros}+'?query='+${titulo}" method="POST"> 
+    <div class="controlar-productos-titulo"><h2 th:text="'Resultados para ' +${titulo}"></h2></div>
      <div class="filtro">
         <div class="filtro-titulo"> <h4>Ordenar por</h4></div>
         <div class="contenedor-fitro">
         
             <div class="filtro-tamanio">
-                <select name="orden" id="">
+                <select name="orden" id="orden">
                     <option value="">Seleccione</option>
                     <option value="asc">Precio ascendente</option>
                     <option value="des">Precio descendente</option>
+                    <!--
                     <option value="max">Mayor descuento</option>
                     <option value="min">Menor decuento</option>
-                    
+                    -->
                    
                 </select>
             </div>
@@ -116,16 +40,17 @@
         
             <div>
               
-                <input type="number" id="precio-minimo" placeholder="precio minimo">
+                <input type="number" name="preciomin" id="precio-minimo" placeholder="precio minimo">
             </div>
             <div>
                
-               <input type="number" id="precio-max" placeholder="precio maximo">
+               <input type="number" name="preciomax" id="precio-max" placeholder="precio maximo">
             </div>
             
    
         </div>
      </div>
+     <!--
      <div class="filtro">
         <div class="filtro-titulo"> <h4>Filtrado por color</h4></div>
         <div class="contenedor-fitro">
@@ -134,13 +59,14 @@
             </div>
         </div>
      </div>
+    -->
     
      <div class="filtro">
         <div class="filtro-titulo"> <h4>Filtrado por  tamaño</h4></div>
         <div class="contenedor-fitro">
         
             <div class="filtro-tamanio">
-                <select name="" id="">
+                <select name="tamanio" id="tamanio">
                     <option value="">Seleccione un Tamaño</option>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
@@ -158,8 +84,8 @@
         <div class="contenedor-fitro">
         
             <div class="filtro-tamanio">
-                <select name="" id="">
-                    <option value="">Seleccione una marca</option>
+                <select name="tamano" id="">
+                    <option value="marca">Seleccione una marca</option>
                     <option value="small">Small</option>
                    
                 </select>
@@ -174,60 +100,19 @@
     </form>
  </div>
     <div class="productos">
-        <div class="producto-item">
+        <div class="producto-item" th:each="producto : ${busqueda}">
             <div class="producto-iz">
-                <img src="/img/prottoti_656x471.jpg" alt="">
-
+                <a th:href="@{/productos/producto-descripcion}+'?id='+${producto.id}">
+                 <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="">
+                </a>
             </div>
             <div class="producto-der">
-                <div><span class="oferta-producto">Oferta</span></div>
-                <div> <span class="titulo-producto">anteojo raybay de lujo con patillas extra larhe</span></div>
-                <div><span class="precio-producto">$<span>2659</span></span><span>&nbsp;</span><span class="descuento-producto">5<span>%OFF</span></span></div>
+                <div th:if="${producto.descuento > 0}"><span class="oferta-producto" >OFERTA</span></div>
+                <div> <span><a th:href="@{/productos/producto-descripcion}+'?id='+${producto.id}"><span class="titulo-producto" th:text="${producto.marca} +' '+ ${producto.modelo}"></span></span></a></div>
+                <div><span class="precio-producto">$<span th:text="${producto.precioFinal}"></span></span><span>&nbsp;</span><span class="descuento-producto" th:if="${producto.descuento > 0}" th:text="${producto.descuento}+'% OFF'"></span></div>
             </div>
         </div>
-        <div class="producto-item">
-            <div class="producto-iz">
-                <img src="/img/prottoti_656x471.jpg" alt="">
-
-            </div>
-            <div class="producto-der">
-                <div><span class="oferta-producto">Oferta</span></div>
-                <div> <span class="titulo-producto">anteojo raybay de lujo con patillas extra larhe</span></div>
-                <div><span class="precio-producto">$<span>2659</span></span><span>&nbsp;</span><span class="descuento-producto">5<span>%OFF</span></span></div>
-            </div>
-        </div>
-        <div class="producto-item">
-            <div class="producto-iz">
-                <img src="/img/prottoti_656x471.jpg" alt="">
-
-            </div>
-            <div class="producto-der">
-                <div><span class="oferta-producto">Oferta</span></div>
-                <div> <span class="titulo-producto">anteojo raybay de lujo con patillas extra larhe</span></div>
-                <div><span class="precio-producto">$<span>2659</span></span><span>&nbsp;</span><span class="descuento-producto">5<span>%OFF</span></span></div>
-            </div>
-        </div>
-        <div class="producto-item">
-            <div class="producto-iz">
-                <img src="/img/prottoti_656x471.jpg" alt="">
-
-            </div>
-            <div class="producto-der">
-                <div><span class="oferta-producto">Oferta</span></div>
-                <div> <span class="titulo-producto">anteojo raybay de lujo con patillas extra larhe</span></div>
-                <div><span class="precio-producto">$<span>2659</span></span><span>&nbsp;</span><span class="descuento-producto">5<span>%OFF</span></span></div>
-            </div>
-        </div>
-        <div class="producto-item">
-            <div class="producto-iz">
-                <img src="/img/prottoti_656x471.jpg" alt="">
-
-            </div>
-            <div class="producto-der">
-                <div><span class="oferta-producto">Oferta</span></div>
-                <div> <span class="titulo-producto">anteojo raybay de lujo con patillas extra larhe</span></div>
-                <div><span class="precio-producto">$<span>2659</span></span><span>&nbsp;</span><span class="descuento-producto">5<span>%OFF</span></span></div>
-            </div>
+        
         </div>
        
         <div class="whatsapp"><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a></div>

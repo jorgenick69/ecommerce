@@ -100,6 +100,12 @@ public class ProductoService {
             return null;
         }
     }
+    
+    public List<Producto> filtrar(String query,String tamanio, 
+           Double preciomin, Double preciomax, String orden){
+
+        return pRep.filtrar(query, tamanio, preciomin, preciomax, orden);
+    }
 
     public List<Producto> listarGenero(String genero){return pRep.findByGenero(genero);}
 

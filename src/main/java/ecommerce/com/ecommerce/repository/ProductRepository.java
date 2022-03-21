@@ -3,6 +3,7 @@ package ecommerce.com.ecommerce.repository;
 import ecommerce.com.ecommerce.domain.Producto;
 
 import java.awt.print.Pageable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -46,6 +47,34 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
             " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
             " OR a.uso LIKE %:query%")
     List<Producto>findByOcurrence(@Param("query") String query);
+    
+//    @Query("SELECT a FROM Producto a WHERE  a.marca LIKE %:query%" +
+//            " OR a.modelo LIKE %:query% OR a.codigo LIKE %:query% OR a.descripcion LIKE %:query%" +
+//            " OR a.categoria LIKE %:query% OR a.color LIKE %:query%" +
+//            " OR a.colorCristal LIKE %:query% OR a.material LIKE %:query% OR a.estilo LIKE %:query%" +
+//            " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
+//            " OR a.uso LIKE %:query% INNER JOIN (a.tamano LIKE :tamano AND a.precio >= :preciomin"
+//            + " AND a.precio <= :preciomax AND a.marca LIKE :marca ORDER BY a.precio :orden)")
+//    ArrayList<Producto> filtrar(@Param("query") String query, @Param("tamano") String tamano,
+//          @Param("preciomin") Double preciomin, @Param("preciomax") Double preciomax, 
+//          @Param("marca") String marca, @Param("orden") String orden);
+    
+        @Query(value = "SELECT * FROM Producto a WHERE  a.marca LIKE %:query%" +
+            " OR a.modelo LIKE %:query% OR a.codigo LIKE %:query% OR a.descripcion LIKE %:query%" +
+            " OR a.categoria LIKE %:query% OR a.color LIKE %:query%" +
+            " OR a.colorCristal LIKE %:query% OR a.material LIKE %:query% OR a.estilo LIKE %:query%" +
+            " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
+            " OR a.uso LIKE %:query% JOIN (SELECT * FROM Producto p WHERE p.tamano LIKE :tamano AND p.precio >= :preciomin"
+            + " AND p.precio <= :preciomax ORDER BY p.precio :orden)", nativeQuery = true)
+    ArrayList<Producto> filtrar(@Param("query") String query, @Param("tamano") String tamano,
+          @Param("preciomin") Double preciomin, @Param("preciomax") Double preciomax, 
+          @Param("orden") String orden);
+    
+    
+    
+    //public List<Producto> filtrar(String titulo,String tamano, 
+    // Double preciomin, Double preciomax, String orden, String marca)
+    
 
     @Query("SELECT a FROM Producto a WHERE a.stock<=:stock")
     List<Producto>findByStock(@Param("stock") Integer stock);

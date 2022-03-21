@@ -1,0 +1,27 @@
+<nav class="movil">
+    <div class="nav-arriba">
+               <span class="material-icons-outlined nav-icono movil">
+                   menu
+                   </span>
+        <div class="nav-barra">
+            <label for="subir"><span class="material-icons-outlined lupa">
+                       search
+                       </span></label>
+            <form th:action="@{/productos/buscar}">
+                <input type="text" name="busqueda" placeholder="Buscar en Van Houten">
+                <input type="submit" id="subir" style="display: none;">
+            </form>
+        </div>
+        <span class="material-icons-outlined nav-icono2 movil">
+                shopping_cart
+                </span>
+    </div>
+    <div class="nav-abajo">
+               <span class="material-icons-outlined shop-icono">
+                   store
+                   </span>
+        <span>Estamos atendiendo </span><a
+            href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"><span
+            class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
+    </div>
+</nav>
