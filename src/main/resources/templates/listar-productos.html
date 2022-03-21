@@ -12,8 +12,7 @@
     <nav th:replace="/fragments/nav-pc"></nav>
     <nav th:replace="/fragments/nav-mobile"></nav>
  <div class="controlar-productos pc">
-    <form action="@{productos/buscarConFiltros+'?query='${titulo}+'&tamano='tamanio
-'&preciomin='preciomin'&preciomax='preciomax}"> 
+    <form th:action="@{/productos/buscarConFiltros}+'?query='+${titulo}" method="POST"> 
     <div class="controlar-productos-titulo"><h2 th:text="'Resultados para ' +${titulo}"></h2></div>
      <div class="filtro">
         <div class="filtro-titulo"> <h4>Ordenar por</h4></div>

@@ -64,11 +64,11 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
             " OR a.categoria LIKE %:query% OR a.color LIKE %:query%" +
             " OR a.colorCristal LIKE %:query% OR a.material LIKE %:query% OR a.estilo LIKE %:query%" +
             " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
-            " OR a.uso LIKE %:query% INNER JOIN (a.tamano LIKE :tamano AND a.precio >= :preciomin"
-            + " AND a.precio <= :preciomax AND a.marca LIKE :marca ORDER BY a.precio :orden)", nativeQuery = true)
+            " OR a.uso LIKE %:query% JOIN (SELECT * FROM Producto p WHERE p.tamano LIKE :tamano AND p.precio >= :preciomin"
+            + " AND p.precio <= :preciomax ORDER BY p.precio :orden)", nativeQuery = true)
     ArrayList<Producto> filtrar(@Param("query") String query, @Param("tamano") String tamano,
           @Param("preciomin") Double preciomin, @Param("preciomax") Double preciomax, 
-          @Param("marca") String marca, @Param("orden") String orden);
+          @Param("orden") String orden);
     
     
     

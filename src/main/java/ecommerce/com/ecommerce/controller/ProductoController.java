@@ -63,16 +63,16 @@ public class ProductoController {
         return "listar-productos";
     }
     
-    @GetMapping("/buscarConFiltros")
+    @PostMapping("/buscarConFiltros")
     public String buscarConFiltros(@ModelAttribute Producto producto, Model model, @RequestParam String query, 
-           @RequestParam(required=false) String tamano, @RequestParam(required=false) Double preciomin,
-           @RequestParam(required=false) Double preciomax, @RequestParam(required=false) String orden,
-           @RequestParam(required=false) String marca) {
+           @RequestParam(required=false) String tamanio, @RequestParam(required=false) Double preciomin,
+           @RequestParam(required=false) Double preciomax, @RequestParam(required=false) String orden
+           ) {
         
         
-        model.addAttribute("busqueda", productoService.filtrar(query, tamano, preciomin, preciomax, orden, marca));
+        model.addAttribute("busqueda", productoService.filtrar(query, tamanio, preciomin, preciomax, orden));
         model.addAttribute("titulo", query);
-        return "redirect:listar-productos";
+        return "listar-productos";
     }
     
     
