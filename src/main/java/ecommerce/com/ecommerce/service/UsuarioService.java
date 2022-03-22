@@ -20,7 +20,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpSession;
 
 @Service
 public class UsuarioService implements UserDetailsService {
@@ -129,8 +133,10 @@ public class UsuarioService implements UserDetailsService {
             Usuario usuario = usuarioRepository.findByUsername(username);
             User user;
             List<GrantedAuthority> authorities = new ArrayList<>();
-
             authorities.add(new SimpleGrantedAuthority("ROLE_"+usuario.getRol()));
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            session.setAttribute("usuariosession",usuario);
             return new User(username, usuario.getClave(),authorities);
         } catch (Exception e) {
             throw new UsernameNotFoundException("EL usuario solicitado no existe");

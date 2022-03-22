@@ -44,10 +44,13 @@
             </div>
         </div>
         <div class="acciones-pc">
-            <a th:href="@{/login}"><span class="material-icons-outlined">
+            <a sec:authorize="!(isAuthenticated())" th:href="@{/login}"><span class="material-icons-outlined">
                     account_circle
                     </span></a>
-            <a href="@{/cart}"> <span class="material-icons-outlined">
+            <a sec:authorize="(isAuthenticated())" th:href="@{/logout}"><span class="material-icons-outlined">
+                    logout
+                    </span></a>
+            <a sec:authorize="(isAuthenticated())" href="@{/cart}"> <span class="material-icons-outlined">
                 shopping_cart
                 </span></a>
             <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"><span class="material-icons-outlined">
@@ -140,13 +143,13 @@
             <span class="precio-anterior" th:text="${a.precio}"></span>
             <span class="precio-actual" th:text="${a.precioFinal}"></span>
             <span class="card-titulo" th:text="${a.modelo}"></span>
-            <a class="agregar-carrito" href=""><span>Agregar al carrito</span></a>
+            <a class="agregar-carrito" th:href="@{/addCart}+'?id='+${a.id}"><span>Agregar al carrito</span></a>
         </div>
         <div class="card-abajo">
             <span class="precio-anterior" th:text="${a.precio}"></span>
             <span class="precio-actual" th:text="${a.precioFinal}"></span>
             <span class="card-titulo" th:text="${a.modelo}"></span>
-            <a class="agregar-carrito" href=""><span>Agregar al carrito</span></a>
+            <a class="agregar-carrito" ><span th:href="@{/addCart}+'?id='+${a.id}">Agregar al carrito</span></a>
         </div>
         </div>
     </div>
@@ -164,14 +167,13 @@
             <div class="card-pc" th:each="producto,iterator : ${descuentos}">
                 <div class="card-pc-arr">
                     <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="">
-
                 </div>
                 <div class="card-pc-aba">
                     <span class="descuento-pc">Descuento <span th:text="${producto.descuento}"></span></span>
                     <span class="precio-anterior-pc" th:text="${producto.precio}"></span>
                     <span class="precio-actual-pc" th:text="${producto.precioFinal}"></span>
                     <span class="card-titulo-pc" th:text="${producto.modelo}"></span>
-                    <a class="agregar-carrito-pc" href=""><span>Agregar al carrito</span></a>
+                    <a class="agregar-carrito-pc" th:href="@{/addCart}+'?id='+${producto.id}"><span>Agregar al carrito</span></a>
                 </div>
             </div>
         </div>

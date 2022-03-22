@@ -1,7 +1,10 @@
 package ecommerce.com.ecommerce.controller;
 
+import ecommerce.com.ecommerce.Exceptions.ServiceException;
+import ecommerce.com.ecommerce.domain.Cart;
 import ecommerce.com.ecommerce.domain.Usuario;
 import ecommerce.com.ecommerce.service.UsuarioService;
+import ecommerce.com.ecommerce.service.cartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,16 +23,12 @@ public class LoginController {
 
     @GetMapping("")
     public String login(Model model, @RequestParam(required = false) String error, @RequestParam(required = false) String nombreusuario,
-                        @RequestParam(required = false)String logout, HttpSession session){
-        System.out.println("puto1");
+                        @RequestParam(required = false)String logout) throws ServiceException {
         if (error != null) {
-            System.out.println("puto2");
-            model.addAttribute("error", "el usuario o la contraseña ingresadas no son validas");
+            model.addAttribute("error", "Usuario o Contraseña son incorrectas");
         }
         if (nombreusuario != null) {
             model.addAttribute("username", nombreusuario);
-            session.setAttribute("idusuario", usuarioService.findByUser(nombreusuario).getId());
-            System.out.println("puto3");
         }
         return "login";
     }

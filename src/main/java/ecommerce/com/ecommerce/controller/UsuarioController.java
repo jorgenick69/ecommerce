@@ -6,6 +6,7 @@ import ecommerce.com.ecommerce.enums.Rol;
 import ecommerce.com.ecommerce.service.ProductoService;
 import ecommerce.com.ecommerce.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -59,10 +60,8 @@ public class UsuarioController {
        return "redirect:/usuarios/admin#usuarios";
     }
 
-
-
-
     ////////////CONTROLER DASHBOARD ADMIN////////////////
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/admin")
     public String adminDashboard(Model model){
         model.addAttribute("productos",productoService.listarTodos());

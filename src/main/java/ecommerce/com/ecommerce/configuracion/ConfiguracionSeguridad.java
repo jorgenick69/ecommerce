@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.servlet.http.HttpSession;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -28,23 +30,21 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/logincheck")
-                .usernameParameter("nombreusuario")
-                .passwordParameter("clave")
-                .defaultSuccessUrl("/")
-                .failureUrl("/login?error=error")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")
-                .permitAll()
-                .and()
-                .csrf()
-                .disable();
+                    .antMatchers("/css/*", "/js/*", "/img/*", "/**")
+                    .permitAll()
+                .and().formLogin()
+                    .loginPage("/login")
+                        .loginProcessingUrl("/logincheck")
+                        .usernameParameter("nombreusuario")
+                        .passwordParameter("clave")
+                        .defaultSuccessUrl("/home")
+                        .failureUrl("/login?error=error")
+                        .permitAll()
+                .and().logout()
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll()
+                .and().csrf()
+                        .disable();
     }
 }

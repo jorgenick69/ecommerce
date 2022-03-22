@@ -8,7 +8,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Entity
@@ -22,8 +21,8 @@ public class Transaccion implements Serializable{
     @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="venta_gen")
     @SequenceGenerator(name="venta_gen",sequenceName="venta_seq_gen",initialValue=1,allocationSize=1)
     private Long numeroVenta;
-    @OneToMany
-    private List <Producto> producto;
+    @OneToOne
+    private Cart cart;
     @OneToOne
     private Usuario usuario;
     @Temporal(value=TemporalType.DATE)
