@@ -59,16 +59,16 @@ public interface ProductRepository extends JpaRepository<Producto,String> {
 //          @Param("preciomin") Double preciomin, @Param("preciomax") Double preciomax, 
 //          @Param("marca") String marca, @Param("orden") String orden);
     
-        @Query(value = "SELECT * FROM Producto a WHERE  a.marca LIKE %:query%" +
-            " OR a.modelo LIKE %:query% OR a.codigo LIKE %:query% OR a.descripcion LIKE %:query%" +
-            " OR a.categoria LIKE %:query% OR a.color LIKE %:query%" +
-            " OR a.colorCristal LIKE %:query% OR a.material LIKE %:query% OR a.estilo LIKE %:query%" +
-            " OR a.tamano LIKE %:query% OR a.duracion LIKE %:query%" +
-            " OR a.uso LIKE %:query% JOIN (SELECT * FROM Producto p WHERE p.tamano LIKE :tamano AND p.precio >= :preciomin"
-            + " AND p.precio <= :preciomax ORDER BY p.precio :orden)", nativeQuery = true)
+        @Query(value=("SELECT * FROM Producto WHERE  (marca LIKE %:query%" +
+            " OR modelo LIKE %:query% OR codigo LIKE %:query% OR descripcion LIKE %:query%" +
+            " OR categoria LIKE %:query% OR color LIKE %:query%" +
+            " OR color_cristal LIKE %:query% OR material LIKE %:query% OR estilo LIKE %:query%" +
+            " OR duracion LIKE %:query%" +
+            " OR uso LIKE %:query%) AND tamano = :tamano AND precio_final BETWEEN :preciomin"
+            + " AND :preciomax ORDER BY :orden"), nativeQuery=true) // ORDER BY precioFinal :orden
     ArrayList<Producto> filtrar(@Param("query") String query, @Param("tamano") String tamano,
-          @Param("preciomin") Double preciomin, @Param("preciomax") Double preciomax, 
-          @Param("orden") String orden);
+          @Param("preciomin") Double preciomin, @Param("preciomax") Double preciomax,
+          @Param("orden") String orden); 
     
     
     
