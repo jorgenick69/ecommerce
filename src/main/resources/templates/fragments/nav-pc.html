@@ -39,6 +39,9 @@
       <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"
         ><span class="material-icons-outlined"> dashboard </span></a
       >
+      <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/usuarios/user-dashboard}"
+      ><span class="material-icons-outlined"> dashboard </span></a
+    >
     </div>
   </div>
   <div class="nav-pc-abajo">

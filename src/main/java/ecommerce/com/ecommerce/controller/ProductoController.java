@@ -65,12 +65,12 @@ public class ProductoController {
     
     @PostMapping("/buscarConFiltros")
     public String buscarConFiltros(@ModelAttribute Producto producto, Model model, @RequestParam String query, 
-           @RequestParam(required=false) String tamanio, @RequestParam(required=false) Double preciomin,
+           @RequestParam(required=false) String tamano, @RequestParam(required=false) Double preciomin,
            @RequestParam(required=false) Double preciomax, @RequestParam(required=false) String orden
            ) {
         
         
-        model.addAttribute("busqueda", productoService.filtrar(query, tamanio, preciomin, preciomax, orden));
+        model.addAttribute("busqueda", productoService.filtrar(query, tamano, preciomin, preciomax, orden));
         model.addAttribute("titulo", query);
         return "listar-productos";
     }
