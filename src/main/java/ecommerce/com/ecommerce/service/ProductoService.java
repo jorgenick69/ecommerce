@@ -101,10 +101,23 @@ public class ProductoService {
         }
     }
     
-    public List<Producto> filtrar(String query,String tamanio, 
+    public List<Producto> filtrar(String query, String tamano, 
            Double preciomin, Double preciomax, String orden){
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////");
 
-        return pRep.filtrar(query, tamanio, preciomin, preciomax, orden);
+        System.out.println(query);
+        System.out.println(tamano);
+        System.out.println(preciomin);
+        System.out.println(preciomax);
+        System.out.println(orden);
+        return pRep.filtrar(query, tamano, preciomin, preciomax, orden); 
     }
 
     public List<Producto> listarGenero(String genero){return pRep.findByGenero(genero);}
