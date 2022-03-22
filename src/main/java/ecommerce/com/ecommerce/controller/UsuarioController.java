@@ -71,4 +71,12 @@ public class UsuarioController {
         model.addAttribute("cantidadProductos", productoService.listarTodos().size());
         return "admin-dashboard";
     }
+    
+    @GetMapping("/user-dashboard")
+    public String userDashboard(Model model, @ModelAttribute Usuario usuario, MultipartFile archivo){
+        
+        
+        
+        return "user-dashboard";
+    };
 }
