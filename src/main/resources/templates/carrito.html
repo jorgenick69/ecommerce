@@ -1,190 +1,241 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="carrito.css">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"/>
-    <title>Van Houten</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" th:href="@{/css/carrito.css}">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"/>
+  <title>Van Houten</title>
 </head>
-<body class="m-0 row justify-content-center">
+
+<body class="m-0 row justify-content-center " style="padding-top: 100px;margin-top: 100px;">
 <nav class="nav-pc pc">
-    <div class="nav-pc-arriba">
-      <div class="logo-pc2"><a th:href="@{/}"><img src="/img/LOGO2.png" alt=""></a></div>
-      <div class="barra-contenedor-pc">
-        <div class="fondo-barra-pc">
-          <form th:action="@{/productos/buscar}">
-            <div class="barra-pc">
-              <input type="text" name="busqueda">
-            </div>
-            <div class="barra-lupa-pc">
-              <label for="subir-pc"><span class="material-icons-outlined lupa">
-                        search
-                        </span></label>
-              <input type="submit" id="subir-pc" style="display: none;">
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="atendiendo-pc">
-        <div class="shop-pc">
-                    <span class="material-icons-outlined shop-icono">
-                        store
-                        </span>
-        </div>
-        <div class="reserva-pc">
-          <span>Estamos atendiendo </span><a
-                href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"
-                target="_blank"><span class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
-        </div>
-      </div>
-      <div class="acciones-pc">
-        <a sec:authorize="!(isAuthenticated())" th:href="@{/login}"><span class="material-icons-outlined">
-                    account_circle
-                    </span></a>
-        <a sec:authorize="(isAuthenticated())" th:href="@{/logout}"><span class="material-icons-outlined">
-                    logout
-                    </span></a>
-        <a sec:authorize="(isAuthenticated())" th:href="@{/cart}+'?id='+${session.usuariosession.id}"> <span class="material-icons-outlined">
-                shopping_cart
-                </span></a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"><span class="material-icons-outlined">
-                        dashboard
-                        </span></a>
+  <div class="nav-pc-arriba">
+    <div class="logo-pc2"><a th:href="@{/}"><img src="/img/LOGO2.png" alt="" /></a></div>
+    <div class="barra-contenedor-pc">
+      <div class="fondo-barra-pc">
+        <form th:action="@{/productos/buscar}">
+          <div class="barra-pc">
+            <input type="text" name="busqueda" />
+          </div>
+          <div class="barra-lupa-pc">
+            <label for="subir-pc"
+            ><span class="material-icons-outlined lupa"> search </span></label
+            >
+            <input type="submit" id="subir-pc" style="display: none" />
+          </div>
+        </form>
       </div>
     </div>
+    <div class="atendiendo-pc">
+      <div class="shop-pc">
+        <span class="material-icons-outlined shop-icono"> store </span>
+      </div>
+      <div class="reserva-pc">
+          <span>Estamos atendiendo</span
+          ><a
+              href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"
+              target="_blank"
+      ><span class="bold">&nbsp;¡Reserva tu turno Aqui!</span></a
+      >
+      </div>
+    </div>
+    <div class="acciones-pc">
+      <a sec:authorize="!(isAuthenticated())" th:href="@{/login}"><span class="material-icons-outlined">
+                      account_circle
+                      </span></a>
+      <a sec:authorize="(isAuthenticated())" th:href="@{/logout}"><span class="material-icons-outlined">
+                      logout
+                      </span></a>
+      <a sec:authorize="(isAuthenticated())" th:href="@{/cart}+'?id='+${session.usuariosession.id}"> <span class="material-icons-outlined">
+                  shopping_cart_checkout
+                  </span></a>
+      <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"><span class="material-icons-outlined">
+                          dashboard
+                          </span></a>
+      <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/usuarios/user-dashboard}">
+        <span class="material-icons-outlined"> dashboard </span></a>
+    </div>
+  </div>
   <div class="nav-pc-abajo">
     <ul>
-      <li><a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Sol}">Lentes de Sol</a></li>
-      <li><a th:href="@{/productos/lista-categoria?categoria=Armazones+Recetado}">Armazones Recetados</a></li>
-      <li><a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Contacto}">Lentes de Contacto</a></li>
-      <li><a th:href="@{/productos/lista-categoria?categoria=Accesorios}">Accesorios</a></li>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Sol}"
+        >Lentes de Sol</a >
+      </li>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Armazones+Recetado}"
+        >Armazones Recetados</a
+        >
+      </li>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Contacto}"
+        >Lentes de Contacto</a
+        >
+      </li>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Accesorios}"
+        >Accesorios</a
+        >
+      </li>
       <li><a th:href="@{/productos/lista-genero?genero=mujer}">Damas</a></li>
-      <li><a th:href="@{/productos/lista-genero?genero=hombre}">Caballeros</a></li>
+      <li>
+        <a th:href="@{/productos/lista-genero?genero=hombre}">Caballeros</a>
+      </li>
       <li><a th:href="@{/productos/lista-genero?genero=nino}">Niños</a></li>
       <li><a th:href="@{/productos/lista-genero?genero=unisex}">Unisex</a></li>
     </ul>
   </div>
 </nav>
 
-<nav th:replace="/fragments/nav-mobile"></nav>
 
-<div class="container-fluid tabla">
-  <div th:if="${carrito != null and !carrito.empty}">
-    <table class="table mb-5 mt-5">
-        <thead class="bgc">
-          <tr>
-            <th scope="col" class="text-center">Producto</th>
-            <th scope="col" class="text-center">Marca</th>
-            <th scope="col" class="text-center">Precio</th>
-            <th scope="col" class="text-center">Cantidad</th>
-            <th scope="col" class="text-center">Usuario</th>
-            <th scope="col">Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr th:each="a,iterator : ${carrito}">
-            <td class="text-center" th:text="*{a.modelo}"></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="text-center" th:text="*{a.cantidad}"></td>
-            <td class="text-center" th:if="${session.usuariosession != null}" th:text="${session.usuariosession.nombre+' '+session.usuariosession.apellido}"></td>
-            <td class="text-center"><button type="button" class="btn btn-danger "><a th:href="@{/removecart}+'?id='+${a.id}">Eliminar</a></button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-   </div>
-
-  <div class="mdp w-50">
-    <div th:if="${carrito != null and !carrito.empty}">
-      <form>
-        <div class="mt-3">
-          <div class="control-group">
-            <label class="control-label bld">Nombre de la tarjeta</label>
-            <div class="controls">
-              <input type="text" class="input-block-level"  >
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label bld">Numero de la tarjeta</label>
-            <div class="controls">
-              <div class="row-fluid">
-                <div class="span3">
-                  <input type="text" class="input-block-level"  maxlength="4" >
-                </div>
-                <div class="span3">
-                  <input type="text" class="input-block-level"  maxlength="4" >
-                </div>
-                <div class="span3">
-                  <input type="text" class="input-block-level"  maxlength="4" >
-                </div>
-                <div class="span3">
-                  <input type="text" class="input-block-level"  maxlength="4" >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label bld">Vencimiento</label>
-            <div class="controls">
-              <div class="row-fluid">
-                <div class="span6">
-                  <select class="input-block-level">
-                    <option>Enero</option>
-                    <option>Febrero</option>
-                    <option>Marzo</option>
-                    <option>Abril</option>
-                    <option>Mayo</option>
-                    <option>Junio</option>
-                    <option>Julio</option>
-                    <option>Agosto</option>
-                    <option>Septiembre</option>
-                    <option>Octubre</option>
-                    <option>Noviembre</option>
-                    <option>Diciembre</option>
-                  </select>
-                </div>
-                <div class="span5">
-                  <select class="input-block-level">
-                    <option>2022</option>
-                    <option>2023</option>
-                    <option>2024</option>
-                    <option>2025</option>
-                    <option>2026</option>
-                    <option>2027</option>
-                    <option>2028</option>
-                    <option>2029</option>
-                    <option>2030</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label bld">CVV</label>
-            <div class="controls">
-              <div class="row-fluid">
-                <div class="span2">
-                  <input type="text" class="input-block-level" maxlength="3" >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-success btnc" onclick="alert('FELICIDADES!! Compra exitosa')"><a th:href="@{/transaccion/compra}">
-                                      Comprar</a></button>
-            <button type="button" class="btn"><a th:href="@{/}">Seguir Comprando</a></button>
-            <button type="button" class="btn"><a th:href="@{/home}">Cancelar</a></button>
-          </div>
+<nav class="movil">
+  <div class="nav-arriba">
+               <span class="material-icons-outlined nav-icono movil">
+                   menu
+                   </span>
+    <div class="nav-barra">
+      <label for="subir"><span class="material-icons-outlined lupa">
+                       search
+                       </span></label>
+      <form th:action="@{/productos/buscar}">
+        <input type="text" name="busqueda" placeholder="Buscar en Van Houten">
+        <input type="submit" id="subir" style="display: none;">
       </form>
     </div>
-    </div>
-    <div th:if="${carrito.isEmpty}"><h2 class="ops">Ops aún no has cargado productos en tu carrito!</h2></div>
+    <span class="material-icons-outlined nav-icono2 movil">
+                shopping_cart
+                </span>
+  </div>
+  <div class="nav-abajo">
+               <span class="material-icons-outlined shop-icono">
+                   store
+                   </span>
+    <span>Estamos atendiendo </span><a
+          href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"><span
+          class="bold ">&nbsp;¡Reserva tu turno Aqui!</span></a>
+  </div>
+</nav>
+
+
+
+<div class="container-fluid tabla" style="margin-top: 100px !important;">
+  <div th:if="${carrito != null and !carrito.empty}">
+    <table class="table mb-5 mt-5" >
+      <thead class="bgc">
+      <tr>
+        <th scope="col" class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;">Producto</th>
+        <th scope="col" class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;">Marca</th>
+        <th scope="col" class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;">Precio</th>
+        <th scope="col" class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;">Cantidad</th>
+        <th scope="col" class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;">Usuario</th>
+        <th scope="col">Acción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="a,iterator : ${carrito}">
+        <td class="text-center" th:text="*{a.modelo}"  style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;"></td>
+        <td class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;"></td>
+        <td class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;"></td>
+        <td class="text-center" th:text="*{a.cantidad}" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;"></td>
+        <td class="text-center" th:if="${session.usuariosession != null}" th:text="${session.usuariosession.nombre+' '+session.usuariosession.apellido}" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;"></td>
+        <td class="text-center" style="padding-left: 10px !important; padding-right: 10px !important; width: fit-content !important;"><button type="button" class="btn btn-danger "><a th:href="@{/removecart}+'?id='+${a.id}">Eliminar</a></button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="mdp w-50">
+  <div th:if="${carrito != null and !carrito.empty}">
+    <form>
+      <div class="mt-3">
+        <div class="control-group">
+          <label class="control-label bld">Nombre de la tarjeta</label>
+          <div class="controls">
+            <input type="text" class="input-block-level"  >
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label bld">Numero de la tarjeta</label>
+          <div class="controls">
+            <div class="row-fluid">
+              <div class="span3">
+                <input type="text" class="input-block-level"  maxlength="4" >
+              </div>
+              <div class="span3">
+                <input type="text" class="input-block-level"  maxlength="4" >
+              </div>
+              <div class="span3">
+                <input type="text" class="input-block-level"  maxlength="4" >
+              </div>
+              <div class="span3">
+                <input type="text" class="input-block-level"  maxlength="4" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label bld">Vencimiento</label>
+          <div class="controls">
+            <div class="row-fluid">
+              <div class="span6">
+                <select class="input-block-level">
+                  <option>Enero</option>
+                  <option>Febrero</option>
+                  <option>Marzo</option>
+                  <option>Abril</option>
+                  <option>Mayo</option>
+                  <option>Junio</option>
+                  <option>Julio</option>
+                  <option>Agosto</option>
+                  <option>Septiembre</option>
+                  <option>Octubre</option>
+                  <option>Noviembre</option>
+                  <option>Diciembre</option>
+                </select>
+              </div>
+              <div class="span5">
+                <select class="input-block-level">
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                  <option>2028</option>
+                  <option>2029</option>
+                  <option>2030</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label bld">CVV</label>
+          <div class="controls">
+            <div class="row-fluid">
+              <div class="span2">
+                <input type="text" class="input-block-level" maxlength="3" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success btnc" onclick="alert('FELICIDADES!! Compra exitosa')"><a th:href="@{/transaccion/compra}">
+            Comprar</a></button>
+          <button type="button" class="btn"><a th:href="@{/}">Seguir Comprando</a></button>
+          <button type="button" class="btn"><a th:href="@{/home}">Cancelar</a></button>
+        </div>
+    </form>
+  </div>
+</div>
+<div th:if="${carrito.isEmpty}"><h2 class="ops">Ops aún no has cargado productos en tu carrito!</h2></div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

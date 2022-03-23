@@ -40,7 +40,7 @@
         <option value="7">7</option>
         <option value="8">8</option>
     </select>
-    <a href="" ><span>Agregar al carrito</span></a>
+       <a class="agregar-carrito" th:href="@{/addCart}+'?id='+${producto.id}"><span> Agregar al carrito</span></a>
    </div>
   
    
@@ -101,7 +101,7 @@
             <option value="7">7</option>
             <option value="8">8</option>
         </select>
-        <a href=""  ><span>Agregar al carrito</span></a>
+           <a class="agregar-carrito" th:href="@{/addCart}+'?id='+${producto.id}"><span> Agregar al carrito</span></a>
        </div>
       
        

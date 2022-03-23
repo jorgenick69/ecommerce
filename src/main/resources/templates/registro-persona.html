@@ -83,7 +83,7 @@
                             <span class="input-group-addon"><span class="material-icons-outlined verde2">
                                     calendar_month
                                 </span></span>
-                            <input id="user" type="date" class="form-control" name="fechaNacimiento" th:value="${fechaNacimiento}" placeholder="Fecha de nacimiento">
+                            <input id="fecha" type="date" class="form-control" name="fechaNacimiento" th:value="${fechaNacimiento}" placeholder="Fecha de nacimiento">
                         </div>
 
                         <div class="input-group">
@@ -384,7 +384,7 @@
         </g>
     </svg>
     <script th:src="@{/js/login.js}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/flatpickr}"></script>
     <script>
         flatpickr("#fecha", {});
     </script>
