@@ -81,7 +81,7 @@
             <th scope="col" class="text-center">Producto</th>
             <th scope="col" class="text-center">Marca</th>
             <th scope="col" class="text-center">Precio</th>
-            <th scope="col" class="text-center">Total</th>
+            <th scope="col" class="text-center">Cantidad</th>
             <th scope="col" class="text-center">Usuario</th>
             <th scope="col">Acción</th>
           </tr>
@@ -91,7 +91,7 @@
             <td class="text-center" th:text="*{a.modelo}"></td>
             <td class="text-center"></td>
             <td class="text-center"></td>
-            <td class="text-center">4500</td>
+            <td class="text-center" th:text="*{a.cantidad}"></td>
             <td class="text-center" th:if="${session.usuariosession != null}" th:text="${session.usuariosession.nombre+' '+session.usuariosession.apellido}"></td>
             <td class="text-center"><button type="button" class="btn btn-danger "><a th:href="@{/removecart}+'?id='+${a.id}">Eliminar</a></button></td>
           </tr>

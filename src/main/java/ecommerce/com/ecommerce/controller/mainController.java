@@ -51,7 +51,24 @@ public class mainController {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
         List<Producto>carrito =(List<Producto>)session.getAttribute("usuariocarrito");
-        carrito.add(productoService.buscarPorId(id));
+        Producto producto = productoService.buscarPorId(id);
+        Boolean flag = false;
+        if (carrito.size()==0){
+            carrito.add(producto);}
+
+        if(carrito.size()!=0){
+            flag=false;
+            for (Producto p : carrito) {
+                if (p.getId().equals(producto.getId())) {
+                    flag=true;
+                    p.setCantidad((p.getCantidad())+1);
+                    p.setPrecioFinal((producto.getPrecioFinal() * p.getCantidad()));
+                }
+            }
+            if (flag==false){
+                carrito.add(producto);
+            }
+        }
         model.addAttribute("carrito", carrito);
         session.setAttribute("usuariocarrito", carrito);
         return "carrito";

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,6 +37,7 @@ public class TransaccionController {
         tx.setCarrito(carrito);
         tx.setEstado(TransaccionEstado.PREPARACION);
         tx.setEnvio(Envio.DOMICILIO);
+        tx.setFecha(new Date());
         transaccionService.crear(tx);
         return "redirect:/home";
     }

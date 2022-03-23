@@ -43,5 +43,5 @@ public class Producto implements Serializable{
   private String tamano;
   private String duracion;
   private String uso;
-  private Integer cantidad=0;
+  private Integer cantidad=1;
 }

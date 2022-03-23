@@ -23,6 +23,7 @@ public class Transaccion implements Serializable{
     @SequenceGenerator(name="venta_gen",sequenceName="venta_seq_gen",initialValue=1,allocationSize=1)
     private Long numeroVenta;
     @OneToMany
+    @JoinColumn(name="producto")
     private List<Producto> carrito;
     @OneToOne
     private Usuario usuario;
