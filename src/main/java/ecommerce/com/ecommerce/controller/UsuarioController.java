@@ -51,7 +51,7 @@ public class UsuarioController {
         usuario.setEstado(Boolean.TRUE);
         usuario.setRol(Rol.ADMIN);
         usuarioService.crear(usuario,archivo,password2);
-        return "index";
+        return "redirect:/";
     }
 
     @GetMapping("/eliminar")
