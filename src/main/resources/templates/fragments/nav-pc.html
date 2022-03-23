@@ -21,7 +21,7 @@
         <span class="material-icons-outlined shop-icono"> store </span>
       </div>
       <div class="reserva-pc">
-        <span>Estamos atendiendo </span
+        <span>Estamos atendiendo</span
         ><a
           href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con"
           target="_blank"
@@ -30,19 +30,21 @@
       </div>
     </div>
     <div class="acciones-pc">
-      <a th:href="@{/login}"
-        ><span class="material-icons-outlined"> account_circle </span></a
-      >
-      <a href="@{/cart}">
-        <span class="material-icons-outlined"> shopping_cart </span></a
-      >
-      <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"
-        ><span class="material-icons-outlined"> dashboard </span></a
-      >
-      <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/usuarios/user-dashboard}"
-      ><span class="material-icons-outlined"> dashboard </span></a
-    >
-    </div>
+        <a sec:authorize="!(isAuthenticated())" th:href="@{/login}"><span class="material-icons-outlined">
+                    account_circle
+                    </span></a>
+        <a sec:authorize="(isAuthenticated())" th:href="@{/logout}"><span class="material-icons-outlined">
+                    logout
+                    </span></a>
+        <a sec:authorize="(isAuthenticated())" th:href="@{/cart}+'?id='+${session.usuariosession.id}"> <span class="material-icons-outlined">
+                shopping_cart_checkout
+                </span></a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"><span class="material-icons-outlined">
+                        dashboard
+                        </span></a>
+        <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/usuarios/user-dashboard}">
+          <span class="material-icons-outlined"> dashboard </span></a>
+      </div>
   </div>
   <div class="nav-pc-abajo">
     <ul>

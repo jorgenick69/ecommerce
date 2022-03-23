@@ -111,7 +111,6 @@ public class ProductoService {
         System.out.println("////////////////////////////////////////////////");
         System.out.println("////////////////////////////////////////////////");
         System.out.println("////////////////////////////////////////////////");
-
         System.out.println(query);
         System.out.println(tamano);
         System.out.println(preciomin);

@@ -494,6 +494,7 @@ object-fit: cover;
       justify-content: center !important;
       align-items: center !important;
       align-content: center !important;
+      margin-bottom: 10px !important;
   }
   .nav-pc-abajo ul{
       width: 70%;

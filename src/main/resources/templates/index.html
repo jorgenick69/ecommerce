@@ -50,12 +50,15 @@
             <a sec:authorize="(isAuthenticated())" th:href="@{/logout}"><span class="material-icons-outlined">
                     logout
                     </span></a>
-            <a sec:authorize="(isAuthenticated())" href="@{/cart}"> <span class="material-icons-outlined">
+            <a sec:authorize="(isAuthenticated())" th:href="@{/cart}+'?id='+${session.usuariosession.id}"> <span class="material-icons-outlined">
                 shopping_cart
                 </span></a>
             <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"><span class="material-icons-outlined">
                         dashboard
-                        </span></a>
+            </span></a>
+            <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/usuarios/user-dashboard}"><span class="material-icons-outlined">
+                        dashboard
+            </span></a>
         </div>
     </div>
     <div class="nav-pc-abajo">
