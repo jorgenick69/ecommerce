@@ -60,15 +60,15 @@
 			<div class="content">
 				<h2>Mis Datos</h2>
 				<ul id="works">
-					<table id="user-table">
+					<table id="user-table" th:object="${usuario}">
 						<tr>
 							<th>Nombre</th>
-							<td>German</td>
+							<td>---</td>
 							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
 						</tr>
 						<tr>
 							<th>Apellido</th>
-							<td>Duci</td>
+							<td>----</td>
 							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
 						</tr>
 						<tr>

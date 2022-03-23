@@ -653,7 +653,7 @@ align-items: center;
 .card-pc-arr img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 .card-pc-aba {
 display: flex;
