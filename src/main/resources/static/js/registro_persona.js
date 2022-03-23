@@ -6,7 +6,6 @@ document.getElementById("file1").onchange = function (e) {
         let div=document.getElementById("div-foto");
         div.classList.add("vanhouten2")
         preview1.setAttribute("src",reader.result);
-       
 
     }
 }

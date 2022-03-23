@@ -16,11 +16,11 @@
         <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="" id="imagen-grande">
     </div>
     <div class="producto-foto-miniatura movil">
-        <div><img src="" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
-        <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/pttti_420x300_crop_center.jpg')"></div>
-        <div><img src="img/prottoti_656x471.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/prottoti_656x471.jpg')"></div>
-        <div><img src="img/pttti_420x300_crop_center.jpg" alt="" class="foto-miniatura" onclick="cambiarImagen('/pttti_420x300_crop_center.jpg')"></div>
-        
+        <div><img th:src="@{/foto/productofoto}+'?id='+${producto.id}"  alt="" class="foto-miniatura" th:onclick="cambiarImagen('${/foto/productofoto}+'?id='+${producto.id}')"></div>
+        <div><img th:src="@{/foto/productofoto1}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen('@{/foto/productofoto1}+'?id='+${producto.id}')"></div>
+        <div><img th:src="@{/foto/productofoto2}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen('@{/foto/productofoto2}+'?id='+${producto.id}')"></div>
+        <div><img th:src="@{/foto/productofoto3}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen('${/foto/productofoto3}+'?id='+${producto.id}')"></div>
+
     </div>
     <h1 class="producto-nombre movil" th:text="*{nombre}"></h1>
     <span class="descuento movil">Descuento <span>25</span>%</span>
@@ -77,10 +77,10 @@
             <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="" id="imagen-grande2">
         </div>
         <div class="fotos-min-pc">
-            <div><img th:src="@{/foto/productofoto}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
-            <div><img th:src="@{/foto/productofoto1}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
-            <div><img th:src="@{/foto/productofoto2}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/prottoti_656x471.jpg')"></div>
-            <div><img th:src="@{/foto/productofoto3}+'?id='+${producto.id}" alt="" class="foto-miniatura" onclick="cambiarImagen2('img/pttti_420x300_crop_center.jpg')"></div>
+            <div><img th:src="@{/foto/productofoto}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('${/foto/productofoto}+'?id='+${producto.id}')"></div>
+            <div><img th:src="@{/foto/productofoto1}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('@{/foto/productofoto1}+'?id='+${producto.id}')"></div>
+            <div><img th:src="@{/foto/productofoto2}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('@{/foto/productofoto2}+'?id='+${producto.id}')"></div>
+            <div><img th:src="@{/foto/productofoto3}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('${/foto/productofoto3}+'?id='+${producto.id}')"></div>
         </div>
         <div class="descripcion-pc">
             <h1 class="producto-nombre" th:text="${producto.modelo}"></h1>
@@ -138,5 +138,5 @@
 
 
 </body>
-<script src="/js/galeria.js"></script>
+<script th:src="@{/js/galeria.js}"></script>
 </html>
