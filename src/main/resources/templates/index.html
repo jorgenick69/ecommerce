@@ -169,7 +169,7 @@
         <div class="cards-pc" th:if="${descuentos != null and !descuentos.empty}">
             <div class="card-pc" th:each="producto,iterator : ${descuentos}">
                 <div class="card-pc-arr">
-                    <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="">
+                    <a th:href="@{/productos/producto-descripcion}+'?id='+${producto.id}"> <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt=""> </a>
                 </div>
                 <div class="card-pc-aba">
                     <span class="descuento-pc">Descuento <span th:text="${producto.descuento}"></span></span>
