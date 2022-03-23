@@ -5,11 +5,16 @@ import ecommerce.com.ecommerce.domain.Usuario;
 import ecommerce.com.ecommerce.enums.Rol;
 import ecommerce.com.ecommerce.service.ProductoService;
 import ecommerce.com.ecommerce.service.UsuarioService;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -74,6 +79,10 @@ public class UsuarioController {
     @GetMapping("/user-dashboard")
     public String userDashboard(Model model, @ModelAttribute Usuario usuario, MultipartFile archivo){
         
+ //       ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+ //       HttpSession session = attr.getRequest().getSession(true);
+        
+//        model.addAttribute("usuario", session.);
         
         return "user-dashboard";
     };
