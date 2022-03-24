@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<title>User Dashboard</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">	
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="/css/userdash.css" />
+		<link rel="stylesheet" href="/css/responsive.css">
+		<link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css' />
+	</head>
+	<body>			
+		<!-- Home -->
+		<div id="home" class="panel">
+			<div class="content">
+				<h2>Home</h2>
+				<p>Bienvenido Usuario En el panel de la izquierda encontrará todas las herramientas para administrar su cuenta</p>
+			</div>
+		</div>
+		<!-- /Home -->
+		
+		<!--/Compras -->
+		<div id="compras" class="panel">
+			<div class="content">
+				<h2>Mis Compras</h2>
+				<ul id="works">
+					<table id="compras-table">
+						<thead>
+						  <tr>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th>Fecha de compra</th>
+							<th>Nro Transaccion</th>
+							<th>Estado</th>
+							<th>Precio Compra</th>
+							<th>Envio</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>Lente de sol</td>
+							<td>2</td>
+							<td>22/03/2022</td>
+							<td>33233767</td>
+							<td>duco</td>
+							<td>2022-11-02</td>
+							<td>germanducis@gmail.com</td>
+						  </tr>							 				
+						</tbody>
+					</table>					
+				</ul>
+			</div>
+		</div>
+		<!--/Compras -->
+		
+		<!-- Usuarios -->
+		<div id="usuarios" class="panel">
+			<div class="content">
+				<h2>Mis Datos</h2>
+				<ul id="works">
+					<table id="user-table" th:object="${usuario}">
+						<tr>
+							<th>Nombre</th>
+							<td>Nahue</td>
+							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
+						</tr>
+						<tr>
+							<th>Apellido</th>
+							<td>Lito</td>
+							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
+						</tr>
+						<tr>
+							<th>Dni</th>
+							<td>31973708</td>
+							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
+						</tr>
+						<tr>
+							<th>Nombre Usuario</th>
+							<td>nahuelitonahuelon</td>
+							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
+						</tr>
+						<tr>
+							<th>Fecha de Nacimiento</th>
+							<td>1985-10-19</td>
+							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
+						</tr>
+						<tr>
+							<th>Email</th>
+							<td>nahue@nahuemail.com</td>
+							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
+						</tr>
+						<tr>
+							<th>Teléfono</th>
+							<td>0303456</td>
+							<td><button sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/persona/form}+'?id='+${p.id}" >Editar</a></button></td>
+						</tr>
+					</table>					
+				</ul>
+			</div>
+		</div>
+		<!-- Usuarios -->		
+
+		<!-- Sidebar with Navigation -->
+		<div id="header">
+			<a th:href="@{/}">
+				<h1>Van Houten</h1></a>
+			<ul id="navigation">
+				<li><a id="link-home" href="#home">Home</a></li>
+				<li><a id="link-usuarios" href="#usuarios">Mis datos</a></li>
+				<li><a id="link-compras" href="#compras">Mis Compras</a></li>
+			</ul>			
+		</div>
+		
+	</body>
+</html>

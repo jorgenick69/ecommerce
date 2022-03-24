@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Admin Dashboard</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/css/transition.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style2.css" />
+	<link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css' />
+</head>
+<body>
+<!-- Home -->
+<div id="home" class="panel">
+	<div class="content">
+		<h2>Home</h2>
+		<p>Bienvenido Administrador - Aquí encontrará un breve reporte del Sitio</p>
+		<ul id="report-names">
+			<li><p>Cantidad de Productos</p></li>
+			<li><p>Cantidad de Usuarios</p></li>
+			<li><p>Cantidad de Ventas</p></li>
+			<li><p>Ganancias Totales</p></li>
+		</ul>
+		<ul id="report-value">
+			<li><p th:text="${cantidadProductos}"></p></li>
+			<li><p th:text="${cantidadUsuarios}"></p></li>
+			<li><p th:text="${cantidadUsuarios}"></p></li>
+			<li><p th:text="${cantidadUsuarios}"></p></li>
+		</ul>
+	</div>
+</div>
+<!--/Home -->
+
+<!-- Productos-->
+<div id="productos" class="panel">
+	<div class="content">
+		<h2>Productos</h2>
+		<ul id="works">
+			<li><a th:href="@{/productos/carga-producto}">Crear Producto</a></li>
+			<li><a href="#lista-productos">Listar Productos</a></li>
+		</ul>
+	</div>
+</div>
+<!--Productos -->
+
+<!--Lista Productos-->
+<div id="lista-productos" class="panel">
+	<div class="content" th:if="${productos != null and !productos.isEmpty}">
+		<h2>Productos</h2>
+		<p>Listado de productos cargados en App:</p>
+		<ul id="works">
+			<table id="user-table">
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>Modelo</th>
+					<th>Marca</th>
+					<th>Codigo</th>
+					<th>Stock</th>
+					<th>Color</th>
+					<th>Acciones</th>
+				</tr>
+				</head>
+				<tbody>
+				<tr th:each=" p,iterator : ${productos} ">
+					<td t
+					<td th:text="${iterator.index+1}"></td>
+					<td th:text="${p.modelo}"></td>
+					<td th:text="${p.marca}"></td>
+					<td th:text="${p.codigo}"></td>
+					<td th:text="${p.stock}"></td>
+					<td th:text="${p.color}"></td>
+					<td>
+						<button><a th:href="@{/productos/editar-producto}+'?id='+${p.id}">Editar</a></button>
+						<button><a th:href="@{/productos/eliminar}+'?id='+${p.id}">Eliminar</a></button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+
+		</ul>
+		<ul id="works">
+			<li><a th:href="@{/productos/carga-producto}">Crear nuevo Producto</a></li>
+		</ul>
+	</div>
+	<div class="content" th:if="${productos.isEmpty}">
+		<p>No hay productos para mostrar</p>
+	</div>
+</div>
+<!--/Lista Productos-->
+
+<!--Detalle de Producto-->
+<!--/Detalle de Producto-->
+
+<!--/Usuarios -->
+<div id="usuarios" class="panel">
+	<div class="content" th:if="${usuarios != null and !usuarios.isEmpty}">
+		<h2>Usuarios</h2>
+		<p>Listado de usuarios cargados en App:</p>
+		<ul id="works">
+			<table id="user-table">
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Nombre Usuario</th>
+					<th>Email</th>
+					<th>Estado</th>
+					<th>Acciones</th>
+				</tr>
+				</head>
+				<tbody>
+				<tr th:each=" p,iterator : ${usuarios} ">
+					<td th:text="${iterator.index+1}"></td>
+					<td th:text="${p.nombre}"></td>
+					<td th:text="${p.apellido}"></td>
+					<td th:text="${p.nombreUsuario}"></td>
+					<td th:text="${p.email}"></td>
+					<td th:text="${p.estado}"></td>
+					<td>
+						<button><a th:href="@{/usuarios/carga-usuario}+'?id='+${p.id}">Editar</a></button>
+						<button><a th:href="@{/usuarios/eliminar}+'?id='+${p.id}">Eliminar</a></button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+
+		</ul>
+		<ul id="works">
+			<li><a th:href="@{/usuarios/carga-usuario}">Crear nuevo Usuario</a></li>
+		</ul>
+	</div>
+</div>
+<div class="content" th:if="${usuarios.isEmpty}">
+	<p>No hay usuarios para mostrar</p>
+</div>
+</div>
+<!--/Usuarios -->
+
+<!-- Reportes -->
+<div id="reportes" class="panel">
+	<div class="content">
+		<h2>Reportes</h2>
+		<ul id="works">
+			<li><a href="">Reporte Ventas</a></li>
+			<li><a href="">Reporte Stock</a></li>
+		</ul>
+	</div>
+</div>
+<!-- Reportes -->
+
+
+
+<!-- Sidebar with Navigation -->
+<div id="header">
+	<a th:href="@{/}">
+	<h1>Van Houten</h1></a>
+	<ul id="navigation">
+		<li><a id="link-home" href="#home">Home</a></li>
+		<li><a id="link-productos" href="#productos">Productos</a></li>
+		<li><a id="link-usuarios" href="#usuarios">Usuarios</a></li>
+		<li><a id="link-reportes" href="#reportes">Reportes</a></li>
+	</ul>
+</div>
+
+</body>
+</html>
+

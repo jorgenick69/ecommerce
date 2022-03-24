@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
+    <link rel="stylesheet" href="/css/producto-descripcion.css">
+    <title>Van Houten</title>
+</head>
+<body>
+    <nav th:replace="/fragments/nav-pc"></nav>
+<nav th:replace="fragments/nav-mobile"></nav>
+
+    <div class="producto-foto-pricipal movil" id="producto-foto-pricipal">
+        <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="" id="imagen-grande">
+    </div>
+    <div class="producto-foto-miniatura movil">
+        <div><img th:src="@{/foto/productofoto}+'?id='+${producto.id}"  alt="" class="foto-miniatura" th:onclick="cambiarImagen('${/foto/productofoto}+'?id='+${producto.id}')"></div>
+        <div><img th:src="@{/foto/productofoto1}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen('@{/foto/productofoto1}+'?id='+${producto.id}')"></div>
+        <div><img th:src="@{/foto/productofoto2}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen('@{/foto/productofoto2}+'?id='+${producto.id}')"></div>
+        <div><img th:src="@{/foto/productofoto3}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen('${/foto/productofoto3}+'?id='+${producto.id}')"></div>
+
+    </div>
+    <h1 class="producto-nombre movil" th:text="*{nombre}"></h1>
+    <span class="descuento movil">Descuento <span>25</span>%</span>
+    <span class="precio-anterior movil">$ <span>15100</span></span>
+    <span class="precio-actual movil">$ <span>15100</span></span>
+    <br>
+    <span class="sku movil" style="display: none;">SKU <span>190239</span></span>
+   <div class="controles movil">
+    <select name="cantidad" id="">
+        <option value="1">Cantidad</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+    </select>
+       <a class="agregar-carrito" th:href="@{/addCart}+'?id='+${producto.id}"><span> Agregar al carrito</span></a>
+   </div>
+  
+   
+   <br class="movil">
+   <span class="titulo-descripcion movil">Codigo de producto: </span><span class="contenido-descripcion movil"> 190239</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Genero: </span><span class="contenido-descripcion movil"> Hombre</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Color del Armazón: </span><span class="contenido-descripcion movil"> Cobre</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Color y tipo de lente: </span><span class="contenido-descripcion movil"> Marrón</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Material: </span><span class="contenido-descripcion movil"> Metal</span>
+   <br class="movil">
+   <span class="titulo-descripcion movil">Estilo: </span><span class="contenido-descripcion movil"> Aviador cuadrado</span>
+   <br class="movil">
+   <br class="movil">
+    <h3 class="compartir movil">Compartir</h3>
+   <div class="redes movil">
+       
+    <a href="" ><img src="/img/facebook.png" alt=""></a>
+    <a href="" ><img src="/img/instagram.png" alt=""></a>
+    <a href=""><img src="/img/gorjeo.png" alt=""></a>
+   </div>
+   <p class="texto movil">
+    <b> Satisfacción garantizada:</b> Si el producto no es de tu agradado podés realizar el primer cambio sin ningún costo logístico asociado.
+
+    
+    </p>
+   <div class="whatsapp "><a href="https://api.whatsapp.com/send?phone=5492613734461&text=Hola!😀  necesito ayuda!" target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a></div>
+<div class="producto-pc pc">
+    <div class="centrado-pc">
+        <div class="foto-prin-pc">
+            <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="" id="imagen-grande2">
+        </div>
+        <div class="fotos-min-pc">
+            <div><img th:src="@{/foto/productofoto}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('${/foto/productofoto}+'?id='+${producto.id}')"></div>
+            <div><img th:src="@{/foto/productofoto1}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('@{/foto/productofoto1}+'?id='+${producto.id}')"></div>
+            <div><img th:src="@{/foto/productofoto2}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('@{/foto/productofoto2}+'?id='+${producto.id}')"></div>
+            <div><img th:src="@{/foto/productofoto3}+'?id='+${producto.id}" alt="" class="foto-miniatura" th:onclick="cambiarImagen2('${/foto/productofoto3}+'?id='+${producto.id}')"></div>
+        </div>
+        <div class="descripcion-pc">
+            <h1 class="producto-nombre" th:text="${producto.modelo}"></h1>
+        <span class="descuento ">Descuento <span th:text="${producto.descuento}"></span> %</span>
+        <span class="precio-anterior ">$ <span th:text="${producto.precio}"></span></span>
+        <span class="precio-actual ">$ <span th:text="${producto.precioFinal}"></span></span>
+        <br>
+        <span class="sku " style="display: none;">SKU <span th:text="${producto.codigo}"></span></span>
+       <div class="controles ">
+        <select name="cantidad" id="">
+            <option value="1">Cantidad</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+           <a class="agregar-carrito" th:href="@{/addCart}+'?id='+${producto.id}"><span> Agregar al carrito</span></a>
+       </div>
+      
+       
+       <br class="">
+       <span class="titulo-descripcion ">Codigo de producto: </span><span class="contenido-descripcion " th:text="${producto.codigo}"></span>
+       <br class="">
+       <span class="titulo-descripcion ">Genero: </span><span class="contenido-descripcion " th:text="${producto.genero}"> </span>
+       <br class="">
+       <span class="titulo-descripcion ">Color del Armazón: </span><span class="contenido-descripcion " th:text="${producto.color}"></span>
+       <br class="">
+       <span class="titulo-descripcion ">Color y tipo de lente: </span><span class="contenido-descripcion " th:text="${producto.colorCristal}"></span>
+       <br class="">
+       <span class="titulo-descripcion ">Material: </span><span class="contenido-descripcion " th:text="${producto.material}"> </span>
+       <br class="">
+       <span class="titulo-descripcion ">Estilo: </span><span class="contenido-descripcion " th:text="${producto.estilo}"></span>
+       <br class="">
+       <br class="">
+        <h3 class="compartir ">Compartir</h3>
+       <div class="redes ">
+           
+        <a href="" ><img src="/img/facebook.png" alt=""></a>
+        <a href="" ><img src="/img/instagram.png" alt=""></a>
+        <a href=""><img src="/img/gorjeo.png" alt=""></a>
+       </div>
+       <p class="texto ">
+        <b> Satisfacción garantizada:</b> Si el producto no es de tu agradado podés realizar el primer cambio sin ningún costo logístico asociado.
+    
+        
+        </p>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+<script th:src="@{/js/galeria.js}"></script>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/carga-producto.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
+
+    <title>Van Houten</title>
+</head>
+<body>
+
+
+<div class="contenedorFormu">
+
+    <form th:action="@{/productos/modificar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
+        <input hidden th:field="*{id}">
+        <div class="productoCategoria" id="productoCategoria">
+            <label for="categoria-campo">¿A que categoria pertenece el producto?</label>
+            <select name="categoria" th:field="*{categoria}"  id="categoria-campo">
+                <option value="">selecione categoria</option>
+                <option value="Lentes de Sol">Lentes de Sol</option>
+                <option value="Armazones Recetado">Armazones Recetados</option>
+                <option value="Lentes de Contacto">Lentes de Contacto</option>
+                <option value="Accesorios">Accesorios</option>
+            </select>
+
+            <button id="categoria-continuar" type="button"  class="boton-mobile">Continuar</button>
+
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="lentes-duracion" id="lentes-duracion">
+            <label for="duracion-campo">¿Que duracion tiene la lente?</label>
+            <input type="text" name="duracion" th:field="*{duracion}" id="duracion-campo" placeholder="ingrese duracion">
+            <button id="duracion-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="duracion-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="lentes-usos" id="lentes-usos">
+            <label for="usos-campo">¿Cuantos usos Ofrece?</label>
+            <input type="text" name="uso" th:field="*{uso}" id="usos-campo" placeholder="ingrese cantidad de usos">
+            <button id="usos-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="usos-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="color-crital" id="color-crital">
+            <label for="color-cristal-campo">¿Cual es el color del cristal?</label>
+            <input type="text" name="colorCristal" th:field="*{colorCristal}" id="color-cristal-campo" placeholder="ingrese color del cristal">
+            <button id="color-crital-continuar" type="button" class="boton-mobile" >Continuar</button>
+            <button id="color-crital-volver" type="button"  class="boton-mobile">Volver</button>
+            <button  class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="estilo" id="estilo">
+            <label for="estilo-campo">¿Que estilo tiene el anteojo?</label>
+            <input type="text" name="estilo" th:field="*{estilo}" id="estilo-campo" placeholder="ingrese estilo">
+            <button id="estilo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="estilo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="tamanio" id="tamanio">
+            <label for="tamanio-campo">¿Elija un tamaño del anteojo?</label>
+            <select name="tamano" th:field="*{tamano}" id="tamanio-campo">
+                <option value="">seleccione un tamaño</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="extra large">Extra Large</option>
+            </select>
+            <button id="tamanio-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="tamanio-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="marca" id="marca">
+            <label for="marca-campo">Ingrese la marca</label>
+            <input type="text" name="marca" th:field="*{marca}" id="marca-campo" placeholder="ingrese marca">
+            <button id="marca-continuar" type="button"  class="boton-mobile">Continuar</button>
+            <button id="marca-volver" type="button"  class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="modelo" id="modelo">
+            <label for="modelo-campo">¿Cuál es el Modelo?</label>
+            <input type="text" name="modelo" th:field="*{modelo}" id="modelo-campo" placeholder="ingrese modelo">
+            <button id="modelo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="modelo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="codigo" id="codigo">
+            <label for="codigo-campo">¿Cuál es el codigo del producto?</label>
+            <input type="text" name="codigo" th:field="*{codigo}"id="codigo-campo" placeholder="ingrese codigo" >
+            <button id="codigo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="codigo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="descripcion" id="descripcion">
+            <label for="descripcion-campo">ingrese descripcion del producto</label>
+
+            <textarea name="descripcion" th:field="*{descripcion}"  id="descripcion-campo" class="descripcion-area count-chars" cols="30" rows="10" maxlength="200" data-max-chars="200" placeholder="Escriba la descripcion aquí...."></textarea>
+            <div class="input-msg text-red" id="text-red"> </div>
+            <button id="descripcion-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="descripcion-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="costo" id="costo">
+            <label for="costo-campo">¿Cuel es el costo del Producto?</label>
+            <input type="number"  name="costo" th:field="*{costo}" id="costo-campo" placeholder="ingrese costo" >
+            <button id="costo-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="costo-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="remarque" id="remarque">
+            <label for="remarque-campo">Ingrese el remarque del Producto</label>
+            <input type="number" name="remarque" th:field="*{remarque}" id="remarque-campo" placeholder="ingrese remarque" >
+            <button id="remarque-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="remarque-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="precio" id="precio">
+            <label for="precio-campo">¿Cual es el precio de venta del Producto?</label>
+            <input type="number" name="precio" th:field="*{precio}"id="precio-campo" placeholder="ingrese precio" >
+            <button id="precio-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="precio-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}" >Cancelar</a></button>
+        </div>
+        <div class="descuento" id="descuento">
+            <label for="descuento-campo">¿Desea agregar un descuento ?</label>
+            <input type="number" name="descuento" th:field="*{descuento}" id="descuento-campo" placeholder="ingrese descuento %" >
+            <button id="descuento-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="descuento-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="genero" id="genero">
+            <label for="genero-campo">¿A quien esta dedicado el Producto?</label>
+            <select name="genero" th:field="*{genero}" id="genero-campo">
+                <option value="">seleccione genero</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="niño">Niños</option>
+                <option value="unisex">Unisex</option>
+            </select>
+            <button id="genero-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="genero-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="fecha-alta" id="fecha-alta">
+            <label for="fecha-alta-campo">Ingrese la fecha de alta del producto</label>
+            <input type="date" name="alta" th:value="${alta}" id="fecha-alta-campo">
+            <button id="fecha-alta-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="fecha-alta-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="color" id="color">
+            <label for="color-campo">¿Cual es el color del producto?</label>
+            <input type="text" name="color" th:field="*{color}" id="color-campo" placeholder="ingrese color">
+            <button id="color-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="color-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="material" id="material">
+            <label for="material-campo">¿Cual es el material del producto?</label>
+            <input type="text" name="material" th:field="*{material}" id="material-campo" placeholder="ingrese material">
+            <button id="material-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="material-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="stock" id="stock">
+            <label for="stock-campo">¿Cual es stock?</label>
+            <input type="number" name="stock" th:field="*{stock}" id="stock-campo" placeholder="ingrese stock">
+            <button id="stock-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="stock-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="fotos boton-mobile" id="fotos">
+            <label for="">¿Desea agregar fotos al producto?</label>
+            <div class="contenedor-fotos">
+                <div class="f1"><label for="file1" id="preview1"></label></div>
+                <div class="f2"><label for="file2" id="preview2"></label></div>
+                <div class="f3"><label for="file3" id="preview3"></label></div>
+                <div class="f4"><label for="file4" id="preview4"></label></div>
+                <input type="file" name="archivox" id="file1" style="display: none;">
+                <input type="file" name="archivox" id="file2" style="display: none;">
+                <input type="file" name="archivox" id="file3" style="display: none;">
+                <input type="file" name="archivox" id="file4" style="display: none;">
+            </div>
+            <button id="fotos-continuar" type="button" class="boton-mobile">Continuar</button>
+            <button id="fotos-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <div class="guardado boton-mobile" id="guardado">
+            <label for="material-campo">¿Esta todo Correcto?</label>
+            <p class="tit" id="titulo-categoria"></p><p class="desc" id="parrafo-categoria"></p>
+
+            <p class="tit" id="titulo-duracion"></p><p class="desc" id="parrafo-duracion"></p>
+
+            <p class="tit" id="titulo-usos"></p><p class="desc" id="parrafo-usos"></p>
+
+            <p class="tit" id="titulo-color-cristal"></p><p class="desc" id="parrafo-color-cristal"></p>
+
+            <p class="tit" id="titulo-estilo"></p><p class="desc" id="parrafo-estilo"></p>
+
+            <p class="tit" id="titulo-tamanio"></p><p class="desc" id="parrafo-tamanio"></p>
+
+            <p class="tit" id="titulo-marca"></p><p class="desc" id="parrafo-marca"></p>
+
+            <p class="tit" id="titulo-modelo"></p><p class="desc" id="parrafo-modelo"></p>
+
+            <p class="tit" id="titulo-codigo"></p><p class="desc" id="parrafo-codigo"></p>
+
+            <p class="tit" id="titulo-descripcion"></p>
+            <p class="desc no-float" id="parrafo-descripcion"></p>
+
+            <p class="tit" id="titulo-costo"></p><p class="desc" id="parrafo-costo"></p>
+
+            <p class="tit" id="titulo-remarque"></p><p class="desc" id="parrafo-remarque"></p>
+
+            <p class="tit" id="titulo-precio"></p><p class="desc" id="parrafo-precio"></p>
+
+            <p class="tit" id="titulo-descuento"></p><p class="desc " id="parrafo-descuento"></p>
+
+            <p class="tit" id="titulo-genero"></p><p class="desc" id="parrafo-genero"></p>
+
+            <p class="tit" id="titulo-fecha-alta"></p><p class="desc" id="parrafo-fecha-alta"></p>
+
+            <p class="tit" id="titulo-material"></p><p class="desc" id="parrafo-material"></p>
+            <p class="tit" id="titulo-stock"></p><p class="desc" id="parrafo-stock"></p>
+
+            <button id="guardar" type="submit" class="boton-mobile">Guardar</button>
+            <button id="guardado-volver" type="button" class="boton-mobile">Volver</button>
+            <button class="boton-mobile"><a th:href="@{/usuarios/admin#productos}">Cancelar</a></button>
+        </div>
+        <p class="alerta" id="alerta"></p>
+
+    </form>
+</div>
+<div class="contenedor-formpc">
+    <form th:action="@{/productos/modificar}" method="POST" th:object="${producto}" enctype="multipart/form-data">
+        <input hidden th:field="*{id}">
+        <div class="izquierdapc">
+            <div class="divisiones-pc">
+                <div>
+                    <label for="categoria-pc">¿Que categoría tiene?</label>
+                    <select name="categoria" th:field="*{categoria}"  id="categoria-pc">
+                        <option value="">seleccione categoría</option>
+                        <option value="Lentes de Sol">Lentes de Sol</option>
+                        <option value="Armazones Recetados">Armazones Recetados</option>
+                        <option value="Lentes de Contacto">Lentes de Contacto</option>
+                        <option value="Accesorios">Accesorios</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="marca-pc">¿Cual es la marca?</label>
+                    <input type="text" placeholder="ingrese marca" id="marca-pc" name="marca" th:field="*{marca}">
+                </div>
+                <div>
+                    <label for="modelo-pc">¿Cual es el Modelo?</label>
+                    <input type="text" placeholder="ingrese modelo" id="modelo-pc" name="modelo" th:field="*{modelo}">
+                </div>
+            </div>
+            <div class="divisiones-pc lcPC" id="lcPC">
+                <div>
+                    <label for="duracion-pc">¿Que duracion tiene la lente?</label>
+                    <input type="text" name="duracion" th:field="*{duracion}" id="duracion-pc" placeholder="ingrese duracion">
+                </div>
+                <div>
+                    <label for="usos-pc">¿Cuantos usos puede tener?</label>
+                    <input type="text" name="uso" th:field="*{uso}" id="usos-pc" placeholder="ingrese usos">
+                </div>
+
+            </div>
+            <div class="divisiones-pc antpc" id="antpc">
+                <div>
+                    <label for="tamanio-pc">¿Cual es el tamaño el anteojo?</label>
+                    <select name="tamano" th:field="*{tamano}" id="tamanio-pc">
+                        <option value="">seleccione un tamaño</option>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                        <option value="extra large">Extra Large</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="estilo-pc">¿Que estilo tiene?</label>
+                    <input type="text" name="estilo" th:field="*{estilo}" id="estilo-pc" placeholder="ingrese estilo">
+                </div>
+                <div>
+                    <label for="color-cristal-pc">¿De que color es el cristal?</label>
+                    <input type="text" name="colorCristal" th:field="*{colorCristal}"  id="color-cristal-pc" placeholder="ingrese color del cristal">
+                </div>
+            </div>
+            <div class="divisiones-pc">
+                <div>
+                    <label for="genero-pc">¿A que publico se destina?</label>
+                    <select name="genero" th:field="*{genero}" id="genero-pc">
+                        <option value="">seleccione</option>
+                        <option value="mujer">Mujer</option>
+                        <option value="hombre">Hombre</option>
+                        <option value="niño">Niño</option>
+                        <option value="unisex">Unisex</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="color-pc">¿Que color tiene?</label>
+                    <input type="text" name="color" th:field="*{color}" id="color-pc" placeholder="ingrese colo">
+                </div>
+                <div>
+                    <label for="material-pc">¿De que material esta hecho?</label>
+                    <input type="text" name="material" th:field="*{material}" id="material-pc" placeholder="ingrese material">
+                </div>
+            </div>
+            <div class="divisiones-pc">
+                <div>
+                    <label for="costo-pc">¿Que costo tiene?</label>
+                    <input type="number"  name="costo" th:field="*{costo}" id="costo-pc"  placeholder="ingrese costo">
+                </div>
+                <div>
+                    <label for="remarque-pc">Ingrese el Remarque</label>
+                    <input type="number" name="remarque" th:field="*{remarque}" id="remarque-pc" placeholder="ingrese porcentaje">
+                </div>
+                <div>
+                    <label for="descuento-pc">¿Desea agregarle un descuento?</label>
+                    <input type="number" name="descuento" th:field="*{descuento}" id="descuento-pc" placeholder="ingrese porcentaje de descuento">
+                </div>
+            </div>
+            <div class="divisiones-pc x4">
+                <div>
+                    <label for="precio-pc">¿Que precio tiene?</label>
+                    <input type="number" id="precio-pc" placeholder="puede ingresar precio" name="precio" th:field="*{precio}">
+                </div>
+                <div>
+                    <label for="codigo-pc">Ingrese codigo de Producto</label>
+                    <input type="text" id="codigo-pc" placeholder="ingrese codigo de producto" name="codigo" th:field="*{codigo}">
+                </div>
+                <div>
+                    <label for="fecha-pc">Ingrese Fecha de alta</label>
+                    <input type="date" name="alta" th:value="${alta}" id="fecha-pc">
+                </div>
+                <div>
+                    <label for="stock-inicial-pc">Ingrese Stock inicial</label>
+                    <input type="number" name="stock" th:field="*{stock}" id="stock-inicial-pc" placeholder="ingrese Stock">
+                </div>
+            </div>
+
+            <div class="divisiones-pc descripcion-pc" id="descripcion-pc">
+                <div>
+                    <label for="descripcion">¿Desea añadirle una decripción? &nbsp; &nbsp; &nbsp; &nbsp; <span class="input-msg text-red" id="text-redpc"> </span></label>
+                    <textarea name="descripcion" th:field="*{descripcion}"  id="" class="descripcion-area count-chars" cols="30" rows="10" maxlength="200" data-max-chars="200" placeholder="Escriba la descripcion aquí...."></textarea>
+
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div class="derechapc">
+            <input type="file" name="archivox"  id="fpc1" style="display: none;">
+            <input type="file" name="archivox"  id="fpc2" style="display: none;">
+            <input type="file" name="archivox"  id="fpc3" style="display: none;">
+            <input type="file" name="archivox"  id="fpc4" style="display: none;">
+
+            <div class="ffondo1" id="ffondo1"><label for="fpc1" id="preview1pc"></label><span class="material-icons-outlined cargado " id="cargado1">
+            task_alt
+            </span></div>
+            <div class="ffondo2" id="ffondo2"><label for="fpc2" id="preview2pc"></label><span class="material-icons-outlined cargado " id="cargado2">
+            task_alt
+            </span></div>
+            <div class="ffondo3" id="ffondo3"><label for="fpc3" id="preview3pc"></label><span class="material-icons-outlined cargado " id="cargado3">
+            task_alt
+            </span></div>
+            <div class="ffondo4" id="ffondo4"><label for="fpc4" id="preview4pc"></label><span class="material-icons-outlined cargado " id="cargado4">
+            task_alt
+            </span></div>
+        </div>
+        <input type="submit" id="guardar-pc" style="display: none;">
+    </form>
+    <div class="controlespc">
+        <label for="guardar-pc">Guardar</label>
+        <label for="">Cancelar</label>
+        <!--REVISAR EL RETORNO A "@{/usuarios/admin#productos}" No funciona el label por razones cósmicas-->
+    </div>
+</div>
+
+<script th:src="@{/js/funcionesAgregarProducto.js}"></script>
+</body>
+</html>

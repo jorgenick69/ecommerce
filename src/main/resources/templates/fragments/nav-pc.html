@@ -1,0 +1,80 @@
+<nav class="nav-pc pc">
+  <div class="nav-pc-arriba">
+    <div class="logo-pc2"><a th:href="@{/}"><img src="/img/LOGO2.png" alt="" /></a></div>
+    <div class="barra-contenedor-pc">
+      <div class="fondo-barra-pc">
+        <form th:action="@{/productos/buscar}">
+          <div class="barra-pc">
+            <input type="text" name="busqueda" />
+          </div>
+          <div class="barra-lupa-pc">
+            <label for="subir-pc"
+              ><span class="material-icons-outlined lupa"> search </span></label
+            >
+            <input type="submit" id="subir-pc" style="display: none" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="atendiendo-pc">
+      <div class="shop-pc">
+        <span class="material-icons-outlined shop-icono"> store </span>
+      </div>
+      <div class="reserva-pc">
+        <span>Estamos atendiendo</span
+        ><a
+          href="https://api.whatsapp.com/send?phone=5492613734461&text=Hola!😀  necesito ayuda con"
+          target="_blank"
+          ><span class="bold">&nbsp;¡Reserva tu turno Aqui!</span></a
+        >
+      </div>
+    </div>
+    <div class="acciones-pc">
+        <a sec:authorize="!(isAuthenticated())" th:href="@{/login}"><span class="material-icons-outlined">
+                    account_circle
+                    </span></a>
+        <a sec:authorize="(isAuthenticated())" th:href="@{/logout}"><span class="material-icons-outlined">
+                    logout
+                    </span></a>
+        <a sec:authorize="(isAuthenticated())" th:href="@{/cart}+'?id='+${session.usuariosession.id}"> <span class="material-icons-outlined">
+                shopping_cart_checkout
+                </span></a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/admin}"><span class="material-icons-outlined">
+                        dashboard
+                        </span></a>
+        <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/usuarios/user-dashboard}">
+          <span class="material-icons-outlined"> dashboard </span></a>
+      </div>
+  </div>
+  <div class="nav-pc-abajo">
+    <ul>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Sol}"
+          >Lentes de Sol</a
+        >
+      </li>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Armazones+Recetado}"
+          >Armazones Recetados</a
+        >
+      </li>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Lentes+de+Contacto}"
+          >Lentes de Contacto</a
+        >
+      </li>
+      <li>
+        <a th:href="@{/productos/lista-categoria?categoria=Accesorios}"
+          >Accesorios</a
+        >
+      </li>
+      <li><a th:href="@{/productos/lista-genero?genero=mujer}">Damas</a></li>
+      <li>
+        <a th:href="@{/productos/lista-genero?genero=hombre}">Caballeros</a>
+      </li>
+      <li><a th:href="@{/productos/lista-genero?genero=nino}">Niños</a></li>
+      <li><a th:href="@{/productos/lista-genero?genero=unisex}">Unisex</a></li>
+    </ul>
+  </div>
+</nav>
+

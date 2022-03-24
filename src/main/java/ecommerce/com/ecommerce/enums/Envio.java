@@ -1,4 +1,3 @@
-
 package ecommerce.com.ecommerce.enums;
 
 public enum Envio {
@@ -7,7 +6,6 @@ public enum Envio {
     DOMICILIO("Envío a domicilio");
     
     private String valor;
-
 
     private Envio(String tipoDeEnvio) {
         this.valor = valor;

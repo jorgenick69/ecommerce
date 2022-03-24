@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" />
+    <link rel="stylesheet" href="/css/listar-productos.css">
+    <title>Van Houten</title>
+</head>
+<body>
+    <nav th:replace="/fragments/nav-pc"></nav>
+    <nav th:replace="/fragments/nav-mobile"></nav>
+ <div class="controlar-productos pc">
+    <form th:action="@{/productos/buscarConFiltros}+'?query='+${titulo}" method="POST"> 
+    <div class="controlar-productos-titulo"><h2 th:text="'Resultados para ' +${titulo}"></h2></div>
+     <div class="filtro">
+        <div class="filtro-titulo"> <h4>Ordenar por</h4></div>
+        <div class="contenedor-fitro">
+        
+            <div class="filtro-tamanio">
+                <select name="orden" id="orden">
+                    <option value="">Seleccione</option>
+                    <option value="ASC">Precio ascendente</option>
+                    <option value="DESC">Precio descendente</option>
+                    <!--
+                    <option value="max">Mayor descuento</option>
+                    <option value="min">Menor decuento</option>
+                    -->
+                </select>
+            </div>
+        </div>
+     </div>
+     <div class="filtro">
+        <div class="filtro-titulo"> <h4>Filtrado por precio</h4></div>
+        <div class="contenedor-fitro">
+        
+            <div>
+              
+                <input type="number" name="preciomin" id="precio-minimo" placeholder="precio minimo">
+            </div>
+            <div>
+               
+               <input type="number" name="preciomax" id="precio-max" placeholder="precio maximo">
+            </div>
+            
+   
+        </div>
+     </div>
+     <!--
+     <div class="filtro">
+        <div class="filtro-titulo"> <h4>Filtrado por color</h4></div>
+        <div class="contenedor-fitro">
+            <div class="filtro-color">
+                <input type="text" id="filtro-color" placeholder="ingrese color">
+            </div>
+        </div>
+     </div>
+    -->
+    
+     <div class="filtro">
+        <div class="filtro-titulo"> <h4>Filtrado por  tamaño</h4></div>
+        <div class="contenedor-fitro">
+        
+            <div class="filtro-tamanio">
+                <select name="tamano" id="tamanio">
+                    <option value="">Seleccione un Tamaño</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="extra large">Extra Large</option>
+                </select>
+            </div>
+        </div>
+     </div>
+     <!--
+     <div class="filtro">
+        <div class="filtro-titulo"> <h4>Filtrado por  Marca</h4></div>
+        <div class="contenedor-fitro">
+        
+            <div class="filtro-tamanio">
+                <select name="tamano" id="">
+                    <option value="marca">Seleccione una marca</option>
+                    <option value="small">Small</option>
+                </select>
+            </div>
+           
+   
+        </div>
+     </div>
+    -->
+     <div class="filtro submit-pc">
+        <input type="submit" value="Filtar">
+     </div>
+    </form>
+ </div>
+    <div class="productos">
+        <div class="producto-item" th:each="producto : ${busqueda}">
+            <div class="producto-iz">
+                <a th:href="@{/productos/producto-descripcion}+'?id='+${producto.id}">
+                 <img th:src="@{/foto/producto}+'?id='+${producto.id}" alt="">
+                </a>
+            </div>
+            <div class="producto-der">
+                <div th:if="${producto.descuento > 0}"><span class="oferta-producto" >OFERTA</span></div>
+                <div> <span><a th:href="@{/productos/producto-descripcion}+'?id='+${producto.id}"><span class="titulo-producto" th:text="${producto.marca} +' '+ ${producto.modelo}"></span></span></a></div>
+                <div><span class="precio-producto">$<span th:text="${producto.precioFinal}"></span></span><span>&nbsp;</span><span class="descuento-producto" th:if="${producto.descuento > 0}" th:text="${producto.descuento}+'% OFF'"></span></div>
+            </div>
+        </div>
+        
+        </div>
+       
+        <div class="whatsapp"><a href="https://api.whatsapp.com/send?phone=5491157367876&text=Hola!😀  necesito ayuda con" target="_blanck"><img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png"/></a></div>
+       
+    </div>
+</body>
+</html>

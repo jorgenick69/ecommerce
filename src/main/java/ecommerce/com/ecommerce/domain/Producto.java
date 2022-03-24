@@ -1,9 +1,9 @@
 package ecommerce.com.ecommerce.domain;
 
-import ecommerce.com.ecommerce.enums.Envio;
-import ecommerce.com.ecommerce.enums.Genero;
 import java.io.Serializable;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -12,35 +12,36 @@ import java.util.List;
 @Entity
 @Table(name = "producto")
 public class Producto implements Serializable{
-    private static final long serialVersionUID = 1L;
-  //Required
+  private static final long serialVersionUID = 1L;
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(generator = "uuid")
+  @GenericGenerator(name = "uuid", strategy = "uuid2")
   private String id;
   private String marca;
   private String modelo;
   private String codigo;
   private String descripcion;
-  private Integer precio;
-  private Integer descuento;
-  private Integer precioActual;
-  @OneToOne
-  private Categoria categoria; //Armazones de Receta, Lentes de Sol, Lentes de Contacto, Accesorios.
-  @Enumerated(value = EnumType.STRING)
-  private Envio tipoEnvio; //ej: retiro local, correo, domicilio;
+  private Double costo;
+  private Double remarque;
+  private Double precio;
+  private Double descuento;
+  private Double precioFinal;
+  private String categoria;
   @OneToMany
-  private List <Foto> fotos;//si no existe imagen 404 marca.
-  private Date alta; //ej: ultimos ingresos -> desde hace 15 dias ej. o mostrame los mas recientes.
-  private Integer stock; // its over 9000!!! - Vegeta
+  @JoinColumn(name="producto")
+  private List<Foto> foto;
+  @Temporal(TemporalType.DATE)
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date alta;
+  private Integer stock;
   private Boolean estado;
-  //Not required
-  @Enumerated(value = EnumType.STRING)
-  private Genero genero;
+  private String genero;
   private String color;
   private String colorCristal;
   private String material;
-  private String estilo; //ej: cuadrado, rectangular,aviador, cat eye;
-  private String tamano; //Tamaño, capacidad, ej: Chico (80mm) - 20ml etc,etc
-  private String duracion; //ej: diario,quincenal,mensual
-  private String uso; //ej: astigmatismo, toricas, cosmeticos;
+  private String estilo;
+  private String tamano;
+  private String duracion;
+  private String uso;
+  private Integer cantidad=1;
 }
